@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".actividades.ecuacionesunavariable.BusquedasActividad" />
+        <activity android:name=".actividades.ecuacionesunavariable.BiseccionActividad"></activity>
     </application>
 
 </manifest>
