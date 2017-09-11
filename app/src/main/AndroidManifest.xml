@@ -17,7 +17,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".actividades.ecuacionesunavariable.BusquedasActividad" />
-        <activity android:name=".actividades.ecuacionesunavariable.BiseccionActividad"></activity>
+        <activity android:name=".actividades.ecuacionesunavariable.BiseccionActividad" />
+        <activity android:name=".actividades.ecuacionesunavariable.MenuUnaVariableActividad" />
+        <activity android:name=".actividades.sistemasecuaciones.MenuSistemasEcuacionesActividad" />
+        <activity android:name=".actividades.interpolacion.MenuInterpolacionActividad" />
+        <activity android:name=".actividades.utilidades.Graficador" />
+        <activity android:name=".actividades.utilidades.GraficadorActividad"></activity>
     </application>
 
 </manifest>

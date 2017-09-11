@@ -1,4 +1,14 @@
 <resources>
-    <string name="app_name">Geminis</string>
+    <string name="app_name">Proyecto Geminis</string>
     <string name="greeting_hello">Hola Mundo</string>
+    <string name="titulo_una_variable">Ecuaciones de una Variable</string>
+    <string name="titulo_interpolacion">Interpolación</string>
+    <string name="titulo_sistema_ecuaciones">Sistema de Ecuaciones</string>
+    <string name="titulo_graficador">Graficador</string>
+    <string-array name="OpcionesMenuInicio">
+        <item>Ecuaciones de una variable</item>
+        <item>Sistema de ecuaciones</item>
+        <item>Interpolación</item>
+        <item>Graficador</item>
+    </string-array>
 </resources>

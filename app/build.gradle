@@ -25,7 +25,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
     compile 'com.udojava:EvalEx:1.9'
-    compile "com.androidplot:androidplot-core:1.5.1"
+    compile 'com.androidplot:androidplot-core:1.5.1'
+    testCompile 'junit:junit:4.12'
 }
