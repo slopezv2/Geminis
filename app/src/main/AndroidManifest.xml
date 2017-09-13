@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".actividades.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,8 @@
         <activity android:name=".actividades.sistemasecuaciones.MenuSistemasEcuacionesActividad" />
         <activity android:name=".actividades.interpolacion.MenuInterpolacionActividad" />
         <activity android:name=".actividades.utilidades.Graficador" />
-        <activity android:name=".actividades.utilidades.GraficadorActividad"></activity>
+        <activity android:name=".actividades.utilidades.GraficadorActividad" />
+        <activity android:name=".actividades.utilidades.GraficadorEntrada"></activity>
     </application>
 
 </manifest>

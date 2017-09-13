@@ -5,6 +5,10 @@
     <string name="titulo_interpolacion">Interpolación</string>
     <string name="titulo_sistema_ecuaciones">Sistema de Ecuaciones</string>
     <string name="titulo_graficador">Graficador</string>
+    <string name="pista_funcion_f">Ingrese función f</string>
+    <string name="pista_funcion_g">Ingrese función g</string>
+    <string name="pista_ecuaciones_una_variable">x+2*(15-3)</string>
+    <string name="texto_btgraficar">Graficar</string>
     <string-array name="OpcionesMenuInicio">
         <item>Ecuaciones de una variable</item>
         <item>Sistema de ecuaciones</item>

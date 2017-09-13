@@ -1,20 +1,19 @@
-package eafit.geminis;
+package eafit.geminis.actividades;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.io.Console;
-
+import eafit.geminis.R;
 import eafit.geminis.actividades.ecuacionesunavariable.MenuUnaVariableActividad;
 import eafit.geminis.actividades.interpolacion.MenuInterpolacionActividad;
 import eafit.geminis.actividades.utilidades.GraficadorActividad;
+import eafit.geminis.actividades.utilidades.GraficadorEntrada;
 
 public class MainActivity extends Activity {
 
@@ -52,7 +51,7 @@ public class MainActivity extends Activity {
                                 break;
                             case "Graficador":
                                 try {
-                                    intent = new Intent(MainActivity.this, GraficadorActividad.class);
+                                    intent = new Intent(MainActivity.this, GraficadorEntrada.class);
                                     startActivity(intent);
                                 }catch (Exception ea){
                                     Toast.makeText(null,ea.getMessage(),Toast.LENGTH_LONG);

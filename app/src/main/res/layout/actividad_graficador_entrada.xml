@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="eafit.geminis.actividades.utilidades.GraficadorEntrada">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pista_funcion_f"
+        android:textSize="@dimen/tamanio_entrada"
+        android:layout_margin="@dimen/margen_abajo_entrada"
+        />
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="@string/pista_ecuaciones_una_variable"
+        android:layout_margin="@dimen/margen_abajo_entrada"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pista_funcion_g"
+        android:textSize="@dimen/tamanio_entrada"
+        android:layout_margin="@dimen/margen_abajo_entrada"
+        />
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="@string/pista_ecuaciones_una_variable"
+        android:layout_marginBottom="@dimen/margen_abajo_entrada"
+        android:layout_margin="@dimen/margen_abajo_entrada"
+        />
+     <Button
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:layout_margin="@dimen/margen_abajo_entrada"
+         android:text="@string/texto_btgraficar"
+         android:id="@+id/bt_graficar"/>
+
+</LinearLayout>
