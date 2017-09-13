@@ -50,12 +50,8 @@ public class MainActivity extends Activity {
                                 startActivity(intent);
                                 break;
                             case "Graficador":
-                                try {
                                     intent = new Intent(MainActivity.this, GraficadorEntrada.class);
                                     startActivity(intent);
-                                }catch (Exception ea){
-                                    Toast.makeText(null,ea.getMessage(),Toast.LENGTH_LONG);
-                                }
                                 break;
                         }
 
