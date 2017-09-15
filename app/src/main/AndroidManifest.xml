@@ -22,7 +22,8 @@
         <activity android:name=".actividades.sistemasecuaciones.MenuSistemasEcuacionesActividad" />
         <activity android:name=".actividades.interpolacion.MenuInterpolacionActividad" />
         <activity android:name=".actividades.utilidades.GraficadorActividad" />
-        <activity android:name=".actividades.utilidades.GraficadorEntrada"></activity>
+        <activity android:name=".actividades.utilidades.GraficadorEntradaActividad" />
+        <activity android:name=".actividades.ActividadBase"></activity>
     </application>
 
 </manifest>

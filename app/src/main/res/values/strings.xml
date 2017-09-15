@@ -5,10 +5,13 @@
     <string name="titulo_interpolacion">Interpolación</string>
     <string name="titulo_sistema_ecuaciones">Sistema de Ecuaciones</string>
     <string name="titulo_graficador">Graficador</string>
-    <string name="pista_funcion_f">Ingrese función f</string>
-    <string name="pista_funcion_g">Ingrese función g</string>
+    <string name="pista_funcion_f">Ingrese las funciones:</string>
     <string name="pista_ecuaciones_una_variable">x+2*(15-3)</string>
+    <string name="pista_entrada_funciones">Una función por cada línea con el formato:
+        f->sqrt(x+3)/4 donde f es el nombre de la función</string>
     <string name="texto_btgraficar">Graficar</string>
+    <string name="detalles">detalles</string>
+    <string name="Agregar_ecuacion">Agregar ecuación</string>
     <string-array name="OpcionesMenuInicio">
         <item>Ecuaciones de una variable</item>
         <item>Sistema de ecuaciones</item>

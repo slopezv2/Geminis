@@ -7,8 +7,9 @@ import com.androidplot.Plot;
 import com.androidplot.xy.XYPlot;
 
 import eafit.geminis.R;
+import eafit.geminis.actividades.ActividadBase;
 
-public class GraficadorActividad extends Activity {
+public class GraficadorActividad extends ActividadBase {
     private XYPlot grafico;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

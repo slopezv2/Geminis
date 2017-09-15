@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import eafit.geminis.R;
+import eafit.geminis.actividades.ActividadBase;
 
-public class BiseccionActividad extends Activity {
+public class BiseccionActividad extends ActividadBase {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
