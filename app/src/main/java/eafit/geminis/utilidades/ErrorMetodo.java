@@ -9,4 +9,5 @@ public class ErrorMetodo {
             "número iteraciones > 0 y número entero";
     public static String ERROR_DELTA_INCORRECTO="El delta es incorrecto, verificar: delta > 0";
     public static String ERROR_FRACASO_NITERACIONES="Fracasó en las iteraciones especificadas";
+    public static String ERROR_FORMATO_METODO="Por favor revise cada función, se ha encontrado un problema";
 }

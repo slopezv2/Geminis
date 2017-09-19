@@ -30,7 +30,8 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:minLines="3"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:id="@+id/et_funciones"/>
         <Button
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -39,6 +40,12 @@
             android:text="@string/texto_btgraficar"
             android:layout_weight="1"
             />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/sp_historico_funciones"
+            android:layout_margin="@dimen/margen_abajo_entrada"/>
 
     </LinearLayout>
 
