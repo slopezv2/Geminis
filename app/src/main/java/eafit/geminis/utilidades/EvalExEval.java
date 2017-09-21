@@ -11,7 +11,7 @@ import java.math.BigDecimal;
  */
 public class EvalExEval {
 
-    private static Expression expression;
+    private Expression expression;
     /**
      *
      * @param expresion Expresión a evaluar
@@ -19,7 +19,7 @@ public class EvalExEval {
      * @param nuevaExpresion Si se requiere un nuevo objeto
      * @return BigDecimal resultado de la evaluación
      */
-    public static BigDecimal evaluar(String expresion, BigDecimal numero,boolean nuevaExpresion) throws Expression.ExpressionException{
+    public BigDecimal evaluar(String expresion, BigDecimal numero,boolean nuevaExpresion) throws Expression.ExpressionException{
         if(nuevaExpresion|| expresion==null) {
             expression = new Expression(expresion);
         }

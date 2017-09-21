@@ -33,8 +33,9 @@ public class BusquedaIncremental {
         }
 
         BigDecimal fx0 = null;
+        EvalExEval evaluador = new EvalExEval();
         try {
-            fx0 = EvalExEval.evaluar(funcion,x0,true);
+            fx0 = evaluador.evaluar(funcion,x0,true);
         } catch (Exception e) {
             rp = new Respuesta(TipoRespuesta.Error,e.getMessage());
             return rp;
@@ -48,7 +49,7 @@ public class BusquedaIncremental {
             int cont = 1;
             BigDecimal fx1 = null;
             try {
-                fx1 = EvalExEval.evaluar(funcion,x1,false);
+                fx1 = evaluador.evaluar(funcion,x1,false);
             } catch (Exception e) {
                 rp = new Respuesta(TipoRespuesta.Error,e.getMessage());
                 return rp;
@@ -58,7 +59,7 @@ public class BusquedaIncremental {
                 fx0 = fx1;
                 x1 = x0.add(delta);
                 try {
-                    fx1 = EvalExEval.evaluar(funcion,x1,false);
+                    fx1 = evaluador.evaluar(funcion,x1,false);
                 } catch (Exception e) {
                     rp = new Respuesta(TipoRespuesta.Error,e.getMessage());
                     return rp;

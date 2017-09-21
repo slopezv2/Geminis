@@ -18,7 +18,7 @@
             android:textAlignment="center"
             android:text="@string/pista_funcion_f"
             android:layout_margin="@dimen/margen_abajo_entrada"
-            />
+            android:labelFor="@+id/et_funciones"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,6 +32,32 @@
             android:minLines="3"
             android:layout_weight="1"
             android:id="@+id/et_funciones"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sp_entrada"
+            android:layout_margin="@dimen/margen_abajo_entrada"
+            android:labelFor="@+id/sp_historico_funciones"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/sp_historico_funciones"
+            android:layout_margin="@dimen/margen_abajo_entrada"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nro_de_puntos"
+            android:labelFor="@+id/et_puntos"
+            android:layout_margin="@dimen/margen_abajo_entrada"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_puntos"
+            android:inputType="number"
+            />
+
         <Button
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -40,13 +66,6 @@
             android:text="@string/texto_btgraficar"
             android:layout_weight="1"
             />
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:id="@+id/sp_historico_funciones"
-            android:layout_margin="@dimen/margen_abajo_entrada"/>
-
     </LinearLayout>
 
 </ScrollView>

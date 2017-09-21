@@ -1,4 +1,5 @@
 <resources>
+    <string name="nro_de_puntos">Ingrese el número de puntos, puntos > 0</string>
     <string name="app_name">Proyecto Geminis</string>
     <string name="greeting_hello">Hola Mundo</string>
     <string name="titulo_una_variable">Ecuaciones de una Variable</string>
@@ -13,6 +14,7 @@
     <string name="detalles">detalles</string>
     <string name="Agregar_ecuacion">Agregar ecuación</string>
     <string name="st_volver">Volver</string>
+    <string name="sp_entrada">Seleccione una ecuación para agregar</string>
     <string-array name="OpcionesMenuInicio">
         <item>Ecuaciones de una variable</item>
         <item>Sistema de ecuaciones</item>
