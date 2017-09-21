@@ -12,6 +12,7 @@
     <string name="texto_btgraficar">Graficar</string>
     <string name="detalles">detalles</string>
     <string name="Agregar_ecuacion">Agregar ecuación</string>
+    <string name="st_volver">Volver</string>
     <string-array name="OpcionesMenuInicio">
         <item>Ecuaciones de una variable</item>
         <item>Sistema de ecuaciones</item>

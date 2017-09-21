@@ -6,75 +6,31 @@
     android:layout_height="match_parent"
     tools:context="eafit.geminis.actividades.utilidades.GraficadorActividad"
     android:orientation="vertical">
-    <com.androidplot.xy.XYPlot
+
+    <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:title="@string/titulo_graficador"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp"
-        android:id="@+id/grafico"
-        style="@style/APDefacto.Light"
-        app:rangeTitle="Rango"
-        app:domainTitle="Dominio"
-        app:renderMode="use_background_thread"
-        app:lineLabelRotationBottom="-30"
-        app:drawGridOnTop="true"
+        android:layout_height="0dp"
+        android:id="@+id/graficador"
         android:layout_weight="1"/>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.ProgressBar.Large.Inverse"
+        android:id="@+id/pb_cargando"
+        android:indeterminate="true"
+        android:layout_gravity="center"
+        android:layout_weight="10"
+        android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_margin="3dp"
         android:orientation="horizontal">
-
-        <LinearLayout
+        <Button
+            android:id="@+id/bt_volver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="5">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                android:textSize="12sp"
-                android:text="Pan"/>
-
-            <Spinner
-                android:id="@+id/pan_spinner"
-                android:padding="0dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </Spinner>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="3">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                android:textSize="12sp"
-                android:text="Zoom"/>
-
-            <Spinner
-                android:id="@+id/zoom_spinner"
-                android:padding="0dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </Spinner>
-        </LinearLayout>
+            android:text="@string/st_volver"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:text="Reset"/>
 </LinearLayout>
