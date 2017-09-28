@@ -64,11 +64,57 @@
             android:layout_height="wrap_content"
             android:text="@string/bt_calcular"
             android:gravity="center"
-            />
-
-        <EditText
+            android:id="@+id/bt_calcular_busquedas"/>
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""/>
+            android:text="@string/resultado"
+            android:labelFor="@+id/resultado_busquedas"/>
+
+        <EditText
+            android:id="@+id/resultado_busquedas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                style="@style/tabla"
+
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:stretchColumns="*"
+                android:id="@+id/tabla_busquedas">
+
+                <TableRow
+                    style="@style/columna"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fila_titulo_busquedas">
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="n"
+                        />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="x0" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="f(x0)" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
     </LinearLayout>
 </ScrollView>

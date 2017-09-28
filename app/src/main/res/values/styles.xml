@@ -3,6 +3,18 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+    </style>
+    <style name="tabla">
+        <item name="android:background">@android:drawable/picture_frame</item>
 
+    </style>
+    <style name="columna">
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@color/fondoTabla</item>
+
+    </style>
+    <style name="itemColumna">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:divider">@color/colorAccent</item>
     </style>
 </resources>

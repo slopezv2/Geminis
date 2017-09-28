@@ -12,4 +12,7 @@ public class ErrorMetodo {
     public static String ERROR_FORMATO_METODO="Por favor revise cada función, se ha encontrado un problema";
     public static String ERROR_ENTRADA_PUNTOS_GRAFICADOR="Por favor revise los puntos, recuerde " +
             "debe ser un número entero y positivo mayor qur 0";
+    public static String ERROR_ENTRADA_FUNCION="Revisa la función dada";
+    public static String ERROR_VALOR_INICIAL="Revisa el valor inicial, recuerda debe ser un valor numérico";
+    public static String ESPERAR_PROCESANDO="Espere mientras se procesa el resultado";
 }

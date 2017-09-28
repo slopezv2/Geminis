@@ -10,9 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import eafit.geminis.R;
+import java.math.BigDecimal;
 
-public class ActividadBase extends Activity {
+import eafit.geminis.R;
+import eafit.geminis.utilidades.Respuesta;
+
+public abstract class ActividadBase extends Activity {
     protected Context contexto;
     protected String mensajeAyuda;
     @Override
@@ -38,5 +41,20 @@ public class ActividadBase extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    protected boolean verificarEntrada(String entrada,boolean esFuncion){
+        if (entrada==null){
+            return false;
+        }else if (entrada.isEmpty()){
+            return false;
+        }else if (!esFuncion){
+            try{
+                BigDecimal numero = new BigDecimal(entrada);
+                numero.doubleValue();
+            }catch (Exception ae){
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -12,7 +12,6 @@ public class Respuesta {
     private ArrayList<String> tablaIteraciones;
     private ArrayList<BigDecimal> intervalo;
     private BigDecimal valor;
-    private int niter;
     private String mensaje;
 
     public Respuesta(TipoRespuesta tipo, BigDecimal valor, ArrayList<String> tablaIteraciones){
@@ -24,12 +23,29 @@ public class Respuesta {
         this.tablaIteraciones = tablaIteraciones;
         this.intervalo = intervalo;
     }
-    public Respuesta(TipoRespuesta tipo, int niter, ArrayList<String> tablaIteraciones){
-        this.tipo = tipo;
-        this.niter = niter;
-    }
+
     public Respuesta(TipoRespuesta tipo, String mensaje, ArrayList<String> tablaIteraciones){
         this.tipo = tipo;
         this.mensaje = mensaje;
+    }
+
+    public TipoRespuesta getTipo() {
+        return tipo;
+    }
+
+    public ArrayList<String> getTablaIteraciones() {
+        return tablaIteraciones;
+    }
+
+    public ArrayList<BigDecimal> getIntervalo() {
+        return intervalo;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public String getMensaje() {
+        return mensaje;
     }
 }

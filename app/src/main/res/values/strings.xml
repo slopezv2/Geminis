@@ -10,6 +10,7 @@
     <string name="entrada_funcion">Ingrese una función f(x)</string>
     <string name="entrada_iteraciones">Ingrese el número de iteraciones</string>
     <string name="entrada_delta">Ingrese el delta</string>
+    <string name="resultado">Resultado</string>
     <string name="entrada_valor_inicial">Ingrese el valor inicial</string>
     <string name="pista_iteraciones">Ejemplo: 1000</string>
     <string name="pista_delta">Ejemplo: 0.5</string>
