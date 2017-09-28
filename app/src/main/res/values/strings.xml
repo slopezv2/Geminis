@@ -6,6 +6,14 @@
     <string name="titulo_interpolacion">Interpolación</string>
     <string name="titulo_sistema_ecuaciones">Sistema de Ecuaciones</string>
     <string name="titulo_graficador">Graficador</string>
+    <string name="titulo_busquedas_incrementales">Búsquedas Incrementales</string>
+    <string name="entrada_funcion">Ingrese una función f(x)</string>
+    <string name="entrada_iteraciones">Ingrese el número de iteraciones</string>
+    <string name="entrada_delta">Ingrese el delta</string>
+    <string name="entrada_valor_inicial">Ingrese el valor inicial</string>
+    <string name="pista_iteraciones">Ejemplo: 1000</string>
+    <string name="pista_delta">Ejemplo: 0.5</string>
+    <string name="pista_valor_inicial">Ejemplo: 0</string>
     <string name="pista_funcion_f">Ingrese las funciones:</string>
     <string name="pista_ecuaciones_una_variable">x+2*(15-3)</string>
     <string name="pista_entrada_funciones">Una función por cada línea con el formato:
@@ -15,6 +23,7 @@
     <string name="Agregar_ecuacion">Agregar ecuación</string>
     <string name="st_volver">Volver</string>
     <string name="sp_entrada">Seleccione una ecuación para agregar</string>
+    <string name="bt_calcular">Calcular</string>
     <string-array name="OpcionesMenuInicio">
         <item>Ecuaciones de una variable</item>
         <item>Sistema de ecuaciones</item>
