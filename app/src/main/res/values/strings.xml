@@ -24,6 +24,7 @@
     <string name="Agregar_ecuacion">Agregar ecuación</string>
     <string name="st_volver">Volver</string>
     <string name="sp_entrada">Seleccione una ecuación para agregar</string>
+    <string name="titulo_biseccion">Método de Bisección</string>
     <string name="bt_calcular">Calcular</string>
     <string-array name="OpcionesMenuInicio">
         <item>Ecuaciones de una variable</item>

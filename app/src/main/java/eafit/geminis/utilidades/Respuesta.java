@@ -17,16 +17,19 @@ public class Respuesta {
     public Respuesta(TipoRespuesta tipo, BigDecimal valor, ArrayList<String> tablaIteraciones){
         this.tipo = tipo;
         this.valor = valor;
+        this.tablaIteraciones = tablaIteraciones;
     }
     public Respuesta(TipoRespuesta tipo, ArrayList<BigDecimal> intervalo, ArrayList<String> tablaIteraciones){
         this.tipo=tipo;
         this.tablaIteraciones = tablaIteraciones;
         this.intervalo = intervalo;
+        this.tablaIteraciones = tablaIteraciones;
     }
 
     public Respuesta(TipoRespuesta tipo, String mensaje, ArrayList<String> tablaIteraciones){
         this.tipo = tipo;
         this.mensaje = mensaje;
+        this.tablaIteraciones = tablaIteraciones;
     }
 
     public TipoRespuesta getTipo() {
