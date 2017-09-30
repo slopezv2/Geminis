@@ -58,22 +58,19 @@ public class BusquedasActividad extends ActividadBase {
         }
         String stIteraciones = iteraciones.getText().toString();
         if(!verificarEntrada(stIteraciones,false)){
-            Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_FUNCION,Toast.LENGTH_LONG);
+            Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_FUNCION,Toast.LENGTH_LONG).show();
             return;
         }
         String stDelta = delta.getText().toString();
         if(!verificarEntrada(stDelta,false)){
-            Toast.makeText(contexto,ErrorMetodo.ERROR_DELTA_INCORRECTO,Toast.LENGTH_LONG);
+            Toast.makeText(contexto,ErrorMetodo.ERROR_DELTA_INCORRECTO,Toast.LENGTH_LONG).show();
             return;
         }
         String stValorInicial = valorInicial.getText().toString();
         if(!verificarEntrada(stValorInicial,false)){
-            Toast.makeText(contexto,ErrorMetodo.ERROR_VALOR_INICIAL,Toast.LENGTH_LONG);
+            Toast.makeText(contexto,ErrorMetodo.ERROR_VALOR_INICIAL,Toast.LENGTH_LONG).show();
             return;
         }
-
-        //progreso.setMessage(ErrorMetodo.ESPERAR_PROCESANDO);
-        //progreso.show();
         new Evaluador().execute(stFuncion,stIteraciones,stDelta,stValorInicial);
     }
 
