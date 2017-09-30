@@ -3,6 +3,7 @@ package eafit.geminis.actividades;
 import android.app.Activity;
 import android.app.Notification;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.Menu;
@@ -13,13 +14,15 @@ import android.widget.Toast;
 import java.math.BigDecimal;
 
 import eafit.geminis.R;
+import eafit.geminis.actividades.utilidades.AyudasActividad;
 import eafit.geminis.utilidades.Respuesta;
 
 public abstract class ActividadBase extends Activity {
     protected Context contexto;
-    protected String mensajeAyuda;
+    protected String ayudaAmostrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ayudaAmostrar = "";
         contexto = getApplicationContext();
         super.onCreate(savedInstanceState);
     }
@@ -34,9 +37,9 @@ public abstract class ActividadBase extends Activity {
         switch (item.getItemId()) {
             case R.id.AcercaDe:
                 // do what you want here
-                //TODO
-                Toast.makeText(contexto,"Ayuda y demás en construcción",Toast.LENGTH_SHORT).show();
-
+                Intent intent = new Intent(contexto, AyudasActividad.class);
+                intent.putExtra("ayuda",ayudaAmostrar);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

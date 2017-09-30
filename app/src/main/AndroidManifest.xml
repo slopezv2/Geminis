@@ -23,7 +23,12 @@
         <activity android:name=".actividades.interpolacion.MenuInterpolacionActividad" />
         <activity android:name=".actividades.utilidades.GraficadorActividad" />
         <activity android:name=".actividades.utilidades.GraficadorEntradaActividad" />
-        <activity android:name=".actividades.ActividadBase"></activity>
+        <activity android:name=".actividades.utilidades.AyudasActividad" />
+        <activity android:name=".actividades.ecuacionesunavariable.ReglaFalsaActividad" />
+        <activity android:name=".actividades.ecuacionesunavariable.PuntoFijoActividad" />
+        <activity android:name=".actividades.ecuacionesunavariable.NewtonActividad" />
+        <activity android:name=".actividades.ecuacionesunavariable.SecanteActividad" />
+        <activity android:name=".actividades.ecuacionesunavariable.RaicesMultiplesActividad"></activity>
     </application>
 
 </manifest>

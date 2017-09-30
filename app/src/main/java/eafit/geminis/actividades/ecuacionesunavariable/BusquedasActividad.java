@@ -32,6 +32,7 @@ public class BusquedasActividad extends ActividadBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ayudaAmostrar = "biseccion";
         setContentView(R.layout.actividad_busquedas);
         this.tabla = (TableLayout)findViewById(R.id.tabla_busquedas);
         this.filaEmcabezados = (TableRow)findViewById(R.id.fila_titulo_busquedas);

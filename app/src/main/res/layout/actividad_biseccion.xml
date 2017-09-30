@@ -5,25 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eafit.geminis.actividades.ecuacionesunavariable.BiseccionActividad">
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/margen_abajo_entrada">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/titulo_busquedas_incrementales"
-            android:layout_marginBottom="30dp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/entrada_funcion"
-            android:labelFor="@+id/entrada_funcion_"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/pista_entrada_funciones"/>
-    </LinearLayout>
+        android:text="Hola"/>
 </ScrollView>

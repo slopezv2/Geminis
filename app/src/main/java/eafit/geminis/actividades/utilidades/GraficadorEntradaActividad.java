@@ -18,7 +18,7 @@ public class GraficadorEntradaActividad extends ActividadBase implements Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Para saber que mensaje mostrar de ayuda
-        mensajeAyuda = "entrada_graficador";
+        ayudaAmostrar = "entrada_graficador";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_graficador_entrada);
         //Controles de GUI

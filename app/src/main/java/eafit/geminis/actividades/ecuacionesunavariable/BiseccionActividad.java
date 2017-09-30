@@ -27,6 +27,7 @@ public class BiseccionActividad extends ActividadBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ayudaAmostrar = "biseccion";
         setContentView(R.layout.actividad_biseccion);
 
     }
