@@ -28,7 +28,6 @@ public class BusquedasActividad extends ActividadBase {
     private TableLayout tabla;
     private TableRow filaEmcabezados;
     private EditText funcion,iteraciones,delta,valorInicial;
-    ProgressDialog progreso;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +49,14 @@ public class BusquedasActividad extends ActividadBase {
         });
     }
     private void buscar(){
-        //TODO
         String stFuncion = funcion.getText().toString();
         if (!verificarEntrada(stFuncion,true)){
-            Toast.makeText(contexto, ErrorMetodo.ERROR_NITER_INCORRECTO,Toast.LENGTH_LONG);
+            Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_FUNCION,Toast.LENGTH_LONG).show();
             return;
         }
         String stIteraciones = iteraciones.getText().toString();
         if(!verificarEntrada(stIteraciones,false)){
-            Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_FUNCION,Toast.LENGTH_LONG).show();
+            Toast.makeText(contexto,ErrorMetodo.ERROR_NITER_INCORRECTO,Toast.LENGTH_LONG).show();
             return;
         }
         String stDelta = delta.getText().toString();
@@ -80,8 +78,10 @@ public class BusquedasActividad extends ActividadBase {
         //TODO
         switch (respuesta.getTipo()){
             case Error:
+                Toast.makeText(contexto,respuesta.getMensaje(),Toast.LENGTH_LONG).show();
                 break;
             case FRACASO:
+                
                 break;
             case INTERVALO:
                 break;
@@ -120,15 +120,12 @@ public class BusquedasActividad extends ActividadBase {
             int iteraciones = Integer.parseInt(params[1]);
             BigDecimal delta = new BigDecimal(params[2]);
             BigDecimal valorInicial = new BigDecimal(params[3]);
-            Respuesta resp = BusquedaIncremental.metodo(funcion,valorInicial,delta,iteraciones);
-            return  resp;
+            return BusquedaIncremental.metodo(funcion,valorInicial,delta,iteraciones);
         }
 
 
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta);
-            Toast.makeText(contexto,"Termino",Toast.LENGTH_SHORT).show();
-            //progreso.dismiss();
         }
     }
 }

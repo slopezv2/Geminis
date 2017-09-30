@@ -28,7 +28,7 @@ public class BusquedaIncremental {
             rp = new Respuesta(TipoRespuesta.Error,ErrorMetodo.ERROR_NITER_INCORRECTO,null);
             return rp;
         }
-        if(delta.compareTo(BigDecimal.ZERO) < 1){
+        if(delta.compareTo(BigDecimal.ZERO) == 0){
             rp = new Respuesta(TipoRespuesta.Error,ErrorMetodo.ERROR_DELTA_INCORRECTO,null);
             return rp;
         }
@@ -46,7 +46,7 @@ public class BusquedaIncremental {
         }
         else{
             BigDecimal x1 = x0.add(delta);
-            int cont = 1;
+            int cont = 0;
             BigDecimal fx1 = null;
             try {
                 fx1 = evaluador.evaluar(funcion,x1,false);
@@ -54,8 +54,9 @@ public class BusquedaIncremental {
                 rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),null);
                 return rp;
             }
+            String iteracion;
             while(((fx0.multiply(fx1)).compareTo(BigDecimal.ZERO) > 0) && (cont <= niter)){
-                String iteracion = cont+" "+x0+" "+fx0;
+                iteracion = cont+" "+x0+" "+fx0;
                 iteraciones.add(iteracion);
                 x0 = x1;
                 fx0 = fx1;
@@ -69,6 +70,8 @@ public class BusquedaIncremental {
 
                 cont++;
             }
+            iteracion = cont+" "+x0+" "+fx0;
+            iteraciones.add(iteracion);
             if(fx1.compareTo(BigDecimal.ZERO) == 0){
                 rp = new Respuesta(TipoRespuesta.RAIZ,x1,iteraciones);
                 return rp;
