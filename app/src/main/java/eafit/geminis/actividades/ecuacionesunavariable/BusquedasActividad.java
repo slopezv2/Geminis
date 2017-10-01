@@ -27,7 +27,8 @@ import eafit.geminis.utilidades.Respuesta;
 public class BusquedasActividad extends ActividadBase {
     private TableLayout tabla;
     private TableRow filaEmcabezados;
-    private EditText funcion,iteraciones,delta,valorInicial;
+    private EditText funcion,iteraciones,delta,valorInicial,resultados;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class BusquedasActividad extends ActividadBase {
         iteraciones = (EditText) findViewById(R.id.entrada_iteraciones_busquedas);
         delta = (EditText) findViewById(R.id.entrada_delta_busquedas);
         valorInicial = (EditText) findViewById(R.id.entrada_valor_inicial_busquedas);
-        //progreso = new ProgressDialog(contexto);
+        resultados = (EditText) findViewById(R.id.resultado_busquedas);
         btCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,11 +82,13 @@ public class BusquedasActividad extends ActividadBase {
                 Toast.makeText(contexto,respuesta.getMensaje(),Toast.LENGTH_LONG).show();
                 break;
             case FRACASO:
-                
+                resultados.setText(respuesta.getMensaje());
                 break;
             case INTERVALO:
+                resultados.setText("Se presume hay una raiz entre "+respuesta.getIntervalo().get(0)+" y "+respuesta.getIntervalo().get(1));
                 break;
             case RAIZ:
+                resultados.setText("Se encontró una raiz en: "+respuesta.getValor());
                 break;
             default:
         }

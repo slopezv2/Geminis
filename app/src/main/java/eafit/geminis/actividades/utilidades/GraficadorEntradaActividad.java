@@ -17,9 +17,8 @@ public class GraficadorEntradaActividad extends ActividadBase implements Adapter
     private EditText et_entrada_puntos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Para saber que mensaje mostrar de ayuda
-        ayudaAmostrar = "entrada_graficador";
         super.onCreate(savedInstanceState);
+        ayudaAmostrar = "entrada graficador";
         setContentView(R.layout.actividad_graficador_entrada);
         //Controles de GUI
         et_entrada_funciones=(EditText) findViewById(R.id.et_funciones);

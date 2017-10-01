@@ -24,7 +24,7 @@ public class BusquedaIncremental {
     public static Respuesta metodo(String funcion, BigDecimal x0, BigDecimal delta, int niter){
         ArrayList<String> iteraciones = new ArrayList<>();
         Respuesta rp;
-        if(niter < 0 ){
+        if(niter <= 0 ){
             rp = new Respuesta(TipoRespuesta.Error,ErrorMetodo.ERROR_NITER_INCORRECTO,null);
             return rp;
         }
@@ -41,7 +41,7 @@ public class BusquedaIncremental {
             return rp;
         }
         if(fx0.compareTo(BigDecimal.ZERO) == 0){
-            rp = new Respuesta(TipoRespuesta.RAIZ,x0,null);
+            rp = new Respuesta(TipoRespuesta.RAIZ,x0,iteraciones);
             return rp;
         }
         else{

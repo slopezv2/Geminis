@@ -29,7 +29,5 @@ public class BiseccionActividad extends ActividadBase {
         super.onCreate(savedInstanceState);
         ayudaAmostrar = "biseccion";
         setContentView(R.layout.actividad_biseccion);
-
     }
-
 }

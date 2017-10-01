@@ -12,5 +12,6 @@ public class MenuSistemasEcuacionesActividad extends ActividadBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_menu_sistemas_ecuaciones);
+        ayudaAmostrar = "menu sistemas ecuaciones";
     }
 }

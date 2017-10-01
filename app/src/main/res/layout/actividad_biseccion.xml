@@ -4,8 +4,157 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eafit.geminis.actividades.ecuacionesunavariable.BiseccionActividad">
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hola"/>
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margen_abajo_entrada">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/titulo_biseccion"
+            android:layout_marginBottom="30dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_funcion"
+            android:labelFor="@+id/entrada_funcion_biseccion"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pista_ecuaciones_una_variable"
+            android:id="@+id/entrada_funcion_biseccion"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_iteraciones"
+            android:labelFor="@+id/entrada_iteraciones_biseccion"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/entrada_iteraciones_biseccion"
+            android:hint="@string/pista_iteraciones"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_Xinf"
+            android:labelFor="@+id/entrada_xinicial_biseccion"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/entrada_xinicial_biseccion"
+            android:inputType="numberDecimal"
+            android:hint="@string/pista_delta"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_XSup"
+            android:labelFor="@+id/entrada_xsuperior_biseccion"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/entrada_xsuperior_biseccion"
+            android:inputType="numberDecimal"
+            android:hint="@string/pista_delta"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_tol"
+            android:labelFor="@+id/entrada_tol_biseccion"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/entrada_tol_biseccion"
+            android:inputType="numberDecimal"
+            android:hint="@string/pista_delta"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_tipoError"
+            android:labelFor="@+id/entrada_tol_biseccion"/>
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOff="Error Relativo"
+            android:textOn="Error Absoluto"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_calcular"
+            android:gravity="center"
+            android:id="@+id/bt_calcular_biseccion"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resultado"
+            android:labelFor="@+id/resultado_biseccion"/>
+
+        <EditText
+            android:id="@+id/resultado_biseccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                style="@style/tabla"
+
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:stretchColumns="*"
+                android:layout_margin="@dimen/margen_abajo_entrada"
+                android:id="@+id/tabla_biseccion">
+
+                <TableRow
+                    style="@style/columna"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fila_titulo_biseccion">
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="n"
+                        />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xi" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xs" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xm" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="f(Xm)" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Error" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
 </ScrollView>

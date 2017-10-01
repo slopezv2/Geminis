@@ -8,5 +8,6 @@ public enum TipoRespuesta {
     INTERVALO,
     RAIZ,
     FRACASO,
-    Error
+    Error,
+    Aproximacion
 }

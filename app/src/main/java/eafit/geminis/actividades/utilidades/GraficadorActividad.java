@@ -35,6 +35,7 @@ public class GraficadorActividad extends ActividadBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_graficador);
+        ayudaAmostrar = "graficador";
         //Intent para obtener los parametros enviados desde graficador entrada
         Intent intentOriginal = getIntent();
         nombre_funciones = intentOriginal.getStringArrayExtra("nombre_funciones");

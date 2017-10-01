@@ -12,5 +12,6 @@ public class MenuInterpolacionActividad extends ActividadBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_menu_interpolacion);
+        ayudaAmostrar="menu interpolacion";
     }
 }

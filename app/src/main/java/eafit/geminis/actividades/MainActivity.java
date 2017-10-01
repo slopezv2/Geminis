@@ -19,6 +19,7 @@ public class MainActivity extends ActividadBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ayudaAmostrar = "inicio";
         setContentView(R.layout.activity_main);
         listaMetodos = (ListView) findViewById(R.id.listaMetodos);
         metodos = getResources().getStringArray(R.array.OpcionesMenuInicio);
