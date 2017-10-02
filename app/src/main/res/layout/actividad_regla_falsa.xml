@@ -1,9 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eafit.geminis.actividades.ecuacionesunavariable.ReglaFalsaActividad">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margen_abajo_entrada">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/titulo_regla_falsa"
+            android:layout_marginBottom="30dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_funcion"
+            android:labelFor="@+id/entrada_funcion_regla_falsa"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pista_ecuaciones_una_variable"
+            android:id="@+id/entrada_funcion_regla_falsa"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_iteraciones"
+            android:labelFor="@+id/entrada_iteraciones_regla_falsa"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/entrada_iteraciones_regla_falsa"
+            android:hint="@string/pista_iteraciones"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_Xinf"
+            android:labelFor="@+id/entrada_xinicial_regla_falsa"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/entrada_xinicial_regla_falsa"
+            android:inputType="numberDecimal|numberSigned"
+            android:hint="@string/pista_delta"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_XSup"
+            android:labelFor="@+id/entrada_xsuperior_regla_falsa"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/entrada_xsuperior_regla_falsa"
+            android:inputType="numberDecimal|numberSigned"
+            android:hint="@string/pista_delta"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_tol"
+            android:labelFor="@+id/entrada_tol_regla_falsa"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/entrada_tol_regla_falsa"
+            android:inputType="numberDecimal"
+            android:hint="@string/pista_delta"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/entrada_tipoError"
+            android:labelFor="@+id/tipo_error_regla_falsa"/>
+        <ToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOff="Error Relativo"
+            android:textOn="Error Absoluto"
+            android:id="@+id/tipo_error_regla_falsa"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_calcular"
+            android:gravity="center"
+            android:id="@+id/bt_calcular_regla_falsa"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resultado"
+            android:labelFor="@+id/resultado_regla_falsa"/>
 
-</android.support.constraint.ConstraintLayout>
+        <EditText
+            android:id="@+id/resultado_regla_falsa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                style="@style/tabla"
+
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:stretchColumns="*"
+                android:layout_margin="@dimen/margen_abajo_entrada"
+                android:id="@+id/tabla_regla_falsa">
+
+                <TableRow
+                    style="@style/columna"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fila_titulo_regla_falsa">
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="n"
+                        />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xi" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xs" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xm" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="f(Xm)" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Error" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+</ScrollView>

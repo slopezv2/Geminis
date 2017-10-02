@@ -23,4 +23,9 @@
         android:layout_height="wrap_content"
         android:text="@string/titulo_biseccion"
         android:id="@+id/bt_ir_biseccion"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_regla_falsa"
+        android:id="@+id/bt_ir_regla_falsa"/>
 </LinearLayout>

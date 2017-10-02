@@ -7,6 +7,7 @@
     <string name="titulo_sistema_ecuaciones">Sistema de Ecuaciones</string>
     <string name="titulo_graficador">Graficador</string>
     <string name="titulo_busquedas_incrementales">Búsquedas Incrementales</string>
+    <string name="titulo_regla_falsa">Método de la Regla Falsa</string>
     <string name="entrada_funcion">Ingrese una función f(x)</string>
     <string name="entrada_iteraciones">Ingrese el número de iteraciones</string>
     <string name="entrada_delta">Ingrese el delta</string>

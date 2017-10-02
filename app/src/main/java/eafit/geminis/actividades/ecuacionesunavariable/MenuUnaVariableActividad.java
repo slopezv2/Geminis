@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
+import eafit.geminis.metodos.ecuacionesunavariable.ReglaFalsa;
 
 public class MenuUnaVariableActividad extends ActividadBase {
 
@@ -28,6 +29,14 @@ public class MenuUnaVariableActividad extends ActividadBase {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuUnaVariableActividad.this,BiseccionActividad.class);
+                startActivity(intent);
+            }
+        });
+        Button btReglaFalsa = (Button) findViewById(R.id.bt_ir_regla_falsa);
+        btReglaFalsa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuUnaVariableActividad.this,ReglaFalsaActividad.class);
                 startActivity(intent);
             }
         });
