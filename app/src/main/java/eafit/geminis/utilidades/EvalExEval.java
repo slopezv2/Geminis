@@ -19,7 +19,7 @@ public class EvalExEval {
      * @param nuevaExpresion Si se requiere un nuevo objeto
      * @return BigDecimal resultado de la evaluación
      */
-    public BigDecimal evaluar(String expresion, BigDecimal numero,boolean nuevaExpresion) throws Expression.ExpressionException{
+    public BigDecimal evaluar(String expresion, BigDecimal numero,boolean nuevaExpresion) throws Exception{
         if(nuevaExpresion|| expresion==null) {
             expression = new Expression(expresion);
         }

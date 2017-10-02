@@ -118,7 +118,7 @@ public class GraficadorActividad extends ActividadBase {
                 res =evaluador.evaluar(funcion, new BigDecimal(( - maxInt)), true);
             } catch (ArithmeticException div0) {
                 arr[0] = new DataPoint( - maxInt, Double.NaN);
-            } catch (Expression.ExpressionException ae) {
+            } catch (Exception ae) {
                 excepcionLanzada = ae;
                 return arr;
             }
@@ -130,7 +130,7 @@ public class GraficadorActividad extends ActividadBase {
                         arr[i] = new DataPoint(i - maxInt, res.doubleValue());
                     } catch (ArithmeticException div0) {
                         arr[i] = new DataPoint(i - maxInt, Double.NaN);
-                    } catch (Expression.ExpressionException ae) {
+                    } catch (Exception ae) {
                         excepcionLanzada = ae;
                         return arr;
                     }

@@ -85,8 +85,6 @@ public class BusquedasActividad extends ActividadBase {
             BigDecimal valorInicial = new BigDecimal(params[3]);
             return BusquedaIncremental.metodo(funcion,valorInicial,delta,iteraciones);
         }
-
-
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,filaEmcabezados,resultados);
         }
