@@ -33,11 +33,14 @@ public class Respuesta {
         this.tablaIteraciones = tablaIteraciones;
     }
 
-    public Respuesta(TipoRespuesta aproximacion, BigDecimal valor, BigDecimal tol) {
+    public Respuesta(TipoRespuesta aproximacion, BigDecimal valor, BigDecimal tol,ArrayList<String> tablaIteraciones) {
         this.tipo = aproximacion;
         this.valor = valor;
         this.tolerancia = tol;
+        this.tablaIteraciones = tablaIteraciones;
     }
+
+
 
     public TipoRespuesta getTipo() {
         return tipo;

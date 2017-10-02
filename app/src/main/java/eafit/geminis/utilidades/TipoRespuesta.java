@@ -9,5 +9,5 @@ public enum TipoRespuesta {
     RAIZ,
     FRACASO,
     Error,
-    Aproximacion
+    APROXIMACION
 }

@@ -6,12 +6,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import eafit.geminis.R;
 import eafit.geminis.actividades.utilidades.AyudasActividad;
@@ -59,5 +66,48 @@ public abstract class ActividadBase extends Activity {
             }
         }
         return true;
+    }
+    protected void tratarRespuesta(Respuesta respuesta,TableLayout tabla, TableRow filaEmcabezados, EditText resultados){
+        tabla.removeAllViews();
+        tabla.addView(filaEmcabezados);
+        switch (respuesta.getTipo()){
+            case Error:
+                Toast.makeText(contexto,respuesta.getMensaje(),Toast.LENGTH_LONG).show();
+                break;
+            case FRACASO:
+                resultados.setText(respuesta.getMensaje());
+                break;
+            case INTERVALO:
+                resultados.setText("Se presume hay una raiz entre "+respuesta.getIntervalo().get(0)+" y "+respuesta.getIntervalo().get(1));
+                break;
+            case RAIZ:
+                resultados.setText("Se encontró una raiz en: "+respuesta.getValor());
+                break;
+            case APROXIMACION:
+                resultados.setText(respuesta.getValor()+" es una aproximación a una raiz con una " +
+                        "tolerancia = "+respuesta.getTolerancia());
+            default:
+        }
+        ArrayList<String> arr = respuesta.getTablaIteraciones();
+        if(arr!=null){
+            for(int i = 0; i < arr.size();i++){
+                insertarFila(arr.get(i),i,tabla,filaEmcabezados);
+            }
+        }
+    }
+    protected void insertarFila(String fila, int iteracion, TableLayout tabla, TableRow filaEmcabezados){
+        ViewGroup.LayoutParams parametros_fila = filaEmcabezados.getLayoutParams();
+        TableRow nuevaFila = new TableRow(contexto);
+        String[] elementosIteracion = fila.split(" ");
+        for(String elemento: elementosIteracion){
+
+            TextView tvDato = new TextView(contexto);
+            tvDato.setPadding(5,5,5,5);
+            tvDato.setTextSize(15);
+            tvDato.setGravity(Gravity.START);
+            tvDato.setText(elemento);
+            nuevaFila.addView(tvDato);
+        }
+        tabla.addView(nuevaFila);
     }
 }

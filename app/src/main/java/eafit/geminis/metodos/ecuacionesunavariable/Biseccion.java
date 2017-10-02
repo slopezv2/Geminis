@@ -51,7 +51,7 @@ public class Biseccion {
             rp = new Respuesta(TipoRespuesta.RAIZ,Xsup,iteraciones);
             return rp;
         }else if (fxi.multiply(fxs).compareTo(BigDecimal.ZERO)<0){
-            BigDecimal xm = Xinf.add(Xsup).divide(two);
+            BigDecimal xm = Xinf.add(Xsup).divide(two,32,BigDecimal.ROUND_HALF_UP);
             BigDecimal fxm = null;
             try {
                 fxm = evaluador.evaluar(funcion, xm, false);
@@ -72,7 +72,7 @@ public class Biseccion {
                     fxi = fxm;
                 }
                 BigDecimal aux = xm;
-                xm = Xinf.add(Xsup).divide(two);
+                xm = Xinf.add(Xsup).divide(two,32,BigDecimal.ROUND_HALF_UP);
                 try {
                     fxm = evaluador.evaluar(funcion, xm, false);
                 }catch (Exception e){
@@ -82,7 +82,7 @@ public class Biseccion {
                 if(errorAbsoluto) {
                     error = xm.subtract(aux).abs();
                 }else {
-                    error = xm.subtract(aux).divide(xm).abs();
+                    error = xm.subtract(aux).divide(xm,32,BigDecimal.ROUND_HALF_UP).abs();
                 }
                 iteracion = contador+" "+Xinf+" "+Xsup+" "+xm+ " "+fxm+" "+error;
                 iteraciones.add(iteracion);
@@ -92,7 +92,7 @@ public class Biseccion {
                 rp = new Respuesta(TipoRespuesta.RAIZ,xm,iteraciones);
                 return rp;
             }else if (error.compareTo(tol)<0){
-                rp = new Respuesta(TipoRespuesta.Aproximacion,xm,tol);
+                rp = new Respuesta(TipoRespuesta.APROXIMACION,xm,tol,iteraciones);
                 return rp;
             }else {
                 rp = new Respuesta(TipoRespuesta.FRACASO,ErrorMetodo.ERROR_FRACASO_NITERACIONES,iteraciones);

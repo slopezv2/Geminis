@@ -73,48 +73,8 @@ public class BusquedasActividad extends ActividadBase {
         new Evaluador().execute(stFuncion,stIteraciones,stDelta,stValorInicial);
     }
 
-    private void tratarRespuesta(Respuesta respuesta){
-        tabla.removeAllViews();
-        tabla.addView(filaEmcabezados);
-        //TODO
-        switch (respuesta.getTipo()){
-            case Error:
-                Toast.makeText(contexto,respuesta.getMensaje(),Toast.LENGTH_LONG).show();
-                break;
-            case FRACASO:
-                resultados.setText(respuesta.getMensaje());
-                break;
-            case INTERVALO:
-                resultados.setText("Se presume hay una raiz entre "+respuesta.getIntervalo().get(0)+" y "+respuesta.getIntervalo().get(1));
-                break;
-            case RAIZ:
-                resultados.setText("Se encontró una raiz en: "+respuesta.getValor());
-                break;
-            default:
-        }
-        ArrayList<String> arr = respuesta.getTablaIteraciones();
-        if(arr!=null){
-            for(int i = 0; i < arr.size();i++){
-                insertarFila(arr.get(i),i);
-            }
-        }
-    }
-    private void insertarFila(String fila,int iteracion){
-        ViewGroup.LayoutParams parametros_fila = filaEmcabezados.getLayoutParams();
-        TableRow nuevaFila = new TableRow(contexto);
-        String[] elementosIteracion = fila.split(" ");
-        for(String elemento: elementosIteracion){
 
-            TextView tvDato = new TextView(contexto);
-            tvDato.setPadding(5,5,5,5);
-            tvDato.setTextSize(15);
-            tvDato.setGravity(Gravity.START);
-            tvDato.setText(elemento);
-            nuevaFila.addView(tvDato);
-        }
-        tabla.addView(nuevaFila);
-        //tabla.refreshDrawableState();
-    }
+
     private class Evaluador extends AsyncTask<String,Void,Respuesta> {
 
 
@@ -128,7 +88,7 @@ public class BusquedasActividad extends ActividadBase {
 
 
         protected void onPostExecute(Respuesta respuesta) {
-            tratarRespuesta(respuesta);
+            tratarRespuesta(respuesta,tabla,filaEmcabezados,resultados);
         }
     }
 }

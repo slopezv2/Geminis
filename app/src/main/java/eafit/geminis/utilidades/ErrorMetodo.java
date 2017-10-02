@@ -16,5 +16,10 @@ public class ErrorMetodo {
     public static String ERROR_VALOR_INICIAL="Revisa el valor inicial, recuerda debe ser un valor numérico";
     public static String ERRROR_TOLERANCIA_CERO = "Revisa el valor de la tolerancia, recuerda que tol > 0";
     public static String ERROR_INTERVALOS_INADECUADOS = "Se llegó a un intervalo inadecuado";
+    public static String ERROR_LIMITE_INFERIOR = "Por favor revise el límite inferior proporcionado, " +
+            "Xi no debe estar vacío y debe ser un valor numérico";
+    public static String ERROR_LIMITE_Superior = "Por favor revise el límite superior proporcionado, " +
+            "Xs no debe estar vacío y debe ser un valor numérico";
+    public static String ERROR_TOLERANCIA = "Error en la tolerancia, recuerde debe ser un valor numérico, tol > 0";
     public static String ESPERAR_PROCESANDO="Espere mientras se procesa el resultado";
 }

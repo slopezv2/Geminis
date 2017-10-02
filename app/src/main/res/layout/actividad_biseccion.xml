@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/entrada_xinicial_biseccion"
-            android:inputType="numberDecimal"
+            android:inputType="numberDecimal|numberSigned"
             android:hint="@string/pista_delta"
             />
         <TextView
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/entrada_xsuperior_biseccion"
-            android:inputType="numberDecimal"
+            android:inputType="numberDecimal|numberSigned"
             android:hint="@string/pista_delta"
             />
         <TextView
@@ -77,12 +77,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/entrada_tipoError"
-            android:labelFor="@+id/entrada_tol_biseccion"/>
+            android:labelFor="@+id/tipo_error_biseccion"/>
         <ToggleButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textOff="Error Relativo"
-            android:textOn="Error Absoluto"/>
+            android:textOn="Error Absoluto"
+            android:id="@+id/tipo_error_biseccion"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
