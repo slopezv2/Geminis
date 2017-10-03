@@ -13,6 +13,7 @@ public class ErrorMetodo {
     public static String ERROR_ENTRADA_PUNTOS_GRAFICADOR="Por favor revise los puntos, recuerde " +
             "debe ser un número entero y positivo mayor qur 0";
     public static String ERROR_ENTRADA_FUNCION="Revisa la función dada";
+    public static String ERROR_ENTRADA_FUNCION_G="Revisa la función g(x) dada";
     public static String ERROR_VALOR_INICIAL="Revisa el valor inicial, recuerda debe ser un valor numérico";
     public static String ERRROR_TOLERANCIA_CERO = "Revisa el valor de la tolerancia, recuerda que tol > 0";
     public static String ERROR_INTERVALOS_INADECUADOS = "Se llegó a un intervalo inadecuado";

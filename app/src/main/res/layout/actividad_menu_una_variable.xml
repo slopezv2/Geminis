@@ -28,4 +28,10 @@
         android:layout_height="wrap_content"
         android:text="@string/titulo_regla_falsa"
         android:id="@+id/bt_ir_regla_falsa"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_punto_fijo"
+        android:id="@+id/bt_ir_punto_fijo"
+        />
 </LinearLayout>

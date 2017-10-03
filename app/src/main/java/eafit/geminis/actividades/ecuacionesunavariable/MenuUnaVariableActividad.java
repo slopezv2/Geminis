@@ -40,5 +40,13 @@ public class MenuUnaVariableActividad extends ActividadBase {
                 startActivity(intent);
             }
         });
+        Button btPuntoFijo = (Button) findViewById(R.id.bt_ir_punto_fijo);
+        btPuntoFijo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuUnaVariableActividad.this,PuntoFijoActividad.class);
+                startActivity(intent);
+            }
+        });
     }
 }
