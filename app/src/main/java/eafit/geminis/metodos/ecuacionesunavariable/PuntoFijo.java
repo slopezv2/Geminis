@@ -26,7 +26,6 @@ public class PuntoFijo {
     public static Respuesta metodo(String funcion,String funcionG, BigDecimal xi, BigDecimal tol, int niter, boolean esAbsoluto){
         EvalExEval evaluadorFx = new EvalExEval(), evaluadorGx= new EvalExEval();
         ArrayList<String> iteraciones = new ArrayList();
-        BigDecimal dos = new BigDecimal(2);
         Respuesta rp;
         BigDecimal fxi = null;
         String iteracion;
