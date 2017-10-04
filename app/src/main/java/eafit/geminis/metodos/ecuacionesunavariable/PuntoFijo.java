@@ -33,6 +33,7 @@ public class PuntoFijo {
              fxi= evaluadorFx.evaluar(funcion,xi,true);
         } catch (Exception e) {
             rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),null);
+            return rp;
         }
         int contador = 0;
         BigDecimal error = tol.add(BigDecimal.ONE);

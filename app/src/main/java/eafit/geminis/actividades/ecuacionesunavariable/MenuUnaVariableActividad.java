@@ -48,5 +48,13 @@ public class MenuUnaVariableActividad extends ActividadBase {
                 startActivity(intent);
             }
         });
+        Button btNewton = (Button) findViewById(R.id.bt_ir_newton);
+        btNewton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuUnaVariableActividad.this,NewtonActividad.class);
+                startActivity(intent);
+            }
+        });
     }
 }
