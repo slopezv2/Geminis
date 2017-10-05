@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/ic_launcher_geminis_project"
         android:layout_margin="@dimen/margen_abajo_entrada"/>
     <TextView
         android:layout_width="match_parent"
@@ -18,11 +18,15 @@
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textSize="@dimen/tamanio_titulos"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:layout_margin="@dimen/margen_abajo_entrada"/>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margen_abajo_menu"
         android:id="@+id/listaMetodos"
         >
     </ListView>

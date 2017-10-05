@@ -10,6 +10,7 @@ import android.widget.ListView;
 import eafit.geminis.R;
 import eafit.geminis.actividades.ecuacionesunavariable.MenuUnaVariableActividad;
 import eafit.geminis.actividades.interpolacion.MenuInterpolacionActividad;
+import eafit.geminis.actividades.sistemasecuaciones.MenuSistemasEcuacionesActividad;
 import eafit.geminis.actividades.utilidades.GraficadorEntradaActividad;
 
 public class MainActivity extends ActividadBase {
@@ -41,7 +42,7 @@ public class MainActivity extends ActividadBase {
                                 startActivity(intent);
                                 break;
                             case "Sistema de ecuaciones":
-                                intent = new Intent(MainActivity.this,MenuUnaVariableActividad.class);
+                                intent = new Intent(MainActivity.this, MenuSistemasEcuacionesActividad.class);
                                 startActivity(intent);
                                 break;
                             case "Interpolación":

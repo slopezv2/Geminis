@@ -33,7 +33,7 @@
     <string name="pista_entrada_funciones">Una función por cada línea con el formato:
         f->sqrt(x+3)/4 donde f es el nombre de la función</string>
     <string name="texto_btgraficar">Graficar</string>
-    <string name="detalles">detalles</string>
+    <string name="detalles">Detalles</string>
     <string name="Agregar_ecuacion">Agregar ecuación</string>
     <string name="st_volver">Volver</string>
     <string name="sp_entrada">Seleccione una ecuación para agregar</string>
