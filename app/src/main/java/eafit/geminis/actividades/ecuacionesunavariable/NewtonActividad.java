@@ -22,11 +22,11 @@ import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
 
 public class NewtonActividad extends ActividadBase {
-    public EditText entradaFx, entradaGx,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
-    public boolean esAbsoluto = false;
-    public EditText resultados;
-    public TableLayout tabla;
-    public TableRow encabezado;
+    private EditText entradaFx, entradaGx,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
+    private boolean esAbsoluto = false;
+    private EditText resultados;
+    private TableLayout tabla;
+    private TableRow encabezado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

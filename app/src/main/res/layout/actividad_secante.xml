@@ -1,9 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eafit.geminis.actividades.ecuacionesunavariable.SecanteActividad">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margen_abajo_entrada"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:text="@string/titulo_secante"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/entrada_funcion_secante"
+            android:text="@string/entrada_funcion" />
+
+        <EditText
+            android:id="@+id/entrada_funcion_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pista_ecuaciones_una_variable" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/entrada_iteraciones_secante"
+            android:text="@string/entrada_iteraciones" />
+
+        <EditText
+            android:id="@+id/entrada_iteraciones_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pista_iteraciones"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/entrada_xinicial_secante"
+            android:text="@string/entrada_Xinf" />
+        <EditText
+            android:id="@+id/entrada_xinicial_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pista_delta"
+            android:inputType="numberDecimal|numberSigned" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/entrada_xsuperior_secante"
+            android:text="@string/entrada_XSup" />
+
+        <EditText
+            android:id="@+id/entrada_xsuperior_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pista_delta"
+            android:inputType="numberDecimal|numberSigned" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/entrada_tol_secante"
+            android:text="@string/entrada_tol" />
+
+        <EditText
+            android:id="@+id/entrada_tol_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/pista_delta"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/tipo_error_secante"
+            android:text="@string/entrada_tipoError" />
+
+        <ToggleButton
+            android:id="@+id/tipo_error_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textOff="Error Relativo"
+            android:textOn="Error Absoluto" />
+
+        <Button
+            android:id="@+id/bt_calcular_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/bt_calcular" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/resultado_secante"
+            android:text="@string/resultado" />
+
+        <EditText
+            android:id="@+id/resultado_secante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:id="@+id/tabla_secante"
+
+                style="@style/tabla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_abajo_entrada"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:id="@+id/fila_titulo_secante"
+                    style="@style/columna"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="n" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Xn" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="f(Xn)" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Error" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+</ScrollView>

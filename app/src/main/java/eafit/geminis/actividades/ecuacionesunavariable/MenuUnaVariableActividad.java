@@ -56,5 +56,13 @@ public class MenuUnaVariableActividad extends ActividadBase {
                 startActivity(intent);
             }
         });
+        Button btSecante = (Button) findViewById(R.id.bt_ir_secante);
+        btSecante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuUnaVariableActividad.this,SecanteActividad.class);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -40,4 +40,10 @@
         android:text="@string/titulo_newton"
         android:id="@+id/bt_ir_newton"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_secante"
+        android:id="@+id/bt_ir_secante"
+        />
 </LinearLayout>
