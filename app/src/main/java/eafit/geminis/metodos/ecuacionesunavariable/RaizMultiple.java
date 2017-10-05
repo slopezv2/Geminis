@@ -24,6 +24,14 @@ public class RaizMultiple {
         ArrayList<String> iteraciones = new ArrayList<>();
         String iteracion = "";
         Respuesta rp;
+        if(niter <= 0 ){
+            rp = new Respuesta(TipoRespuesta.Error, ErrorMetodo.ERROR_NITER_INCORRECTO,null);
+            return rp;
+        }
+        if(tol.compareTo(BigDecimal.ZERO) <= 0){
+            rp = new Respuesta(TipoRespuesta.Error,ErrorMetodo.ERRROR_TOLERANCIA_CERO,null);
+            return rp;
+        }
         try {
             fx0 = evaluadorF.evaluar(funcion,x0,true);
             dfx0 = evaluadorFPrima.evaluar(funcionPrima,x0,true);

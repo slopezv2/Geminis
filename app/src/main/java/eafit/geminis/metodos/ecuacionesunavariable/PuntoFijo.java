@@ -29,6 +29,14 @@ public class PuntoFijo {
         Respuesta rp;
         BigDecimal fxi = null;
         String iteracion;
+        if(niter <= 0 ){
+            rp = new Respuesta(TipoRespuesta.Error, ErrorMetodo.ERROR_NITER_INCORRECTO,null);
+            return rp;
+        }
+        if(tol.compareTo(BigDecimal.ZERO) <= 0){
+            rp = new Respuesta(TipoRespuesta.Error,ErrorMetodo.ERRROR_TOLERANCIA_CERO,null);
+            return rp;
+        }
         try {
              fxi= evaluadorFx.evaluar(funcion,xi,true);
         } catch (Exception e) {

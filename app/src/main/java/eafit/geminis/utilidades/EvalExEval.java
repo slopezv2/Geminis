@@ -5,6 +5,7 @@ package eafit.geminis.utilidades;
  */
 import com.udojava.evalex.Expression;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Clase para llamar al evaluador EvalEx y retornar el resultado en BigDecimal
@@ -21,7 +22,8 @@ public class EvalExEval {
      */
     public BigDecimal evaluar(String expresion, BigDecimal numero,boolean nuevaExpresion) throws Exception{
         if(nuevaExpresion|| expresion==null) {
-            expression = new Expression(expresion);
+            expression = new Expression(expresion).setPrecision(32);
+            expression.setRoundingMode(RoundingMode.HALF_UP);
         }
         return expression.with("x",numero).eval();
 

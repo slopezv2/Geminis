@@ -42,7 +42,12 @@ public class ReglaFalsa {
             rp = new Respuesta(TipoRespuesta.RAIZ, xs, iteraciones);
             return rp;
         }else if(fxi.multiply(fxs).compareTo(BigDecimal.ZERO) < 0){
-            BigDecimal xm = (xi.add(xs)).divide(two);
+            BigDecimal div = fxs.subtract(fxi);
+            if (div.compareTo(BigDecimal.ZERO)==0){
+                rp = new Respuesta(TipoRespuesta.Error, ErrorMetodo.ERROR_DIVISION_CERO, iteraciones);
+                return rp;
+            }
+            BigDecimal xm = xi.subtract((fxi.multiply(xi.subtract(xs))).divide(fxi.subtract(fxs),32,BigDecimal.ROUND_HALF_UP));
             BigDecimal fxm = null;
             try {
                fxm  = evaluador.evaluar(funcion,xm,false);
@@ -54,7 +59,6 @@ public class ReglaFalsa {
             iteraciones.add(iteracion);
             int cont = 1;
             BigDecimal error = tol.add(two);
-            BigDecimal div = fxi.subtract(fxs);
             while( (fxm.compareTo(BigDecimal.ZERO) != 0)&& (error.compareTo(tol) > 0)  && (cont <= niter)
                     && (div.compareTo(BigDecimal.ZERO) != 0)){
                 if(fxi.multiply(fxm).compareTo(BigDecimal.ZERO) < 0){
