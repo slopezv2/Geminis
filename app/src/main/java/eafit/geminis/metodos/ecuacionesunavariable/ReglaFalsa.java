@@ -50,7 +50,7 @@ public class ReglaFalsa {
                 rp = new Respuesta(TipoRespuesta.Error, e.getMessage(), iteraciones);
                 return rp;
             }
-            String iteracion = 0+" "+xi+" "+xs+" "+xm+ " "+fxm+" "+"No determinado";
+            String iteracion = 0+" "+xi+" "+xs+" "+xm+ " "+fxm+" "+"No_Determinado";
             iteraciones.add(iteracion);
             int cont = 1;
             BigDecimal error = tol.add(two);

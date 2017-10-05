@@ -38,17 +38,19 @@ public class PuntoFijo {
         int contador = 0;
         BigDecimal error = tol.add(BigDecimal.ONE);
         BigDecimal xn = null;
+        iteracion = contador+" "+xn+" "+fxi+" No_Determinado";
+        iteraciones.add(iteracion);
         while (fxi.compareTo(BigDecimal.ZERO)!=0 && error.compareTo(tol)> 0 && contador <= niter){
             try {
                 xn= evaluadorGx.evaluar(funcionG,xi,true);
             } catch (Exception e) {
-                rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),null);
+                rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),iteraciones);
                 return rp;
             }
             try {
-                fxi= evaluadorFx.evaluar(funcion,xi,false);
+                fxi= evaluadorFx.evaluar(funcion,xn,false);
             } catch (Exception e) {
-                rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),null);
+                rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),iteraciones);
                 return rp;
             }
             if (esAbsoluto){
@@ -60,6 +62,8 @@ public class PuntoFijo {
             iteraciones.add(iteracion);
             xi = xn;
             contador++;
+            iteracion = contador+" "+xn+" "+fxi+" "+error;
+            iteraciones.add(iteracion);
         }
         if (fxi.compareTo(BigDecimal.ZERO)==0){
             rp = new Respuesta(TipoRespuesta.RAIZ,xi,iteraciones);

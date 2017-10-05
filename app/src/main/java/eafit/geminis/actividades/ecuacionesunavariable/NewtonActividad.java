@@ -20,6 +20,7 @@ import eafit.geminis.metodos.ecuacionesunavariable.Newton;
 import eafit.geminis.metodos.ecuacionesunavariable.PuntoFijo;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
+import eafit.geminis.utilidades.TipoRespuesta;
 
 public class NewtonActividad extends ActividadBase {
     private EditText entradaFx, entradaGx,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
@@ -92,7 +93,11 @@ public class NewtonActividad extends ActividadBase {
             BigDecimal valXini = new BigDecimal(params[3]);
             BigDecimal valTolerencia = new BigDecimal(params[4]);
             boolean valEsErrorAbsoluto = Boolean.parseBoolean(params[5]);
-            return Newton.metodo(funcion,funcionG,valXini,valTolerencia,valIteraciones,valEsErrorAbsoluto);
+            try {
+                return Newton.metodo(funcion,funcionG,valXini,valTolerencia,valIteraciones,valEsErrorAbsoluto);
+            } catch (Exception e) {
+                return new Respuesta(TipoRespuesta.Error,e.getMessage(),null);
+            }
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,encabezado,resultados);

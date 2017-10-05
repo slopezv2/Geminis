@@ -46,4 +46,10 @@
         android:text="@string/titulo_secante"
         android:id="@+id/bt_ir_secante"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_raices_multiples"
+        android:id="@+id/bt_ir_raices_multiples"
+        />
 </LinearLayout>

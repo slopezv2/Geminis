@@ -64,5 +64,13 @@ public class MenuUnaVariableActividad extends ActividadBase {
                 startActivity(intent);
             }
         });
+        Button btRaices = (Button) findViewById(R.id.bt_ir_raices_multiples);
+        btRaices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuUnaVariableActividad.this,RaicesMultiplesActividad.class);
+                startActivity(intent);
+            }
+        });
     }
 }

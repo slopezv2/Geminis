@@ -13,7 +13,7 @@ import eafit.geminis.utilidades.TipoRespuesta;
  */
 
 public class Newton {
-    public static Respuesta metodo(String funcion, String funcionD, BigDecimal xi, BigDecimal tol, int niter, boolean esAbsoluto){
+    public static Respuesta metodo(String funcion, String funcionD, BigDecimal xi, BigDecimal tol, int niter, boolean esAbsoluto) throws Exception{
         EvalExEval evaluadorFx = new EvalExEval(), evaluadorGx= new EvalExEval();
         ArrayList<String> iteraciones = new ArrayList();
         Respuesta rp;
@@ -33,7 +33,7 @@ public class Newton {
             return rp;
         }
         int contador = 0;
-        iteracion = contador+" "+xi+" "+fxi+" "+dfxi+"No determinado";
+        iteracion = contador+" "+xi+" "+fxi+" "+dfxi+"No_Determinado";
         iteraciones.add(iteracion);
         BigDecimal error = tol.add(BigDecimal.ONE);
         BigDecimal x2 = null;

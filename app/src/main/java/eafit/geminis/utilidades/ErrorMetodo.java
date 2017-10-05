@@ -26,4 +26,5 @@ public class ErrorMetodo {
     public static String ESPERAR_PROCESANDO="Espere mientras se procesa el resultado";
     public static String ERROR_DIVISION_CERO="Error, Se ha detectado una división por cero";
     public static String DETECCION_RAIZ_MULTIPLE="Existe una posible raíz múltiple en: ";
+    public static String DENOMINADOR_CERO="Error, denominador=0";
 }

@@ -22,7 +22,7 @@ public class Biseccion {
      * @param errorAbsoluto true para error absoluto, false para error relativo
      * @return Respuesta con la informacion de los resultados
      */
-    public static Respuesta metodo(String funcion, BigDecimal Xinf, BigDecimal Xsup, BigDecimal tol, int niter, boolean errorAbsoluto){
+    public static Respuesta metodo(String funcion, BigDecimal Xinf, BigDecimal Xsup, BigDecimal tol, int niter, boolean errorAbsoluto) {
         ArrayList<String> iteraciones = new ArrayList<>();
         BigDecimal two = new BigDecimal(2);
         Respuesta rp;
@@ -56,10 +56,10 @@ public class Biseccion {
             try {
                 fxm = evaluador.evaluar(funcion, xm, false);
             }catch (Exception e){
-                rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),null);
+                rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),iteraciones);
                 return rp;
             }
-            String iteracion = 0+" "+Xinf+" "+Xsup+" "+xm+ " "+fxm+" "+"No determinado";
+            String iteracion = 0+" "+Xinf+" "+Xsup+" "+xm+ " "+fxm+" "+"No_Determinado";
             iteraciones.add(iteracion);
             int contador = 1;
             BigDecimal error = tol.add(two);
@@ -76,7 +76,7 @@ public class Biseccion {
                 try {
                     fxm = evaluador.evaluar(funcion, xm, false);
                 }catch (Exception e){
-                    rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),null);
+                    rp = new Respuesta(TipoRespuesta.Error,e.getMessage(),iteraciones);
                     return rp;
                 }
                 if(errorAbsoluto) {

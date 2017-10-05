@@ -49,6 +49,8 @@ public class Secante {
             int contador =0;
             BigDecimal error = tol.add(BigDecimal.ONE);
             BigDecimal den = fx1.subtract(fx0);
+            iteracion = contador+" "+x1+" "+fx1+" No_Determinado";
+            iteraciones.add(iteracion);
             while (fx1.compareTo(BigDecimal.ZERO)!=0 && error.compareTo(tol)>0 &&
                     den.compareTo(BigDecimal.ZERO) !=0 && contador < niter){
                 BigDecimal x2 = x1.subtract(fx1.multiply(x1.subtract(x0).divide(den,32,BigDecimal.ROUND_HALF_UP)));
@@ -57,8 +59,6 @@ public class Secante {
                 }else {
                     error= x2.subtract(x1).divide(x2,32,BigDecimal.ROUND_HALF_UP).abs();
                 }
-                iteracion = contador+" "+x1+" "+fx1+" "+error;
-                iteraciones.add(iteracion);
                 x0 = x1;
                 fx0 = fx1;
                 x1 = x2;
@@ -70,6 +70,8 @@ public class Secante {
                 }
                 den = fx1.subtract(fx0);
                 contador++;
+                iteracion = contador+" "+x1+" "+fx1+" "+error;
+                iteraciones.add(iteracion);
             }
             if (fx1.compareTo(BigDecimal.ZERO)==0){
                 rp = new Respuesta(TipoRespuesta.RAIZ,x1,iteraciones);

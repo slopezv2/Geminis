@@ -11,9 +11,11 @@
     <string name="titulo_punto_fijo">Método de Punto fijo</string>
     <string name="titulo_newton">Método de Newton</string>
     <string name="titulo_secante">Método de la Secante</string>
+    <string name="titulo_raices_multiples">Método de las Raíces Múltiples</string>
     <string name="entrada_funcion_g">Ingrese la función g(x)</string>
     <string name="entrada_funcion">Ingrese una función f(x)</string>
     <string name="entrada_funcion_prima">Ingrese la función f\'(x)</string>
+    <string name="entrada_funcion_2_prima">Ingrese la función f\'\'(x)</string>
     <string name="entrada_iteraciones">Ingrese el número de iteraciones</string>
     <string name="entrada_delta">Ingrese el delta</string>
     <string name="entrada_Xinf">Ingrese el límite inferior (Xi)</string>
