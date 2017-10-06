@@ -4,5 +4,10 @@
     android:layout_height="match_parent"
     android:textSize="@dimen/tamanio_letra_item_lista"
     android:textAlignment="center"
+    android:paddingTop="@dimen/margen_abajo_menu"
+    android:paddingBottom="@dimen/margen_abajo_menu"
+    android:background="@color/colorPrimaryLight"
+    android:textColor="#ffffff"
+    android:fontFamily="monospace"
     >
 </TextView>

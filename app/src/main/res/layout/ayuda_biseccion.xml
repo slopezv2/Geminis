@@ -5,13 +5,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margen_abajo_entrada">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_metodos_entrada"
             android:textAlignment="center"
-            android:layout_margin="@dimen/margen_abajo_entrada"
-            android:text="Hola"/>
+            android:text="Ayuda Bisección"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

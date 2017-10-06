@@ -10,13 +10,9 @@
         android:orientation="vertical"
         android:layout_margin="@dimen/margen_abajo_entrada">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
+            style="@style/titulos_metodos_entrada"
             android:text="@string/titulo_biseccion"
-            android:textStyle="bold"
-            android:textSize="@dimen/tamanio_entrada"
-            android:layout_marginBottom="20dp"/>
+            android:textAlignment="center" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,9 +85,10 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/button_text"
             android:text="@string/bt_calcular"
             android:gravity="center"
-            android:background="@color/botones_calcular"
+            android:background="@color/colorPrimaryLight"
             android:id="@+id/bt_calcular_biseccion"/>
         <TextView
             android:layout_width="match_parent"
@@ -114,30 +111,29 @@
             <TableLayout
                 style="@style/tabla"
 
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:stretchColumns="*"
-                android:layout_margin="@dimen/margen_abajo_entrada"
                 android:id="@+id/tabla_biseccion">
 
                 <TableRow
                     style="@style/columna"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+
                     android:id="@+id/fila_titulo_biseccion">
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+
                         android:text="n"
                         />
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+
                         android:text="Xi" />
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+
 
                     <TextView
                         style="@style/itemColumna"

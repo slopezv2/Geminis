@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="tamanio_entrada">16sp</dimen>
-    <dimen name="margen_abajo_entrada">10dp</dimen>
-    <dimen name="margen_abajo_menu">20dp</dimen>
-    <dimen name="tamanio_letra_item_lista">20sp</dimen>
-    <dimen name="tamanio_titulos">28sp</dimen>
-    <dimen name="espacio_menu">5sp</dimen>
+    <dimen name="margen_abajo_entrada">15dp</dimen>
+    <dimen name="margen_abajo_menu">10dp</dimen>
+    <dimen name="tamanio_letra_item_lista">18sp</dimen>
+    <dimen name="tamanio_titulos">30sp</dimen>
+    <dimen name="espacio_menu">3sp</dimen>
 </resources>

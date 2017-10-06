@@ -11,11 +11,9 @@
         android:orientation="vertical"
         android:layout_margin="@dimen/margen_abajo_entrada">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_metodos_entrada"
             android:textAlignment="center"
-            android:text="@string/titulo_busquedas_incrementales"
-            android:layout_marginBottom="30dp"/>
+            android:text="@string/titulo_busquedas_incrementales" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -84,9 +82,6 @@
             <TableLayout
                 style="@style/tabla"
 
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:stretchColumns="*"
                 android:id="@+id/tabla_busquedas">
 
                 <TableRow

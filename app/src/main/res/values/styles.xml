@@ -3,18 +3,54 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:titleTextStyle">@style/Theme.MyAppTheme.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="Theme.MyAppTheme.ActionBar.TitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="titulos_metodos_entrada">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/tamanio_entrada</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
     <style name="tabla">
-        <item name="android:background">@android:drawable/picture_frame</item>
-
+        <!--<item name="android:background">@android:drawable/picture_frame</item>-->
+        <!--<item name="android:background">@color/botones_calcular</item>-->
+        <item name="android:layout_margin">@dimen/margen_abajo_entrada</item>
+        <item name="android:stretchColumns">*</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
     </style>
+
     <style name="columna">
-        <item name="android:padding">10dp</item>
+        <!--<item name="android:padding">10dp</item>-->
         <item name="android:background">@color/fondoTabla</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 
-    </style>
     <style name="itemColumna">
-        <item name="android:layout_margin">5dp</item>
-        <item name="android:divider">@color/colorAccent</item>
+        <!--<item name="android:layout_margin">5dp</item>-->
+        <!--<item name="android:divider">@color/colorAccent</item>-->
+        <!--<item name="android:textStyle">bold</item>-->
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingTop">10dp</item>
     </style>
+
 </resources>

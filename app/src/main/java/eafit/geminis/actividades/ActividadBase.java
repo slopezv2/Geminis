@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import eafit.geminis.R;
@@ -99,6 +100,8 @@ public abstract class ActividadBase extends Activity {
         ViewGroup.LayoutParams parametros_fila = filaEmcabezados.getLayoutParams();
         TableRow nuevaFila = new TableRow(contexto);
         String[] elementosIteracion = fila.split(" ");
+//        DecimalFormat formateador = new DecimalFormat("0.0E0");
+//        elementosIteracion[elementosIteracion.length-1] = formateador.format(elementosIteracion[elementosIteracion.length-1]);
         for(String elemento: elementosIteracion){
 
             TextView tvDato = new TextView(contexto);

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#5c6bc0</color>
+    <color name="colorPrimaryDark">#26418f</color>
+    <color name="colorPrimaryLight">#8e99f3</color>
     <color name="colorAccent">#FF4081</color>
     <color name="fondoTabla">#E6EAEE</color>
     <color name="botones_calcular">#004C99</color>
-    <color name="botones_menu_una_variable">#A0A0A0</color>
+    <color name="botones_menu_una_variable">#a4a4a4</color>
 </resources>
