@@ -17,6 +17,14 @@
         <item name="android:fontFamily">monospace</item>
     </style>
 
+    <style name="texto_ayudas">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:fontFamily">@string/font_family_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="titulos_metodos_entrada">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -24,6 +32,19 @@
         <item name="android:textSize">@dimen/tamanio_entrada</item>
         <item name="android:layout_marginBottom">20dp</item>
         <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="botones_calcular">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/font_family_medium</item>
+        <item name="android:text">@string/bt_calcular</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/margen_abajo_entrada</item>
+        <item name="android:background">@color/colorPrimaryLight</item>
     </style>
 
     <style name="tabla">

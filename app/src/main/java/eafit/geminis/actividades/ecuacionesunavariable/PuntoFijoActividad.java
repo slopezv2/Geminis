@@ -31,7 +31,7 @@ public class PuntoFijoActividad extends ActividadBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_punto_fijo);
-        ayudaAmostrar="punto fijo";
+        ayudaAmostrar="punto_fijo";
         entradaFx = (EditText) findViewById(R.id.entrada_funcion_punto_fijo);
         entradaGx = (EditText) findViewById(R.id.entrada_funcion_g_punto_fijo);
         entradaIteraciones = (EditText) findViewById(R.id.entrada_iteraciones_punto_fijo);

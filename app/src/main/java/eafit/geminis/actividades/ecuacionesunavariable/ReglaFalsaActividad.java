@@ -29,7 +29,7 @@ public class ReglaFalsaActividad extends ActividadBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ayudaAmostrar = "regla falsa";
+        ayudaAmostrar = "regla_falsa";
         setContentView(R.layout.actividad_regla_falsa);
         tabla = (TableLayout) findViewById(R.id.tabla_regla_falsa);
         filaEmcabezados = (TableRow) findViewById(R.id.fila_titulo_regla_falsa);

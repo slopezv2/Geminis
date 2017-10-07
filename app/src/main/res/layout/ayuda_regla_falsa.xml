@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eafit.geminis.actividades.ecuacionesunavariable.BiseccionActividad">
+    tools:context="eafit.geminis.actividades.ecuacionesunavariable.ReglaFalsaActividad">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
 
         <TextView
             style="@style/titulos_metodos_entrada"
-            android:text="Ayuda Bisección"
+            android:text="Ayuda Regla Falsa"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textColor="#ffffff"
@@ -21,7 +21,33 @@
 
         <TextView
             style="@style/texto_ayudas"
-            android:text="@string/texto_ayuda_biseccion"/>
+            android:text="Como en el método de bisección, comienza con un intervalo inicial [a0, b0] con f(a0) y f(b0) de signos opuestos, lo que garantiza que haya al menos una raíz en su interior. El algoritmo está subiendo en cada paso a intervalos más pequeños [ak, bk] que todavía contiene una raíz de la función f."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Después de un intervalo [ak, bk] un punto interior ck es calculado:" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ecuacion_regla_falsa"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Este punto es la intersección de la línea a través de (a, f(ak)) y (b, f(bk)) con la abscisa (la misma hecha en el método secante)." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Luego evalúa f(ck). Si es lo suficientemente pequeño, c k es el resultado deseado. Si no, el siguiente intervalo [ak+1, bk+1] es:" />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- [ak, ck] si f(ak) y f(ck) tiene signos opuestos;" />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- [ck, bk] en caso contrario." />
 
         <TextView
             style="@style/texto_ayudas"
@@ -29,10 +55,10 @@
             android:textStyle="bold"/>
         <TextView
             style="@style/texto_ayudas"
-            android:text="X0: Límite inferior ó a en [a, b]." />
+            android:text="Xi: Límite inferior." />
         <TextView
             style="@style/texto_ayudas"
-            android:text="X1: Límite superior ó b en [a, b]." />
+            android:text="Xs: Límite superior." />
         <TextView
             style="@style/texto_ayudas"
             android:text="Función: Función a evaluar." />
@@ -45,15 +71,6 @@
         <TextView
             style="@style/texto_ayudas"
             android:text="Tipo de error a usar: Puedes elegir entre error absoluto o error relativo para comparar con la tolerancia." />
-        <TextView
-            style="@style/texto_ayudas"
-            android:text="Convergencia:" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/conver_biseccion"
-            android:layout_margin="5dp"/>
 
     </LinearLayout>
 

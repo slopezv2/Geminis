@@ -31,7 +31,7 @@ public class RaicesMultiplesActividad extends ActividadBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_raices_multiples);
-        ayudaAmostrar = "raices multiples";
+        ayudaAmostrar = "raices_multiples";
         entradaFx = (EditText) findViewById(R.id.entrada_funcion_raices_multiples);
         entradaFPx = (EditText) findViewById(R.id.entrada_funcion_p_raices_multiples);
         entradaF2Px = (EditText) findViewById(R.id.entrada_funcion_p_2_raices_multiples);

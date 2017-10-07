@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="eafit.geminis.actividades.ecuacionesunavariable.BusquedasActividad">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Búsquedas Incrementales"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Este método parte del supuesto de que la función es continua, mediante un dato inicial delta y un número de iteraciones, se busca determinar un cambio de signo evaluando el valor de x inicial y aumentándolo con la cantidad de delta."
+            />
+
+    </LinearLayout>
+
+</ScrollView>

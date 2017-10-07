@@ -83,10 +83,7 @@
             android:textOn="Error Absoluto"
             android:id="@+id/tipo_error_regla_falsa"/>
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/bt_calcular"
-            android:gravity="center"
+            style="@style/botones_calcular"
             android:id="@+id/bt_calcular_regla_falsa"/>
         <TextView
             android:layout_width="match_parent"

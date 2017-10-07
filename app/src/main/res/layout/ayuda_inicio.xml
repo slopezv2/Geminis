@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="eafit.geminis.actividades.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:layout_marginBottom="15dp"
+            android:text="Bienvenidos a nuestra app Proyecto Geminis, esta pretende mostrar la prática realizada durante el segundo semestre de 2017 para la materia Análisis Numérico dictada por el profesor Francisco José Correa Zabala de la Universidad EAFIT."
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Objetivo: Implementar una serie de algoritmos y métodos numéricos, recopilándolos en una aplicación móvil para el sistema operativo Android."
+            android:textStyle="italic"
+            android:gravity="left|center_vertical"
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Temas desarrollados:"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:layout_margin="10dp"
+            android:text="- Solución de ecuaciones de una variable."
+            android:fontFamily="@string/font_family_regular"
+            android:textSize="12sp"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:layout_margin="10dp"
+            android:text="- Solución de sistemas de ecuaciones."
+            android:fontFamily="@string/font_family_regular"
+            android:textSize="12sp"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:layout_margin="10dp"
+            android:text="- Interpolación."
+            android:fontFamily="@string/font_family_regular"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+</ScrollView>

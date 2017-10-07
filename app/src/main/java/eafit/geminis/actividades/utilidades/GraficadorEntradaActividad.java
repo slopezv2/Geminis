@@ -18,7 +18,7 @@ public class GraficadorEntradaActividad extends ActividadBase implements Adapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ayudaAmostrar = "entrada graficador";
+        ayudaAmostrar = "entrada_graficador";
         setContentView(R.layout.actividad_graficador_entrada);
         //Controles de GUI
         et_entrada_funciones=(EditText) findViewById(R.id.et_funciones);

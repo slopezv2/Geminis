@@ -16,11 +16,35 @@ public class AyudasActividad extends ActividadBase {
         Intent intentOriginal = getIntent();
         final String  ayudaElegida = intentOriginal.getStringExtra("ayuda");
         switch (ayudaElegida){
+            case "inicio":
+                setContentView(R.layout.ayuda_inicio);
+                break;
             case "busquedas":
-                setContentView(R.layout.ayuda_biseccion);
+                setContentView(R.layout.ayuda_busquedas_incrementales);
                 break;
             case "biseccion":
                 setContentView(R.layout.ayuda_biseccion);
+                break;
+            case "regla_falsa":
+                setContentView(R.layout.ayuda_regla_falsa);
+                break;
+            case "punto_fijo":
+                setContentView(R.layout.ayuda_punto_fijo);
+                break;
+            case "newton":
+                setContentView(R.layout.ayuda_newtown);
+                break;
+            case "secante":
+                setContentView(R.layout.ayuda_secante);
+                break;
+            case "raices_multiples":
+                setContentView(R.layout.ayuda_raices_multiples);
+                break;
+            case "entrada_graficador":
+                setContentView(R.layout.ayuda_entrada_graficador);
+                break;
+            case "graficador":
+                setContentView(R.layout.ayuda_graficador);
                 break;
             default:
                 finish();

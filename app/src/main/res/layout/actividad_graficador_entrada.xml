@@ -64,10 +64,8 @@
             />
 
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
+            style="@style/botones_calcular"
             android:id="@+id/bt_graficar"
-            android:layout_margin="@dimen/margen_abajo_entrada"
             android:text="@string/texto_btgraficar"
             android:layout_weight="1"
             />
