@@ -103,14 +103,20 @@ public abstract class ActividadBase extends Activity {
         ViewGroup.LayoutParams parametros_fila = filaEmcabezados.getLayoutParams();
         TableRow nuevaFila = new TableRow(contexto);
         String[] elementosIteracion = fila.split(" ");
-//        DecimalFormat myFormatter = new DecimalFormat("##.##E");
-//        String output = myFormatter.format(elementosIteracion[elementosIteracion.length-1]);
-//        elementosIteracion[elementosIteracion.length-1] = output;
-
-//        Format format = new DecimalFormat("0.0E0");
-//        elementosIteracion[elementosIteracion.length-1] = format.format(elementosIteracion[elementosIteracion.length-1]);
+        boolean esConvertible = true;
+        BigDecimal ultimo_Elemento = BigDecimal.ZERO;
+        try {
+            ultimo_Elemento= new BigDecimal(elementosIteracion[elementosIteracion.length - 1]);
+            ultimo_Elemento.doubleValue();
+        }catch (Exception ae){
+            esConvertible = false;
+        }
+        if (esConvertible) {
+            DecimalFormat formateador = new DecimalFormat("0.00E0");
+            String error = formateador.format(ultimo_Elemento);
+            elementosIteracion[elementosIteracion.length - 1] = error;
+        }
         for(String elemento: elementosIteracion){
-
             TextView tvDato = new TextView(contexto);
             tvDato.setPadding(5,5,5,5);
             tvDato.setTextSize(16);
