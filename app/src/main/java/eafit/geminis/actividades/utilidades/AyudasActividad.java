@@ -32,7 +32,7 @@ public class AyudasActividad extends ActividadBase {
                 setContentView(R.layout.ayuda_punto_fijo);
                 break;
             case "newton":
-                setContentView(R.layout.ayuda_newtown);
+                setContentView(R.layout.ayuda_newton);
                 break;
             case "secante":
                 setContentView(R.layout.ayuda_secante);

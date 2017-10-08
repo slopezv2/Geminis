@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="eafit.geminis.actividades.ecuacionesunavariable.PuntoFijoActividad">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Punto Fijo"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Este método parte de la ecuación f(x)=0, para generar x=g(x), al cual el método busca la solución. Para determinar g(x), que se hace clara alguna x de la ecuación original f(x). Para encontrar la solución a la ecuación x=g(x), se está buscando un valor de x en g para reemplazar el resultado es el mismo x, es decir x no busque un cambio en la función g."
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="En la relación gráfica que existe entre las ecuaciones f(x)=0 y x=g(x) podemos ver que, desde un punto de vista geométrico, el problema cambia. Para resolver la ecuación f(x)=0, buscamos un valor para x en la función y=f(x) que corte el eje x, mientras que para resolver la ecuación x=g(x) la intersección se busca la línea y=x y la curva y=g(x)."
+            />
+
+    </LinearLayout>
+
+</ScrollView>

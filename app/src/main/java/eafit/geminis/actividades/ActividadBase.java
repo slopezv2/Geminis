@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.Gravity;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.Format;
 import java.util.ArrayList;
 
 import eafit.geminis.R;
@@ -100,13 +103,19 @@ public abstract class ActividadBase extends Activity {
         ViewGroup.LayoutParams parametros_fila = filaEmcabezados.getLayoutParams();
         TableRow nuevaFila = new TableRow(contexto);
         String[] elementosIteracion = fila.split(" ");
-//        DecimalFormat formateador = new DecimalFormat("0.0E0");
-//        elementosIteracion[elementosIteracion.length-1] = formateador.format(elementosIteracion[elementosIteracion.length-1]);
+//        DecimalFormat myFormatter = new DecimalFormat("##.##E");
+//        String output = myFormatter.format(elementosIteracion[elementosIteracion.length-1]);
+//        elementosIteracion[elementosIteracion.length-1] = output;
+
+//        Format format = new DecimalFormat("0.0E0");
+//        elementosIteracion[elementosIteracion.length-1] = format.format(elementosIteracion[elementosIteracion.length-1]);
         for(String elemento: elementosIteracion){
 
             TextView tvDato = new TextView(contexto);
             tvDato.setPadding(5,5,5,5);
-            tvDato.setTextSize(15);
+            tvDato.setTextSize(16);
+            tvDato.setBackgroundResource(R.drawable.border);
+            tvDato.setTextColor(Color.rgb(126,138,151));
             tvDato.setGravity(Gravity.START);
             tvDato.setText(elemento);
             nuevaFila.addView(tvDato);

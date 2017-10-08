@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="eafit.geminis.actividades.utilidades.GraficadorEntradaActividad">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Graficador"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El graficador de funciones es implementado gracias a una librería que nos ayuda a graficar líneas en detalle. De forma predeterminada, se traza una línea entre los puntos de datos individuales, no importa cuánto espacio se encuentre entre los puntos de datos."
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="La entrada de las funciones se realiza de la siguiente manera:"
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="NombreFuncion (f, g, h, …)->FuncionAGraficar"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text=" El número de puntos hace referencia a los puntos que serán graficados, deben ser valores enteros y mayores que cero."
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Una vez se pulsa sobre el botón GRAFICAR el resultado obtenido es mostrado."
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Si se desean ingresar más funciones, se ingresan por cada linea con el formato correspondiente."
+            />
+
+    </LinearLayout>
+
+</ScrollView>

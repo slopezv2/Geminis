@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="eafit.geminis.actividades.ecuacionesunavariable.NewtonActividad">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        style="@style/titulos_metodos_entrada"
+        android:text="Ayuda Newton"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:fontFamily="@string/font_family_medium"/>
+
+    <TextView
+        style="@style/texto_ayudas"
+        android:text="Es un método abierto derivado del método de punto fijo, que tiene como objetivo hallar una raíz en la función f(x)=0. La diferencia entre punto fijo y newton radica en su función g(x), la cual en newton siempre va a tener la forma xn+1 = xn–(f(xn)/f’(xn)), siendo xn+1 el punto de corte con el eje X de la recta tangente."
+        />
+
+    <TextView
+        style="@style/texto_ayudas"
+        android:text="Este método al igual que punto fijo recibirá un valor inicial con el cual se comenzará a hacer la sucesión de valores, una tolerancia para saber cuál va a ser el margen de error de la solución y un número de iteraciones que debe ser mayor a cero para saber cuándo parar."
+        />
+
+</LinearLayout>
+
+</ScrollView>

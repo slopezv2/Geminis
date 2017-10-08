@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="eafit.geminis.actividades.ecuacionesunavariable.SecanteActividad">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Secante"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El método de la secante es una variante de newton y a su vez de punto fijo, es el único de los métodos abiertos que cuenta con dos entradas iniciales las cuales se utilizan para trazar rectas secantes para así hallar una aproximación de alguna de las raíces de la ecuación f(x)=0 con la siguiente fórmula."
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/form_secante"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Otras entradas que tiene el método son la tolerancia y número de iteraciones que nos servirán para tener una idea del margen de error que queremos y cuando queremos que pare para no prolongar la búsqueda de la raíz."
+            />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Note que este método utiliza la misma fórmula iterativa que el método de regla falsa por lo tanto gráficamente funcionan de igual manera."
+            />
+
+    </LinearLayout>
+
+</ScrollView>

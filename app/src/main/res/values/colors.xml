@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#26418f</color>
     <color name="colorPrimaryLight">#8e99f3</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="blackColor">#000000</color>
     <color name="fondoTabla">#E6EAEE</color>
     <color name="botones_calcular">#004C99</color>
     <color name="botones_menu_una_variable">#a4a4a4</color>
