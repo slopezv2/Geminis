@@ -13,8 +13,9 @@
         android:text="@string/titulo_sistema_ecuaciones"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/tamanio_titulos"
+        android:textSize="24sp"
         android:textAlignment="center"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"/>
+        android:fontFamily="@string/font_family_regular" />
+
 </android.support.constraint.ConstraintLayout>

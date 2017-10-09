@@ -14,11 +14,12 @@
         <TextView
             style="@style/titulos_metodos_entrada"
             android:text="@string/titulo_punto_fijo"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="@string/font_family_medium" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_funcion_punto_fijo"
             android:text="@string/entrada_funcion" />
 
@@ -29,8 +30,7 @@
             android:hint="@string/pista_ecuaciones_una_variable" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_funcion_g_punto_fijo"
             android:text="@string/entrada_funcion_g" />
 
@@ -41,8 +41,7 @@
             android:hint="@string/pista_ecuaciones_una_variable" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_iteraciones_punto_fijo"
             android:text="@string/entrada_iteraciones" />
 
@@ -54,8 +53,7 @@
             android:inputType="number" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_xinicial_punto_fijo"
             android:text="@string/entrada_valor_inicial" />
 
@@ -67,8 +65,7 @@
             android:inputType="numberDecimal|numberSigned" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_tol_punto_fijo"
             android:text="@string/entrada_tol" />
 
@@ -80,8 +77,10 @@
             android:inputType="numberDecimal" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="15sp"
             android:labelFor="@+id/tipo_error_punto_fijo"
             android:text="@string/entrada_tipoError" />
 
@@ -90,7 +89,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textOff="Error Relativo"
-            android:textOn="Error Absoluto" />
+            android:textOn="Error Absoluto"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:fontFamily="@string/font_family_medium"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp" />
 
         <Button
             android:id="@+id/bt_calcular_punto_fijo"
@@ -100,12 +104,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:labelFor="@+id/resultado_punto_fijo"
-            android:text="@string/resultado" />
+            android:text="@string/resultado"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/resultado_punto_fijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/blackColor"
             android:enabled="false" />
 
         <HorizontalScrollView
@@ -114,44 +123,31 @@
 
             <TableLayout
                 android:id="@+id/tabla_punto_fijo"
-
-                style="@style/tabla"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margen_abajo_entrada"
-                android:stretchColumns="*">
+                style="@style/tabla">
 
                 <TableRow
                     android:id="@+id/fila_titulo_punto_fijo"
-                    style="@style/columna"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    style="@style/columna">
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text="n" />
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text="Xn" />
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text="f(Xn)" />
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text="Error" />
                 </TableRow>
             </TableLayout>
         </HorizontalScrollView>
+
     </LinearLayout>
+
 </ScrollView>

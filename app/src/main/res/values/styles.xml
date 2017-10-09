@@ -56,7 +56,9 @@
     <style name="tabla">
         <!--<item name="android:background">@android:drawable/picture_frame</item>-->
         <!--<item name="android:background">@color/botones_calcular</item>-->
-        <item name="android:layout_margin">@dimen/margen_abajo_entrada</item>
+        <!--<item name="android:layout_margin">@dimen/margen_abajo_entrada</item>-->
+        <item name="android:layout_marginTop">@dimen/margen_abajo_entrada</item>
+        <item name="android:layout_marginBottom">25dp</item>
         <item name="android:stretchColumns">*</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>

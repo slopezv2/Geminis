@@ -13,23 +13,30 @@
         android:id="@+id/entrada_graficador_layout"
         android:orientation="vertical"
         android:layout_margin="@dimen/margen_abajo_entrada">
-        <TextView
+        <!--<TextView
             style="@style/titulos_metodos_entrada"
             android:text="Graficador"
-            android:textAlignment="center" />
-        <TextView
+            android:textAlignment="center" />-->
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:src="@drawable/line_graph"
+            android:scaleType="center"/>
+
+        <TextView
+            style="@style/titulos_entrada_metodos"
             android:textAlignment="center"
             android:text="@string/pista_funcion_f"
-            android:layout_margin="@dimen/margen_abajo_entrada"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
             android:labelFor="@+id/et_funciones"/>
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pista_entrada_funciones"
-            android:layout_margin="@dimen/margen_abajo_entrada"
-            />
+            style="@style/titulos_entrada_metodos"
+            android:textSize="13sp"
+            android:layout_marginTop="3dp"
+            android:text="@string/pista_entrada_funciones" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,38 +44,40 @@
             android:minLines="3"
             android:layout_weight="1"
             android:id="@+id/et_funciones"/>
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
+            android:textSize="13sp"
+            android:layout_marginTop="3dp"
             android:text="@string/sp_entrada"
-            android:layout_margin="@dimen/margen_abajo_entrada"
             android:labelFor="@+id/sp_historico_funciones"/>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:id="@+id/sp_historico_funciones"
-            android:layout_margin="@dimen/margen_abajo_entrada"
-            />
+            android:layout_margin="@dimen/margen_abajo_entrada" />
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
+            android:textSize="13sp"
+            android:layout_marginTop="3dp"
             android:text="@string/nro_de_puntos"
-            android:labelFor="@+id/et_puntos"
-            android:layout_margin="@dimen/margen_abajo_entrada"/>
+            android:labelFor="@+id/et_puntos" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_puntos"
-            android:inputType="number"
-            />
+            android:inputType="number" />
 
         <Button
             style="@style/botones_calcular"
             android:id="@+id/bt_graficar"
             android:text="@string/texto_btgraficar"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
+
     </LinearLayout>
 
 </ScrollView>

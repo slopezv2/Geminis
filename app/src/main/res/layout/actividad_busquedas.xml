@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eafit.geminis.actividades.ecuacionesunavariable.BusquedasActividad">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,10 +13,11 @@
         <TextView
             style="@style/titulos_metodos_entrada"
             android:textAlignment="center"
-            android:text="@string/titulo_busquedas_incrementales" />
+            android:textSize="20sp"
+            android:text="@string/titulo_busquedas_incrementales"
+            android:fontFamily="@string/font_family_medium" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:text="@string/entrada_funcion"
             android:labelFor="@+id/entrada_funcion_busquedas"/>
         <EditText
@@ -25,30 +26,25 @@
             android:hint="@string/pista_ecuaciones_una_variable"
             android:id="@+id/entrada_funcion_busquedas"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:text="@string/entrada_iteraciones"
             android:labelFor="@+id/entrada_iteraciones_busquedas"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/entrada_iteraciones_busquedas"
-            android:hint="@string/pista_iteraciones"
-            />
+            android:hint="@string/pista_iteraciones" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:text="@string/entrada_delta"
             android:labelFor="@+id/entrada_delta_busquedas"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/entrada_delta_busquedas"
-            android:hint="@string/pista_delta"
-            />
+            android:hint="@string/pista_delta" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_entrada_metodos"
             android:text="@string/entrada_valor_inicial"
             android:labelFor="@+id/entrada_valor_inicial_busquedas"/>
         <EditText
@@ -65,12 +61,16 @@
             android:layout_height="wrap_content"
             android:text="@string/resultado"
             android:textStyle="bold"
+            android:textAllCaps="true"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
             android:labelFor="@+id/resultado_busquedas"/>
 
         <EditText
             android:id="@+id/resultado_busquedas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/blackColor"
             android:enabled="false" />
 
         <HorizontalScrollView
@@ -83,30 +83,24 @@
 
                 <TableRow
                     style="@style/columna"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/fila_titulo_busquedas">
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text="n"
                         />
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text="x0" />
 
                     <TextView
                         style="@style/itemColumna"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:text="f(x0)" />
                 </TableRow>
             </TableLayout>
         </HorizontalScrollView>
+
     </LinearLayout>
+
 </ScrollView>
