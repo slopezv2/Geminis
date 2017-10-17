@@ -25,7 +25,7 @@ public final class Matriz {
         x[n] = ab[n][n+1].divide(ab[n][n],32,BigDecimal.ROUND_HALF_UP);
         for(int i = n-1;i>=1;--i){
             BigDecimal sumatoria=new BigDecimal(0);
-            for(int p = i+1; i <= n;++i){
+            for(int p = i+1; p <= n;++p){
                 sumatoria = sumatoria.add(ab[i][p].multiply(x[p]));
             }
             x[i]= (ab[i][n+1].subtract(sumatoria).divide(ab[i][i],32,BigDecimal.ROUND_HALF_UP));

@@ -14,7 +14,7 @@ public class EliminacionGaussianaSimple {
         for (int k =1; k <= n-1;++k){
             for(int i = k+1; i <= n;++i){
                 BigDecimal multiplicador = ab[i][k].divide(ab[k][k],32,BigDecimal.ROUND_HALF_UP);
-                for(int j = k; j <= n+1;++k){
+                for(int j = k; j <= n+1;++j){
                     ab[i][j] = ab[i][j].subtract(multiplicador.multiply(ab[k][j]));
                 }
             }
