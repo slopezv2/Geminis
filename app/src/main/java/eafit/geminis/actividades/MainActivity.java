@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import eafit.geminis.R;
@@ -17,6 +18,7 @@ public class MainActivity extends ActividadBase {
 
     private static ListView listaMetodos;
     private static String[] metodos;
+    private Button btBorrarFunciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,13 @@ public class MainActivity extends ActividadBase {
         listaMetodos = (ListView) findViewById(R.id.listaMetodos);
         metodos = getResources().getStringArray(R.array.OpcionesMenuInicio);
         inicializarLista();
+        btBorrarFunciones =(Button) findViewById(R.id.bt_borrar_funciones);
+        btBorrarFunciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                borrarFunciones();
+            }
+        });
     }
 
     private void inicializarLista(){

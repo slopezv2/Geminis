@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -23,9 +25,12 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.Format;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import eafit.geminis.R;
 import eafit.geminis.actividades.utilidades.AyudasActividad;
+import eafit.geminis.utilidades.ErrorMetodo;
+import eafit.geminis.utilidades.Guardado;
 import eafit.geminis.utilidades.Respuesta;
 
 public abstract class ActividadBase extends Activity {
@@ -127,5 +132,24 @@ public abstract class ActividadBase extends Activity {
             nuevaFila.addView(tvDato);
         }
         tabla.addView(nuevaFila);
+    }
+    protected void guardarFuncion(String funcion){
+        boolean res = Guardado.guardarFuncion(contexto,funcion);
+        if (!res){
+            Toast.makeText(contexto, ErrorMetodo.NO_GUARDO_FUNCION,Toast.LENGTH_SHORT).show();
+        }
+    }
+    protected void recuperarFunciones(AutoCompleteTextView ed){
+        String[] funciones = Guardado.recuperarFunciones(contexto);
+        if (funciones != null && funciones[0].compareTo("")!=0){
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(contexto,android.R.layout.simple_dropdown_item_1line,funciones);
+            ed.setAdapter(adaptador);
+        }
+    }
+    protected void borrarFunciones(){
+        boolean res =Guardado.Borrar(contexto);
+        if (!res){
+            Toast.makeText(contexto, ErrorMetodo.NO_BORRADO_FUNCION,Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -8,6 +8,7 @@ import android.os.Debug;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -23,11 +24,13 @@ import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.ecuacionesunavariable.BusquedaIncremental;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
+import eafit.geminis.utilidades.TipoRespuesta;
 
 public class BusquedasActividad extends ActividadBase {
     private TableLayout tabla;
     private TableRow filaEmcabezados;
-    private EditText funcion,iteraciones,delta,valorInicial,resultados;
+    private EditText iteraciones,delta,valorInicial,resultados;
+    private AutoCompleteTextView funcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +40,7 @@ public class BusquedasActividad extends ActividadBase {
         this.tabla = (TableLayout)findViewById(R.id.tabla_busquedas);
         this.filaEmcabezados = (TableRow)findViewById(R.id.fila_titulo_busquedas);
         Button btCalcular = (Button) findViewById(R.id.bt_calcular_busquedas);
-        funcion = (EditText) findViewById(R.id.entrada_funcion_busquedas);
+        funcion = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_busquedas);
         iteraciones = (EditText) findViewById(R.id.entrada_iteraciones_busquedas);
         delta = (EditText) findViewById(R.id.entrada_delta_busquedas);
         valorInicial = (EditText) findViewById(R.id.entrada_valor_inicial_busquedas);
@@ -48,6 +51,8 @@ public class BusquedasActividad extends ActividadBase {
                 buscar();
             }
         });
+        recuperarFunciones(funcion);
+        funcion.setThreshold(2);
     }
     private void buscar(){
         String stFuncion = funcion.getText().toString();
@@ -87,6 +92,9 @@ public class BusquedasActividad extends ActividadBase {
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,filaEmcabezados,resultados);
+            if (respuesta.getTipo() != TipoRespuesta.Error) {
+                guardarFuncion(funcion.getText().toString());
+            }
         }
     }
 }

@@ -28,10 +28,16 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:dividerHeight="3dp"
         android:id="@+id/listaMetodos"
         >
     </ListView>
+    <Button
+        android:layout_margin="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_borrar_historico_funciones"
+        android:id="@+id/bt_borrar_funciones"/>
 </LinearLayout>
