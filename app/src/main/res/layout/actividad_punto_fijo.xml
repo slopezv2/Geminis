@@ -23,22 +23,24 @@
             android:labelFor="@+id/entrada_funcion_punto_fijo"
             android:text="@string/entrada_funcion" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/entrada_funcion_punto_fijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/pista_ecuaciones_una_variable" />
+            android:hint="@string/pista_ecuaciones_una_variable"
+            android:theme="@style/Autocomplete"/>
 
         <TextView
             style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_funcion_g_punto_fijo"
             android:text="@string/entrada_funcion_g" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/entrada_funcion_g_punto_fijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/pista_ecuaciones_una_variable" />
+            android:hint="@string/pista_ecuaciones_una_variable"
+            android:theme="@style/Autocomplete"/>
 
         <TextView
             style="@style/titulos_entrada_metodos"

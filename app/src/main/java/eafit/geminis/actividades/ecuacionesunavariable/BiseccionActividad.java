@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -25,11 +26,13 @@ import eafit.geminis.metodos.ecuacionesunavariable.Biseccion;
 import eafit.geminis.metodos.ecuacionesunavariable.BusquedaIncremental;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
+import eafit.geminis.utilidades.TipoRespuesta;
 
 public class BiseccionActividad extends ActividadBase {
     private TableLayout tabla;
     private TableRow filaEmcabezados;
-    private EditText funcion,iteraciones,Xini,XSup,resultados,tolerancia;
+    private EditText iteraciones,Xini,XSup,resultados,tolerancia;
+    private AutoCompleteTextView funcion;
     private ToggleButton tipoError;
     private boolean esErrorAbsoluto = false;
     @Override
@@ -39,7 +42,7 @@ public class BiseccionActividad extends ActividadBase {
         setContentView(R.layout.actividad_biseccion);
         tabla = (TableLayout) findViewById(R.id.tabla_biseccion);
         filaEmcabezados = (TableRow) findViewById(R.id.fila_titulo_biseccion);
-        funcion = (EditText) findViewById(R.id.entrada_funcion_biseccion);
+        funcion = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_biseccion);
         iteraciones = (EditText) findViewById(R.id.entrada_iteraciones_biseccion);
         Xini = (EditText) findViewById(R.id.entrada_xinicial_biseccion);
         XSup = (EditText) findViewById(R.id.entrada_xsuperior_biseccion);
@@ -56,14 +59,12 @@ public class BiseccionActividad extends ActividadBase {
         tipoError.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    esErrorAbsoluto = true;
-                } else {
-                    esErrorAbsoluto = false;
-                }
+                esErrorAbsoluto = isChecked;
 
             }
         });
+        recuperarFunciones(funcion);
+        funcion.setThreshold(2);
     }
     private void buscar(){
         String stFuncion = funcion.getText().toString();
@@ -105,6 +106,9 @@ public class BiseccionActividad extends ActividadBase {
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,filaEmcabezados,resultados);
+            if (respuesta.getTipo() != TipoRespuesta.Error) {
+                guardarFuncion(funcion.getText().toString());
+            }
         }
     }
 }

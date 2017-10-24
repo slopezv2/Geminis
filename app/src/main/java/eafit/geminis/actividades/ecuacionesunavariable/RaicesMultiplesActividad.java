@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -20,21 +21,23 @@ import eafit.geminis.metodos.ecuacionesunavariable.Newton;
 import eafit.geminis.metodos.ecuacionesunavariable.RaizMultiple;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
+import eafit.geminis.utilidades.TipoRespuesta;
 
 public class RaicesMultiplesActividad extends ActividadBase {
-    private EditText entradaFx, entradaFPx,entradaF2Px,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
+    private EditText entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
     private boolean esAbsoluto = false;
     private EditText resultados;
     private TableLayout tabla;
     private TableRow encabezado;
+    private AutoCompleteTextView  entradaFx, entradaFPx,entradaF2Px;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_raices_multiples);
         ayudaAmostrar = "raices_multiples";
-        entradaFx = (EditText) findViewById(R.id.entrada_funcion_raices_multiples);
-        entradaFPx = (EditText) findViewById(R.id.entrada_funcion_p_raices_multiples);
-        entradaF2Px = (EditText) findViewById(R.id.entrada_funcion_p_2_raices_multiples);
+        entradaFx = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_raices_multiples);
+        entradaFPx = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_p_raices_multiples);
+        entradaF2Px = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_p_2_raices_multiples);
         entradaIteraciones = (EditText) findViewById(R.id.entrada_iteraciones_raices_multiples);
         entradaPuntoInicial = (EditText) findViewById(R.id.entrada_xinicial_raices_multiples);
         entradaTolerancia = (EditText) findViewById(R.id.entrada_tol_raices_multiples);
@@ -55,6 +58,12 @@ public class RaicesMultiplesActividad extends ActividadBase {
                 esAbsoluto = isChecked;
             }
         });
+        recuperarFunciones(entradaFx);
+        entradaFx.setThreshold(2);
+        recuperarFunciones(entradaFPx);
+        entradaFPx.setThreshold(2);
+        recuperarFunciones(entradaF2Px);
+        entradaF2Px.setThreshold(2);
     }
     private void buscar(){
         String stFuncion = entradaFx.getText().toString();
@@ -102,6 +111,11 @@ public class RaicesMultiplesActividad extends ActividadBase {
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,encabezado,resultados);
+            if (respuesta.getTipo() != TipoRespuesta.Error) {
+                guardarFuncion(entradaFx.getText().toString());
+                guardarFuncion(entradaF2Px.getText().toString());
+                guardarFuncion(entradaFPx.getText().toString());
+            }
         }
     }
 }

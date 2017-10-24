@@ -52,12 +52,6 @@
             android:text="@string/sp_entrada"
             android:labelFor="@+id/sp_historico_funciones"/>
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:id="@+id/sp_historico_funciones"
-            android:layout_margin="@dimen/margen_abajo_entrada" />
 
         <TextView
             style="@style/titulos_entrada_metodos"

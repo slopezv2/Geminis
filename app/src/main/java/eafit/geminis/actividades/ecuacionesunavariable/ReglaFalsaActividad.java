@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -19,11 +20,13 @@ import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.ecuacionesunavariable.Biseccion;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
+import eafit.geminis.utilidades.TipoRespuesta;
 
 public class ReglaFalsaActividad extends ActividadBase {
     private TableLayout tabla;
     private TableRow filaEmcabezados;
-    private EditText funcion,iteraciones,Xini,XSup,resultados,tolerancia;
+    private EditText iteraciones,Xini,XSup,resultados,tolerancia;
+    private AutoCompleteTextView funcion;
     private ToggleButton tipoError;
     private boolean esErrorAbsoluto = false;
     @Override
@@ -33,7 +36,7 @@ public class ReglaFalsaActividad extends ActividadBase {
         setContentView(R.layout.actividad_regla_falsa);
         tabla = (TableLayout) findViewById(R.id.tabla_regla_falsa);
         filaEmcabezados = (TableRow) findViewById(R.id.fila_titulo_regla_falsa);
-        funcion = (EditText) findViewById(R.id.entrada_funcion_regla_falsa);
+        funcion = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_regla_falsa);
         iteraciones = (EditText) findViewById(R.id.entrada_iteraciones_regla_falsa);
         Xini = (EditText) findViewById(R.id.entrada_xinicial_regla_falsa);
         XSup = (EditText) findViewById(R.id.entrada_xsuperior_regla_falsa);
@@ -54,6 +57,8 @@ public class ReglaFalsaActividad extends ActividadBase {
 
             }
         });
+        recuperarFunciones(funcion);
+        funcion.setThreshold(2);
     }
     private void buscar(){
         String stFuncion = funcion.getText().toString();
@@ -95,6 +100,9 @@ public class ReglaFalsaActividad extends ActividadBase {
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,filaEmcabezados,resultados);
+            if (respuesta.getTipo() != TipoRespuesta.Error) {
+                guardarFuncion(funcion.getText().toString());
+            }
         }
     }
 

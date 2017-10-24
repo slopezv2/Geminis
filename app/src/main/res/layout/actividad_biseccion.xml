@@ -19,11 +19,12 @@
             style="@style/titulos_entrada_metodos"
             android:text="@string/entrada_funcion"
             android:labelFor="@+id/entrada_funcion_biseccion"/>
-        <EditText
+        <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/pista_ecuaciones_una_variable"
-            android:id="@+id/entrada_funcion_biseccion"/>
+            android:id="@+id/entrada_funcion_biseccion"
+            android:theme="@style/Autocomplete"/>
         <TextView
             style="@style/titulos_entrada_metodos"
             android:text="@string/entrada_iteraciones"

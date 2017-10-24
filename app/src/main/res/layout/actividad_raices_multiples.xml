@@ -23,33 +23,36 @@
             android:labelFor="@+id/entrada_funcion_raices_multiples"
             android:text="@string/entrada_funcion" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/entrada_funcion_raices_multiples"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/pista_ecuaciones_una_variable" />
+            android:hint="@string/pista_ecuaciones_una_variable"
+            android:theme="@style/Autocomplete"/>
 
         <TextView
             style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_funcion_p_raices_multiples"
             android:text="@string/entrada_funcion_prima" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/entrada_funcion_p_raices_multiples"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/pista_ecuaciones_una_variable" />
+            android:hint="@string/pista_ecuaciones_una_variable"
+            android:theme="@style/Autocomplete"/>
 
         <TextView
             style="@style/titulos_entrada_metodos"
             android:labelFor="@+id/entrada_funcion_p_2_raices_multiples"
             android:text="@string/entrada_funcion_2_prima" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/entrada_funcion_p_2_raices_multiples"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/pista_ecuaciones_una_variable" />
+            android:hint="@string/pista_ecuaciones_una_variable"
+            android:theme="@style/Autocomplete"/>
 
         <TextView
             style="@style/titulos_entrada_metodos"

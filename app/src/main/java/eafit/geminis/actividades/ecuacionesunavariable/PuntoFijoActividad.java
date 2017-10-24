@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -20,20 +21,22 @@ import eafit.geminis.metodos.ecuacionesunavariable.Biseccion;
 import eafit.geminis.metodos.ecuacionesunavariable.PuntoFijo;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
+import eafit.geminis.utilidades.TipoRespuesta;
 
 public class PuntoFijoActividad extends ActividadBase {
-    public EditText entradaFx, entradaGx,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
+    public EditText entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
     public boolean esAbsoluto = false;
     public EditText resultados;
     public TableLayout tabla;
     public TableRow encabezado;
+    private AutoCompleteTextView entradaFx, entradaGx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_punto_fijo);
         ayudaAmostrar="punto_fijo";
-        entradaFx = (EditText) findViewById(R.id.entrada_funcion_punto_fijo);
-        entradaGx = (EditText) findViewById(R.id.entrada_funcion_g_punto_fijo);
+        entradaFx = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_punto_fijo);
+        entradaGx = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_g_punto_fijo);
         entradaIteraciones = (EditText) findViewById(R.id.entrada_iteraciones_punto_fijo);
         entradaPuntoInicial = (EditText) findViewById(R.id.entrada_xinicial_punto_fijo);
         entradaTolerancia = (EditText) findViewById(R.id.entrada_tol_punto_fijo);
@@ -54,6 +57,10 @@ public class PuntoFijoActividad extends ActividadBase {
                 esAbsoluto = isChecked;
             }
         });
+        recuperarFunciones(entradaFx);
+        entradaFx.setThreshold(2);
+        recuperarFunciones(entradaGx);
+        entradaGx.setThreshold(2);
     }
     private void buscar(){
         String stFuncion = entradaFx.getText().toString();
@@ -95,6 +102,10 @@ public class PuntoFijoActividad extends ActividadBase {
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,encabezado,resultados);
+            if (respuesta.getTipo() != TipoRespuesta.Error) {
+                guardarFuncion(entradaFx.getText().toString());
+                guardarFuncion(entradaGx.getText().toString());
+            }
         }
     }
 }

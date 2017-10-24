@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -20,19 +21,21 @@ import eafit.geminis.metodos.ecuacionesunavariable.Newton;
 import eafit.geminis.metodos.ecuacionesunavariable.Secante;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
+import eafit.geminis.utilidades.TipoRespuesta;
 
 public class SecanteActividad extends ActividadBase {
-    public EditText entradaFx, entradaPuntoFinal,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
+    public EditText entradaPuntoFinal,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
     public boolean esAbsoluto = false;
     public EditText resultados;
     public TableLayout tabla;
     public TableRow encabezado;
+    private AutoCompleteTextView entradaFx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_secante);
         ayudaAmostrar = "secante";
-        entradaFx = (EditText) findViewById(R.id.entrada_funcion_secante);
+        entradaFx = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_secante);
         entradaPuntoFinal = (EditText) findViewById(R.id.entrada_xsuperior_secante);
         entradaIteraciones = (EditText) findViewById(R.id.entrada_iteraciones_secante);
         entradaPuntoInicial = (EditText) findViewById(R.id.entrada_xinicial_secante);
@@ -54,6 +57,8 @@ public class SecanteActividad extends ActividadBase {
                 esAbsoluto = isChecked;
             }
         });
+        recuperarFunciones(entradaFx);
+        entradaFx.setThreshold(2);
     }
     private void buscar(){
         String stFuncion = entradaFx.getText().toString();
@@ -95,6 +100,9 @@ public class SecanteActividad extends ActividadBase {
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,encabezado,resultados);
+            if (respuesta.getTipo() != TipoRespuesta.Error) {
+                guardarFuncion(entradaFx.getText().toString());
+            }
         }
     }
 }

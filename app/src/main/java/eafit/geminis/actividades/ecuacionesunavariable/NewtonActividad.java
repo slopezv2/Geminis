@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -23,19 +24,20 @@ import eafit.geminis.utilidades.Respuesta;
 import eafit.geminis.utilidades.TipoRespuesta;
 
 public class NewtonActividad extends ActividadBase {
-    private EditText entradaFx, entradaGx,entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
+    private EditText entradaIteraciones, entradaPuntoInicial, entradaTolerancia;
     private boolean esAbsoluto = false;
     private EditText resultados;
     private TableLayout tabla;
     private TableRow encabezado;
+    private AutoCompleteTextView entradaFx, entradaGx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_newton);
         ayudaAmostrar = "newton";
-        entradaFx = (EditText) findViewById(R.id.entrada_funcion_newton);
-        entradaGx = (EditText) findViewById(R.id.entrada_funcion_p_newton);
+        entradaFx = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_newton);
+        entradaGx = (AutoCompleteTextView) findViewById(R.id.entrada_funcion_p_newton);
         entradaIteraciones = (EditText) findViewById(R.id.entrada_iteraciones_newton);
         entradaPuntoInicial = (EditText) findViewById(R.id.entrada_xinicial_newton);
         entradaTolerancia = (EditText) findViewById(R.id.entrada_tol_newton);
@@ -56,6 +58,10 @@ public class NewtonActividad extends ActividadBase {
                 esAbsoluto = isChecked;
             }
         });
+        recuperarFunciones(entradaFx);
+        entradaFx.setThreshold(2);
+        recuperarFunciones(entradaGx);
+        entradaGx.setThreshold(2);
     }
     private void buscar(){
         String stFuncion = entradaFx.getText().toString();
@@ -101,6 +107,10 @@ public class NewtonActividad extends ActividadBase {
         }
         protected void onPostExecute(Respuesta respuesta) {
             tratarRespuesta(respuesta,tabla,encabezado,resultados);
+            if (respuesta.getTipo() != TipoRespuesta.Error) {
+                guardarFuncion(entradaFx.getText().toString());
+                guardarFuncion(entradaGx.getText().toString());
+            }
         }
     }
 }

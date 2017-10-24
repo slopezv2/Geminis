@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.utilidades.ErrorMetodo;
-public class GraficadorEntradaActividad extends ActividadBase implements AdapterView.OnItemSelectedListener {
-    private Spinner sp_historio_funciones;
+public class GraficadorEntradaActividad extends ActividadBase {
     private EditText et_entrada_funciones;
     private EditText et_entrada_puntos;
     @Override
@@ -24,7 +24,6 @@ public class GraficadorEntradaActividad extends ActividadBase implements Adapter
         et_entrada_funciones=(EditText) findViewById(R.id.et_funciones);
         et_entrada_puntos = (EditText) findViewById(R.id.et_puntos);
         Button bt_graficar = (Button) findViewById(R.id.bt_graficar);
-        sp_historio_funciones = (Spinner) findViewById(R.id.sp_historico_funciones);
         //Evento del boton para graficar
         bt_graficar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -59,18 +58,6 @@ public class GraficadorEntradaActividad extends ActividadBase implements Adapter
             }
         });
     }
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        //TODO
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-
-    }
-
     /**
      * Metodo para tomar los datos de la entrada
      * @param funciones es la entrada como tal
