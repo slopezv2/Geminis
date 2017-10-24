@@ -120,6 +120,11 @@ public abstract class ActividadBase extends Activity {
             DecimalFormat formateador = new DecimalFormat("0.00E0");
             String error = formateador.format(ultimo_Elemento);
             elementosIteracion[elementosIteracion.length - 1] = error;
+            if(elementosIteracion.length>3 ){
+                BigDecimal penultimo_elemento = new BigDecimal(elementosIteracion[elementosIteracion.length - 2]);
+                error = formateador.format(penultimo_elemento.doubleValue());
+                elementosIteracion[elementosIteracion.length-2] = error;
+            }
         }
         for(String elemento: elementosIteracion){
             TextView tvDato = new TextView(contexto);
