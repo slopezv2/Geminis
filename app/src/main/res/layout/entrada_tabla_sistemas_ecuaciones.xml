@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_nro_ecuaciones"
+        android:inputType="number"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_ingresar"
+        android:textAlignment="center"
+        android:id="@+id/bt_ingresar_sistemas_ecuaciones"
+        />
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/tabla_ingreso_ecuaciones_lineales">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:width="50dp"
+                    android:text="X0" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:width="50dp"
+                    android:text="X1" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:width="50dp"
+                    android:text="X2" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:width="50dp"
+                    android:text="..." />
+            </TableRow>
+        </TableLayout>
+    </HorizontalScrollView>
+</LinearLayout>

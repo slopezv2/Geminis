@@ -29,4 +29,6 @@ public class ErrorMetodo {
     public static String DENOMINADOR_CERO="Error, denominador=0";
     public static String NO_GUARDO_FUNCION="No se pudo guardar la funcion";
     public static String NO_BORRADO_FUNCION ="No se pudo borrar las funciones";
+    public static String NRO_ECUACIONES_VACIO="Por favor revise el número de ecuaciones que tiene " +
+            "el sistema, recuerde debe ser un entero positivo > 0";
 }

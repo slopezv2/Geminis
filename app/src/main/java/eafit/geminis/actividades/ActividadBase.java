@@ -157,4 +157,16 @@ public abstract class ActividadBase extends Activity {
             Toast.makeText(contexto, ErrorMetodo.NO_BORRADO_FUNCION,Toast.LENGTH_SHORT).show();
         }
     }
+    protected void generarMatrizEntrada(String nroEcuaciones, TableLayout tabla) {
+        if(nroEcuaciones.isEmpty()){
+            Toast.makeText(contexto, ErrorMetodo.NRO_ECUACIONES_VACIO,Toast.LENGTH_LONG).show();
+        }else {
+            int intEcuaciones = Integer.parseInt(nroEcuaciones);
+            if (intEcuaciones <= 0){
+                Toast.makeText(contexto, ErrorMetodo.NRO_ECUACIONES_VACIO,Toast.LENGTH_LONG).show();
+            }else {
+                //TODO
+            }
+        }
+    }
 }
