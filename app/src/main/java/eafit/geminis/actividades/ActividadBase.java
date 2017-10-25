@@ -8,10 +8,12 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -157,16 +159,52 @@ public abstract class ActividadBase extends Activity {
             Toast.makeText(contexto, ErrorMetodo.NO_BORRADO_FUNCION,Toast.LENGTH_SHORT).show();
         }
     }
-    protected void generarMatrizEntrada(String nroEcuaciones, TableLayout tabla) {
+    protected boolean generarMatrizEntrada(String nroEcuaciones, TableLayout tabla, TableRow titulo) {
         if(nroEcuaciones.isEmpty()){
             Toast.makeText(contexto, ErrorMetodo.NRO_ECUACIONES_VACIO,Toast.LENGTH_LONG).show();
+            return false;
         }else {
             int intEcuaciones = Integer.parseInt(nroEcuaciones);
             if (intEcuaciones <= 0){
                 Toast.makeText(contexto, ErrorMetodo.NRO_ECUACIONES_VACIO,Toast.LENGTH_LONG).show();
+                return false;
             }else {
-                //TODO
+                tabla.removeAllViews();
+                TableRow fila;
+                fila = new TableRow(contexto);
+                ViewGroup.LayoutParams tbParams= titulo.getLayoutParams();
+                for(int j=0;j<intEcuaciones;++j){
+                    TextView textView;
+                    textView= new TextView(this);
+                    textView.setText("x"+(j+1));
+                    textView.setPadding(5,3,5,5);
+                    textView.setGravity(Gravity.CENTER);
+                    textView.setTextSize(15);
+                    fila.addView(textView);
+                }
+                fila.setLayoutParams(tbParams);
+                tabla.addView(fila);
+                int idEditText =0;
+                for (int j=0;j<intEcuaciones;++j){
+                    TableRow fila2 = new TableRow(contexto);
+                    fila.setLayoutParams(tbParams);
+                    for (int i = 0;i< intEcuaciones;++i){
+                        EditText editText = new EditText(contexto);
+                        editText.setId(idEditText);
+                        editText.setTextSize(15);
+                        editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                        editText.setHint("0");
+                        editText.setPadding(5,3,5,5);
+                        editText.setWidth(90);
+                        editText.setTextColor(Color.BLACK);
+                        fila2.addView(editText);
+                        ++idEditText;
+                    }
+                    fila2.setLayoutParams(tbParams);
+                    tabla.addView(fila2);
+                }
             }
+            return true;
         }
     }
 }

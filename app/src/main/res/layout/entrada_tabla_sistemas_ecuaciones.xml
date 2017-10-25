@@ -14,38 +14,45 @@
         android:textAlignment="center"
         android:id="@+id/bt_ingresar_sistemas_ecuaciones"
         />
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TableLayout
-            android:layout_height="wrap_content"
+        <ScrollView
             android:layout_width="match_parent"
-            android:id="@+id/tabla_ingreso_ecuaciones_lineales">
+            android:layout_height="wrap_content">
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                    <TableLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="400dp"
+                        android:id="@+id/tabla_ingreso_ecuaciones_lineales"
+                        android:visibility="gone">
+                        <TableRow android:id="@+id/fila_titulo_matriz_entrada"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                                android:width="50dp"
+                                android:text="X0" />
 
-                <TextView
-                    android:layout_weight="1"
-                    android:width="50dp"
-                    android:text="X0" />
+                            <TextView
 
-                <TextView
-                    android:layout_weight="1"
-                    android:width="50dp"
-                    android:text="X1" />
+                                android:width="50dp"
+                                android:text="X1" />
 
-                <TextView
-                    android:layout_weight="1"
-                    android:width="50dp"
-                    android:text="X2" />
+                            <TextView
 
-                <TextView
-                    android:layout_weight="1"
-                    android:width="50dp"
-                    android:text="..." />
-            </TableRow>
-        </TableLayout>
-    </HorizontalScrollView>
+                                android:width="50dp"
+                                android:text="X2" />
+                            <TextView
+
+                                android:width="50dp"
+                                android:text="..." />
+                        </TableRow>
+                </TableLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_calcular"
+        android:id="@+id/bt_calcular_matriz"/>
 </LinearLayout>

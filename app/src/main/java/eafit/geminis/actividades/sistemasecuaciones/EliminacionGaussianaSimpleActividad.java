@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 import eafit.geminis.R;
@@ -17,18 +18,31 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
     private TableLayout tabla;
     private Button btIngresar;
     private EditText edNroEcuaciones;
+    private TableRow titulo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ayudaAmostrar = "gauss_simple";
         setContentView(R.layout.actividad_eliminacion_gaussiana_simple);
-        btIngresar = (Button) findViewById(R.id.bt_ingresar_sistemas_ecuaciones);
-        edNroEcuaciones = (EditText) findViewById(R.id.et_nro_ecuaciones);
-        tabla = (TableLayout) findViewById(R.id.tabla_ingreso_ecuaciones_lineales);
+        View resto = findViewById(R.id.resto_tabla_entrada_ecuaciones);
+        btIngresar = (Button) resto.findViewById(R.id.bt_ingresar_sistemas_ecuaciones);
+        edNroEcuaciones = (EditText) resto.findViewById(R.id.et_nro_ecuaciones);
+        tabla = (TableLayout) resto.findViewById(R.id.tabla_ingreso_ecuaciones_lineales);
+        titulo = (TableRow) resto.findViewById(R.id.fila_titulo_matriz_entrada);
+        Button calcular = (Button) resto.findViewById(R.id.bt_calcular_matriz);
+        calcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(contexto,"Hola godita",Toast.LENGTH_SHORT).show();
+                //TODO
+            }
+        });
         btIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nroEcuaciones = edNroEcuaciones.getText().toString();
-                generarMatrizEntrada(nroEcuaciones,tabla);
+                boolean operar = generarMatrizEntrada(nroEcuaciones,tabla,titulo);
+                if (operar) tabla.setVisibility(View.VISIBLE);
             }
         });
     }
