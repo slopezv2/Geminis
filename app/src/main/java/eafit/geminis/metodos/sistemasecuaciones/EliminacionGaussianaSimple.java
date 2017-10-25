@@ -9,8 +9,8 @@ import static eafit.geminis.utilidades.Matriz.formarMatrizAumentada;
  */
 
 public class EliminacionGaussianaSimple {
-    public static BigDecimal[][] metodo(BigDecimal[][]a,BigDecimal[]b,int n){
-        BigDecimal[][] ab = formarMatrizAumentada(a,b);
+    public static BigDecimal[][] metodo(BigDecimal[][]ab,int n){
+
         for (int k =1; k <= n-1;++k){
             for(int i = k+1; i <= n;++i){
                 BigDecimal multiplicador = ab[i][k].divide(ab[k][k],32,BigDecimal.ROUND_HALF_UP);

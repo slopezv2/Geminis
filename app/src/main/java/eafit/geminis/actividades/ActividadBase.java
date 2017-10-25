@@ -173,10 +173,14 @@ public abstract class ActividadBase extends Activity {
                 TableRow fila;
                 fila = new TableRow(contexto);
                 ViewGroup.LayoutParams tbParams= titulo.getLayoutParams();
-                for(int j=0;j<intEcuaciones;++j){
+                for(int j=0;j<=intEcuaciones;++j){
                     TextView textView;
                     textView= new TextView(this);
-                    textView.setText("x"+(j+1));
+                    if(j==intEcuaciones){
+                        textView.setText("b");
+                    }else {
+                        textView.setText("x" + (j + 1));
+                    }
                     textView.setPadding(5,3,5,5);
                     textView.setGravity(Gravity.CENTER);
                     textView.setTextSize(15);
@@ -188,7 +192,7 @@ public abstract class ActividadBase extends Activity {
                 for (int j=0;j<intEcuaciones;++j){
                     TableRow fila2 = new TableRow(contexto);
                     fila.setLayoutParams(tbParams);
-                    for (int i = 0;i< intEcuaciones;++i){
+                    for (int i = 0;i<= intEcuaciones;++i){
                         EditText editText = new EditText(contexto);
                         editText.setId(idEditText);
                         editText.setTextSize(15);
@@ -206,5 +210,17 @@ public abstract class ActividadBase extends Activity {
             }
             return true;
         }
+    }
+    protected BigDecimal[][] crearAB(TableLayout tabla,int nroEcuaciones) throws Exception{
+        BigDecimal[][] ab = new BigDecimal[nroEcuaciones+1][nroEcuaciones+2];
+        for (int i = 1; i <= nroEcuaciones;++i){
+            for(int j = 1;j<=nroEcuaciones+1;++j){
+                String contenido = ((EditText)((TableRow)tabla.getChildAt(i)).getChildAt(j-1))
+                        .getText().toString();
+                BigDecimal valor = new BigDecimal(Double.parseDouble(contenido));
+                ab[i][j]=valor;
+            }
+        }
+        return ab;
     }
 }

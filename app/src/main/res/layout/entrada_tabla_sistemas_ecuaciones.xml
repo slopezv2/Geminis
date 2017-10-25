@@ -46,6 +46,10 @@
 
                                 android:width="50dp"
                                 android:text="..." />
+                            <TextView
+
+                                android:width="50dp"
+                                android:text="b1" />
                         </TableRow>
                 </TableLayout>
             </HorizontalScrollView>

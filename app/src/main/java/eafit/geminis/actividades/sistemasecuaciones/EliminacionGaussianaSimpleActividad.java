@@ -9,9 +9,13 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
+
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
+import eafit.geminis.metodos.sistemasecuaciones.EliminacionGaussianaSimple;
 import eafit.geminis.utilidades.ErrorMetodo;
+import eafit.geminis.utilidades.Matriz;
 
 public class EliminacionGaussianaSimpleActividad extends ActividadBase {
     private String[] entrada;
@@ -19,6 +23,8 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
     private Button btIngresar;
     private EditText edNroEcuaciones;
     private TableRow titulo;
+    private int nroEcuaciones=0;
+    private BigDecimal[][] ab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,16 +39,26 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(contexto,"Hola godita",Toast.LENGTH_SHORT).show();
+                try {
+                    ab = crearAB(tabla,nroEcuaciones);
+                } catch (Exception e) {
+                    Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
+                    return;
+                }
+                BigDecimal[][] resultadoAb = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones);
+                BigDecimal[] xDespejadas = Matriz.sustitucionRegresiva(resultadoAb,nroEcuaciones);
                 //TODO
             }
         });
         btIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nroEcuaciones = edNroEcuaciones.getText().toString();
-                boolean operar = generarMatrizEntrada(nroEcuaciones,tabla,titulo);
-                if (operar) tabla.setVisibility(View.VISIBLE);
+                String nro = edNroEcuaciones.getText().toString();
+                boolean operar = generarMatrizEntrada(nro,tabla,titulo);
+                if (operar) {
+                    tabla.setVisibility(View.VISIBLE);
+                    nroEcuaciones = Integer.parseInt(nro);
+                }
             }
         });
     }

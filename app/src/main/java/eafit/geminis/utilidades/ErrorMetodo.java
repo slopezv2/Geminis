@@ -31,4 +31,6 @@ public class ErrorMetodo {
     public static String NO_BORRADO_FUNCION ="No se pudo borrar las funciones";
     public static String NRO_ECUACIONES_VACIO="Por favor revise el número de ecuaciones que tiene " +
             "el sistema, recuerde debe ser un entero positivo > 0";
+    public static String ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES="Por favor verifique cada valor " +
+            "pasado a la tabla";
 }
