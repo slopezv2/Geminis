@@ -247,6 +247,7 @@ public abstract class ActividadBase extends Activity {
         int limite = AB[1].length;
         for(int i = 1; i < limite;++i){
             TextView tv = new TextView(contexto);
+            tv.setWidth(50);
             if(i != limite-1) {
                 tv.setText("X" + i);
             }else {
@@ -266,7 +267,8 @@ public abstract class ActividadBase extends Activity {
         }
     }
     protected void escribirSalidaX(BigDecimal[] lasx, LinearLayout destino){
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
         destino.removeAllViews();
         for(int i = 1;i<lasx.length;++i){
             TextView tv = new TextView(contexto);

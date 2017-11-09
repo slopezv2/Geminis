@@ -7,19 +7,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.math.BigDecimal;
 
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
+import eafit.geminis.metodos.sistemasecuaciones.EliminacionGaussianaSimple;
+import eafit.geminis.metodos.sistemasecuaciones.GaussConPivoteo;
+import eafit.geminis.utilidades.ErrorMetodo;
+import eafit.geminis.utilidades.TipoPivoteo;
 
 public class PivoteoGaussActividad extends ActividadBase {
     private TableLayout tabla, tablaSalida;
     private Button btIngresar, btSiguiente;
+    private TextView tvIteracion;
     private EditText edNroEcuaciones;
     private TableRow titulo, tituloSalida;
     private int nroEcuaciones=0;
-    private int actual = 0;
+    private int actual = 1;
     private Button salir, calcular;
     private BigDecimal[][] ab;
     @Override
@@ -32,6 +39,7 @@ public class PivoteoGaussActividad extends ActividadBase {
         // Inicializacion elementos
         tablaSalida = (TableLayout) findViewById(R.id.tabla_resultados_ab);
         tituloSalida = (TableRow) findViewById(R.id.encabezado_tabla_resultados_ab);
+        tvIteracion = (TextView) findViewById(R.id.iteracion_gauss_pivote);
         salir = (Button) findViewById(R.id.bt_salir_pivote);
         btIngresar = (Button) resto.findViewById(R.id.bt_ingresar_sistemas_ecuaciones);
         edNroEcuaciones = (EditText) resto.findViewById(R.id.et_nro_ecuaciones);
@@ -48,7 +56,7 @@ public class PivoteoGaussActividad extends ActividadBase {
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calcularResultado(actual);
+                calcularResultado();
             }
         });
         btIngresar.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +71,48 @@ public class PivoteoGaussActividad extends ActividadBase {
                 }
             }
         });
+        btSiguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                siguiente();
+            }
+        });
     }
 
-    private void calcularResultado(int actual) {
+    private void siguiente() {
+        //TODO
+        if (actual<ab.length) {
+            try {
+                ab = GaussConPivoteo.metodo(ab, actual, ab.length - 1, TipoPivoteo.PARCIAL);
+            } catch (Exception e) {
+                Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_LONG).show();
+                btSiguiente.setEnabled(false);
+                return;
+            }
+            escribirSalidaAB(ab, tablaSalida, tituloSalida);
+            actual++;
+            tvIteracion.setText("Iteración: "+actual);
+            if(actual==ab.length-1){
+                //TODO
+                //despeje y mostrar ecuaciones
+            }
+        }else {
+            btSiguiente.setEnabled(false);
+        }
+    }
+
+    private void calcularResultado() {
+        //TODO
+        this.actual = 1;
+        tvIteracion.setText("Iteración: "+actual);
+        btSiguiente.setEnabled(true);
+        try {
+            ab = crearAB(tabla,nroEcuaciones);
+        } catch (Exception e) {
+            Toast.makeText(contexto, ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
+            return;
+        }
+        escribirSalidaAB(ab,tablaSalida,tituloSalida);
         btSiguiente.setVisibility(View.VISIBLE);
         tablaSalida.setVisibility(View.VISIBLE);
     }

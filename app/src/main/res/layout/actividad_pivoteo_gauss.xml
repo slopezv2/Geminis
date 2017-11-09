@@ -55,11 +55,16 @@
                 </TableRow>
             </TableLayout>
         </HorizontalScrollView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/iteracionnro"
+            android:id="@+id/iteracion_gauss_pivote"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bt_siguiente_pivoteo"
-            android:text="Siguiente"
+            android:text="@string/bt_siguiente"
             android:visibility="gone"/>
         <Button
             android:layout_width="match_parent"

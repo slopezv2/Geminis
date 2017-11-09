@@ -55,4 +55,6 @@
         <item>Pivoteo Total</item>
     </string-array>
     <string name="entrada_tipo_pivoteo">Seleccione el tipo de pivoteo a emplear</string>
+    <string name="bt_siguiente">Siguiente</string>
+    <string name="iteracionnro">Iteración:</string>
 </resources>
