@@ -54,4 +54,14 @@ public final class Matriz {
         ab[origen] = aux;
         return ab;
     }
+
+    public static BigDecimal[][] intercambiarColumnas(BigDecimal[][] ab, int columnaMayor, int k) {
+        //TODO
+        return null;
+    }
+
+    public static int[] intercambiarMarcas(int[] marcas, int columnaMayor, int k) {
+        //TODO
+        return null;
+    }
 }

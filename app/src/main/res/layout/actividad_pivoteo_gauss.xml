@@ -60,6 +60,32 @@
             android:layout_height="wrap_content"
             android:text="@string/iteracionnro"
             android:id="@+id/iteracion_gauss_pivote"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/salidas_x_simple">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="X1:"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="X2:"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="X3:"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="X4:"
+                android:textAlignment="center"/>
+        </LinearLayout>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,5 +97,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/bt_salir_pivote"
             android:text="Salir"/>
+
     </LinearLayout>
 </ScrollView>

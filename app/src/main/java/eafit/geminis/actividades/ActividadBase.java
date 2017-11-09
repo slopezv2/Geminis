@@ -247,7 +247,7 @@ public abstract class ActividadBase extends Activity {
         int limite = AB[1].length;
         for(int i = 1; i < limite;++i){
             TextView tv = new TextView(contexto);
-            tv.setWidth(50);
+            tv.setWidth(150);
             if(i != limite-1) {
                 tv.setText("X" + i);
             }else {
@@ -261,6 +261,9 @@ public abstract class ActividadBase extends Activity {
             for(int j = 1;j < AB[i].length;++j){
                 TextView tv = new TextView(contexto);
                 tv.setText(AB[i][j].doubleValue()+"");
+                if(Build.VERSION.SDK_INT>=17){
+                    tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                }
                 fila.addView(tv);
             }
             tablaSalida.addView(fila);

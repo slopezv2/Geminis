@@ -6,6 +6,7 @@ import java.text.Bidi;
 
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Matriz;
+import eafit.geminis.utilidades.MatrizMarca;
 import eafit.geminis.utilidades.TipoPivoteo;
 
 /**
@@ -22,11 +23,14 @@ public class GaussConPivoteo {
      * @return ab después de la iteracion k
      * @throws Exception división por cero o multiples soluciones
      */
-    public static BigDecimal[][] metodo(BigDecimal[][]ab, int k,int n, TipoPivoteo tipo) throws Exception{
+    public static MatrizMarca metodo(BigDecimal[][]ab, int k, int n, TipoPivoteo tipo, int[] marcas) throws Exception{
         if (tipo == TipoPivoteo.PARCIAL){
             ab = pivoteoParcial(ab,n,k);
+        }else if(tipo == TipoPivoteo.TOTAL){
+            MatrizMarca aux = pivoteoTotal(ab,n,k,marcas);
+            ab = aux.getAb();
+            marcas = aux.getMarcas();
         }
-        //TODO
         BigDecimal denon = ab[k][k];
         for(int i = k+1; i <= n;++i){
             if(denon.compareTo(BigDecimal.ZERO)==0){
@@ -37,8 +41,37 @@ public class GaussConPivoteo {
                 ab[i][j]=ab[i][j].subtract(multiplicador.multiply(ab[k][j]));
             }
         }
-        return ab;
+        return new MatrizMarca(ab,marcas);
     }
+
+    private static MatrizMarca pivoteoTotal(BigDecimal[][] ab, int n, int k,int[] marcas) throws Exception{
+        BigDecimal mayor = BigDecimal.ZERO;
+        int filaMayor =k;
+        int columnaMayor = k;
+        for(int r = k;r<=n;++r){
+            for(int s = k; r <=n;++s){
+                BigDecimal aux = ab[r][s].abs();
+                if(aux.compareTo(mayor)>0){
+                    mayor = aux;
+                    filaMayor = r;
+                    columnaMayor = s;
+                }
+            }
+        }
+        if(mayor.compareTo(BigDecimal.ZERO)==0){
+            throw new Exception(ErrorMetodo.DETECCION_MULTIPLES_SOLUCIONES);
+        }else{
+            if(filaMayor != k){
+                ab = Matriz.intercambioFilas(ab,filaMayor,k);
+            }
+            if (columnaMayor !=k){
+                ab = Matriz.intercambiarColumnas(ab,columnaMayor,k);
+                marcas = Matriz.intercambiarMarcas(marcas,columnaMayor,k);
+            }
+            return new MatrizMarca(ab,marcas);
+        }
+    }
+
     private static BigDecimal[][] pivoteoParcial(BigDecimal[][] ab,int n, int k) throws Exception {
         BigDecimal mayor = ab[k][k].abs();
         int filaMayor = k;
