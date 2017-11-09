@@ -26,6 +26,7 @@ public class ErrorMetodo {
     public static String ESPERAR_PROCESANDO="Espere mientras se procesa el resultado";
     public static String ERROR_DIVISION_CERO="Error, Se ha detectado una división por cero";
     public static String DETECCION_RAIZ_MULTIPLE="Existe una posible raíz múltiple en: ";
+    public static String ERROR_DESPEJE_REGRESIVO="No se pudo llevar a cabo la sustitución regresiva";
     public static String DENOMINADOR_CERO="Error, denominador=0";
     public static String NO_GUARDO_FUNCION="No se pudo guardar la funcion";
     public static String NO_BORRADO_FUNCION ="No se pudo borrar las funciones";

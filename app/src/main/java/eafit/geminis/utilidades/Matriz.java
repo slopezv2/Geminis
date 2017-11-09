@@ -20,7 +20,7 @@ public final class Matriz {
         }
         return ab;
     }
-    public static BigDecimal[] sustitucionRegresiva(BigDecimal[][] ab, int n){
+    public static BigDecimal[] sustitucionRegresiva(BigDecimal[][] ab, int n)throws  Exception{
         BigDecimal[] x = new BigDecimal[n+1];
         x[n] = ab[n][n+1].divide(ab[n][n],32,BigDecimal.ROUND_HALF_UP);
         for(int i = n-1;i>=1;--i){

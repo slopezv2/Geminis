@@ -13,6 +13,7 @@
     <string name="titulo_secante">Método de la Secante</string>
     <string name="titulo_raices_multiples">Método de las Raíces Múltiples</string>
     <string name="titulo_eliminiacion_gauss_simple">Eliminación Gaussiana Simple</string>
+    <string name="titulo_pivoteo">Eliminación Gaussiana con estrategias de pivoteo</string>
     <string name="entrada_funcion_g">Ingrese la función g(x)</string>
     <string name="entrada_funcion">Ingrese una función f(x)</string>
     <string name="entrada_funcion_prima">Ingrese la función f\'(x)</string>
@@ -49,4 +50,9 @@
         <item>Interpolación</item>
         <item>Graficador</item>
     </string-array>
+    <string-array name="opciones_pivoteo">
+        <item>Pivoteo Parcial</item>
+        <item>Pivoteo Total</item>
+    </string-array>
+    <string name="entrada_tipo_pivoteo">Seleccione el tipo de pivoteo a emplear</string>
 </resources>

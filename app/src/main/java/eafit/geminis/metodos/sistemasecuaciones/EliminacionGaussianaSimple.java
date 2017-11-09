@@ -9,11 +9,15 @@ import static eafit.geminis.utilidades.Matriz.formarMatrizAumentada;
  */
 
 public class EliminacionGaussianaSimple {
-    public static BigDecimal[][] metodo(BigDecimal[][]ab,int n){
-
+    public static BigDecimal[][] metodo(BigDecimal[][]ab,int n) throws Exception{
+        BigDecimal abkk;
         for (int k =1; k <= n-1;++k){
             for(int i = k+1; i <= n;++i){
-                BigDecimal multiplicador = ab[i][k].divide(ab[k][k],32,BigDecimal.ROUND_HALF_UP);
+                 abkk = ab[k][k];
+                if (abkk.compareTo(BigDecimal.ZERO)==0){
+                    throw new ArithmeticException("División por cero detectada");
+                }
+                BigDecimal multiplicador = ab[i][k].divide(abkk,32,BigDecimal.ROUND_HALF_UP);
                 for(int j = k; j <= n+1;++j){
                     ab[i][j] = ab[i][j].subtract(multiplicador.multiply(ab[k][j]));
                 }

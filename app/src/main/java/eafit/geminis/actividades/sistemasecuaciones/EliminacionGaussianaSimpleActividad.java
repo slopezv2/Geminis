@@ -32,10 +32,14 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Ayuda a mostrar
         ayudaAmostrar = "gauss_simple";
         setContentView(R.layout.actividad_eliminacion_gaussiana_simple);
+        // el include con la entrada
         View resto = findViewById(R.id.resto_tabla_entrada_ecuaciones);
+        // el include con la salida
         View restoSalida = findViewById(R.id.resto_salida_ecuaciones_simple);
+        // Inicializacion elementos
         tablaSalida = (TableLayout) restoSalida.findViewById(R.id.tabla_resultados_ab);
         tituloSalida = (TableRow) restoSalida.findViewById(R.id.encabezado_tabla_resultados_ab);
         salir = (Button) restoSalida.findViewById(R.id.bt_salir_salida_gauss_simple);
@@ -45,6 +49,7 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
         titulo = (TableRow) resto.findViewById(R.id.fila_titulo_matriz_entrada);
         salidasX = (LinearLayout)restoSalida.findViewById(R.id.salidas_x_simple);
         final Button calcular = (Button) resto.findViewById(R.id.bt_calcular_matriz);
+        // Listeners de botones
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +75,10 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             }
         });
     }
+
+    /**
+     * Obtener la matriz Ab de la entrada, procesarla y pintar en interfaz
+     */
     private void calcularResultado(){
         try {
             ab = crearAB(tabla,nroEcuaciones);
@@ -77,10 +86,28 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
             return;
         }
-        BigDecimal[][] resultadoAb = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones);
-        BigDecimal[] xDespejadas = Matriz.sustitucionRegresiva(resultadoAb,nroEcuaciones);
+        BigDecimal[][] resultadoAb = new BigDecimal[0][];
+        try {
+            resultadoAb = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones);
+        } catch (ArithmeticException e) {
+            Toast.makeText(contexto,ErrorMetodo.ERROR_DIVISION_CERO,Toast.LENGTH_LONG).show();
+            return;
+        }catch (Exception e){
+            Toast.makeText(contexto,e.getMessage(),Toast.LENGTH_LONG).show();
+            return;
+        }
+        boolean despeje = true;
+        BigDecimal[] xDespejadas = null;
+        try {
+            xDespejadas= Matriz.sustitucionRegresiva(resultadoAb,nroEcuaciones);
+        }catch (Exception e){
+            despeje = false;
+            Toast.makeText(contexto,ErrorMetodo.ERROR_DESPEJE_REGRESIVO,Toast.LENGTH_LONG).show();
+        }
+        //Métodos genéricos, definidos en clase padre
         escribirSalidaAB(resultadoAb,tablaSalida,tituloSalida);
-        escribirSalidaX(xDespejadas,salidasX);
+        if (despeje) {
+            escribirSalidaX(xDespejadas, salidasX);
+        }
     }
-
 }

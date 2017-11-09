@@ -243,7 +243,18 @@ public abstract class ActividadBase extends Activity {
     }
     protected void escribirSalidaAB(BigDecimal[][] AB,TableLayout tablaSalida, TableRow tituloSalida){
         tablaSalida.removeAllViews();
-        tablaSalida.addView(tituloSalida);
+        TableRow encabezado = new TableRow(contexto);
+        int limite = AB[1].length;
+        for(int i = 1; i < limite;++i){
+            TextView tv = new TextView(contexto);
+            if(i != limite-1) {
+                tv.setText("X" + i);
+            }else {
+                tv.setText("b");
+            }
+            encabezado.addView(tv);
+        }
+        tablaSalida.addView(encabezado);
         for(int i = 1; i < AB.length;++i){
             TableRow fila = new TableRow(contexto);
             for(int j = 1;j < AB[i].length;++j){

@@ -29,7 +29,8 @@
         <activity android:name=".actividades.ecuacionesunavariable.NewtonActividad" />
         <activity android:name=".actividades.ecuacionesunavariable.SecanteActividad" />
         <activity android:name=".actividades.ecuacionesunavariable.RaicesMultiplesActividad" />
-        <activity android:name=".actividades.sistemasecuaciones.EliminacionGaussianaSimpleActividad"></activity>
+        <activity android:name=".actividades.sistemasecuaciones.EliminacionGaussianaSimpleActividad" />
+        <activity android:name=".actividades.sistemasecuaciones.PivoteoGaussActividad"></activity>
     </application>
 
 </manifest>
