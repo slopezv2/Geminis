@@ -159,6 +159,14 @@ public abstract class ActividadBase extends Activity {
             Toast.makeText(contexto, ErrorMetodo.NO_BORRADO_FUNCION,Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * Generar la entrada para el sistema de ecuaciones
+     * @param nroEcuaciones
+     * @param tabla
+     * @param titulo
+     * @return
+     */
     protected boolean generarMatrizEntrada(String nroEcuaciones, TableLayout tabla, TableRow titulo) {
         if(nroEcuaciones.isEmpty()){
             Toast.makeText(contexto, ErrorMetodo.NRO_ECUACIONES_VACIO,Toast.LENGTH_LONG).show();
@@ -211,6 +219,14 @@ public abstract class ActividadBase extends Activity {
             return true;
         }
     }
+
+    /**
+     * Lee la tabla de entrada ab y retorna los datos en BigDecimal[][] ab
+     * @param tabla
+     * @param nroEcuaciones
+     * @return
+     * @throws Exception
+     */
     protected BigDecimal[][] crearAB(TableLayout tabla,int nroEcuaciones) throws Exception{
         BigDecimal[][] ab = new BigDecimal[nroEcuaciones+1][nroEcuaciones+2];
         for (int i = 1; i <= nroEcuaciones;++i){

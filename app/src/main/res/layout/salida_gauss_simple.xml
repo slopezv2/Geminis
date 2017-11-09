@@ -14,8 +14,9 @@
             android:layout_height="wrap_content">
             <TableLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-                <TableRow>
+                android:layout_height="match_parent"
+                android:id="@+id/tabla_resultados_ab">
+                <TableRow android:id="@+id/encabezado_tabla_resultados_ab">
                     <TextView
                         android:text="X1"
                         android:width="50dp"/>
@@ -47,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/llSalidaX">
+            android:id="@+id/salidas_x_simple">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
