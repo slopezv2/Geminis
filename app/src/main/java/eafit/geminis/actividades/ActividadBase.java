@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.InputType;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -238,5 +240,30 @@ public abstract class ActividadBase extends Activity {
             }
         }
         return ab;
+    }
+    protected void escribirSalidaAB(BigDecimal[][] AB,TableLayout tablaSalida, TableRow tituloSalida){
+        tablaSalida.removeAllViews();
+        tablaSalida.addView(tituloSalida);
+        for(int i = 1; i < AB.length;++i){
+            TableRow fila = new TableRow(contexto);
+            for(int j = 1;j < AB[i].length;++j){
+                TextView tv = new TextView(contexto);
+                tv.setText(AB[i][j].doubleValue()+"");
+                fila.addView(tv);
+            }
+            tablaSalida.addView(fila);
+        }
+    }
+    protected void escribirSalidaX(BigDecimal[] lasx, LinearLayout destino){
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        destino.removeAllViews();
+        for(int i = 1;i<lasx.length;++i){
+            TextView tv = new TextView(contexto);
+            tv.setText("X"+i+": "+lasx[i].doubleValue());
+            destino.addView(tv,params);
+            if(Build.VERSION.SDK_INT>=17){
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            }
+        }
     }
 }

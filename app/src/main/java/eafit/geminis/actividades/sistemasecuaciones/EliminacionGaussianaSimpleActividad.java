@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
@@ -42,8 +43,8 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
         edNroEcuaciones = (EditText) resto.findViewById(R.id.et_nro_ecuaciones);
         tabla = (TableLayout) resto.findViewById(R.id.tabla_ingreso_ecuaciones_lineales);
         titulo = (TableRow) resto.findViewById(R.id.fila_titulo_matriz_entrada);
-        salidasX = (LinearLayout)resto.findViewById(R.id.salidas_x_simple);
-        Button calcular = (Button) resto.findViewById(R.id.bt_calcular_matriz);
+        salidasX = (LinearLayout)restoSalida.findViewById(R.id.salidas_x_simple);
+        final Button calcular = (Button) resto.findViewById(R.id.bt_calcular_matriz);
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +65,7 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
                 if (operar) {
                     tabla.setVisibility(View.VISIBLE);
                     nroEcuaciones = Integer.parseInt(nro);
+                    calcular.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -77,15 +79,8 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
         }
         BigDecimal[][] resultadoAb = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones);
         BigDecimal[] xDespejadas = Matriz.sustitucionRegresiva(resultadoAb,nroEcuaciones);
-        escribirSalida(resultadoAb,xDespejadas);
+        escribirSalidaAB(resultadoAb,tablaSalida,tituloSalida);
+        escribirSalidaX(xDespejadas,salidasX);
     }
-    private void escribirSalida(BigDecimal[][] AB,BigDecimal[] xDespejadas){
-        tablaSalida.removeAllViews();
-        for(int i = 1; i < AB.length;++i){
-            TableRow fila = new TableRow(contexto);
-            for(int j = 1;j < AB[i].length;++j){
 
-            }
-        }
-    }
 }

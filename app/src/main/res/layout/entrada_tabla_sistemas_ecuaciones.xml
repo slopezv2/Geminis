@@ -58,5 +58,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bt_calcular"
-        android:id="@+id/bt_calcular_matriz"/>
+        android:id="@+id/bt_calcular_matriz"
+        android:visibility="gone"/>
 </LinearLayout>
