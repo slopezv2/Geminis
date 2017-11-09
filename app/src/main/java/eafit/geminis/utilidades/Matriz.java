@@ -20,6 +20,14 @@ public final class Matriz {
         }
         return ab;
     }
+
+    /**
+     * Sustitucion regresiva
+     * @param ab matriz
+     * @param n numero de ecuaciones
+     * @return BigDecimal[] las X despejadas
+     * @throws Exception en caso de división por 0
+     */
     public static BigDecimal[] sustitucionRegresiva(BigDecimal[][] ab, int n)throws  Exception{
         BigDecimal[] x = new BigDecimal[n+1];
         x[n] = ab[n][n+1].divide(ab[n][n],32,BigDecimal.ROUND_HALF_UP);
@@ -31,5 +39,19 @@ public final class Matriz {
             x[i]= (ab[i][n+1].subtract(sumatoria).divide(ab[i][i],32,BigDecimal.ROUND_HALF_UP));
         }
         return x;
+    }
+
+    /**
+     * Intercambio de filas para una matriz
+     * @param ab la matriz
+     * @param origen la fila inicial
+     * @param destino la fila a donde va
+     * @return ab con el cambio hecho
+     */
+    public static BigDecimal[][] intercambioFilas(BigDecimal[][] ab,int origen, int destino){
+        BigDecimal[] aux = ab[destino];
+        ab[destino] = ab[origen];
+        ab[origen] = aux;
+        return ab;
     }
 }

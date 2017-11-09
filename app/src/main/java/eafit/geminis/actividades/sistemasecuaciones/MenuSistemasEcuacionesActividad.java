@@ -27,5 +27,13 @@ public class MenuSistemasEcuacionesActividad extends ActividadBase {
                 startActivity(intent);
             }
         });
+        Button irPivoteo = (Button) findViewById(R.id.bt_ir_gauss_pivoteo);
+        irPivoteo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuSistemasEcuacionesActividad.this,PivoteoGaussActividad.class);
+                startActivity(intent);
+            }
+        });
     }
 }

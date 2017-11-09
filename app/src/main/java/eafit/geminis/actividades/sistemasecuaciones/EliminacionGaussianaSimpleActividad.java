@@ -20,7 +20,6 @@ import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Matriz;
 
 public class EliminacionGaussianaSimpleActividad extends ActividadBase {
-    private String[] entrada;
     private TableLayout tabla, tablaSalida;
     private Button btIngresar;
     private EditText edNroEcuaciones;

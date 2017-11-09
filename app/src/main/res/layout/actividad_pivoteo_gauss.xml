@@ -34,7 +34,8 @@
             <TableLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/tabla_resultados_ab">
+                android:id="@+id/tabla_resultados_ab"
+                android:visibility="gone">
                 <TableRow android:id="@+id/encabezado_tabla_resultados_ab">
                     <TextView
                         android:text="X1"
@@ -58,6 +59,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bt_siguiente_pivoteo"
-            android:text="Siguiente"/>
+            android:text="Siguiente"
+            android:visibility="gone"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_salir_pivote"
+            android:text="Salir"/>
     </LinearLayout>
 </ScrollView>
