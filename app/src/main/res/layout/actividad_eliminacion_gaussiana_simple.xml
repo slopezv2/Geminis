@@ -6,16 +6,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="eafit.geminis.actividades.sistemasecuaciones.EliminacionGaussianaSimpleActividad">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/titulo_eliminiacion_gauss_simple"/>
-            <include  android:id="@+id/resto_tabla_entrada_ecuaciones" layout="@layout/entrada_tabla_sistemas_ecuaciones"/>
-            <include android:id="@+id/resto_salida_ecuaciones_simple" layout="@layout/salida_gauss_simple"/>
-        </LinearLayout>
-    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margen_abajo_entrada">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="@string/titulo_eliminiacion_gauss_simple"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="@string/font_family_medium" />
+
+        <include android:id="@+id/resto_tabla_entrada_ecuaciones" layout="@layout/entrada_tabla_sistemas_ecuaciones"/>
+        <include android:id="@+id/resto_salida_ecuaciones_simple" layout="@layout/salida_gauss_simple"/>
+
+    </LinearLayout>
+</ScrollView>

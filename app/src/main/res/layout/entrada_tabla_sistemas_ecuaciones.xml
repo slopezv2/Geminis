@@ -1,63 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
         android:id="@+id/et_nro_ecuaciones"
         android:inputType="number"/>
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/botones_calcular"
         android:text="@string/bt_ingresar"
-        android:textAlignment="center"
-        android:id="@+id/bt_ingresar_sistemas_ecuaciones"
-        />
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <HorizontalScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                    <TableLayout
-                        android:layout_height="wrap_content"
-                        android:layout_width="400dp"
-                        android:id="@+id/tabla_ingreso_ecuaciones_lineales"
-                        android:visibility="gone">
-                        <TableRow android:id="@+id/fila_titulo_matriz_entrada"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <TextView
+        android:id="@+id/bt_ingresar_sistemas_ecuaciones" />
 
-                                android:width="50dp"
-                                android:text="X0" />
-
-                            <TextView
-
-                                android:width="50dp"
-                                android:text="X1" />
-
-                            <TextView
-
-                                android:width="50dp"
-                                android:text="X2" />
-                            <TextView
-
-                                android:width="50dp"
-                                android:text="..." />
-                            <TextView
-
-                                android:width="50dp"
-                                android:text="b1" />
-                        </TableRow>
-                </TableLayout>
-            </HorizontalScrollView>
-        </ScrollView>
-    <Button
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginTop="-15dp"
+        android:layout_marginBottom="-15dp"
+        android:layout_marginRight="@dimen/margen_abajo_menu">
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                style="@style/tabla"
+                android:id="@+id/tabla_ingreso_ecuaciones_lineales"
+                android:visibility="gone">
+                <TableRow
+                    android:id="@+id/fila_titulo_matriz_entrada"
+                    style="@style/columna">
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="x0" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="x1" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="x2" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="..." />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:width="50dp"
+                        android:text="b1" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <Button
+        style="@style/botones_calcular"
         android:text="@string/bt_calcular"
         android:id="@+id/bt_calcular_matriz"
         android:visibility="gone"/>
+
 </LinearLayout>

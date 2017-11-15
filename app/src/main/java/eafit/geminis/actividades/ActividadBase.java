@@ -191,9 +191,10 @@ public abstract class ActividadBase extends Activity {
                     }else {
                         textView.setText("x" + (j + 1));
                     }
-                    textView.setPadding(5,3,5,5);
+                    textView.setPadding(5,5,5,5);
+                    textView.setBackgroundResource(R.drawable.border);
                     textView.setGravity(Gravity.CENTER);
-                    textView.setTextSize(15);
+                    textView.setTextSize(16);
                     fila.addView(textView);
                 }
                 fila.setLayoutParams(tbParams);
@@ -205,12 +206,13 @@ public abstract class ActividadBase extends Activity {
                     for (int i = 0;i<= intEcuaciones;++i){
                         EditText editText = new EditText(contexto);
                         editText.setId(idEditText);
-                        editText.setTextSize(15);
+                        editText.setTextSize(16);
                         editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                         editText.setHint("0");
-                        editText.setPadding(5,3,5,5);
+                        editText.setPadding(5,5,5,5);
                         editText.setWidth(90);
-                        editText.setTextColor(Color.BLACK);
+                        editText.setBackgroundResource(R.drawable.border);
+                        editText.setTextColor(Color.rgb(126,138,151));
                         fila2.addView(editText);
                         ++idEditText;
                     }
@@ -249,10 +251,15 @@ public abstract class ActividadBase extends Activity {
             TextView tv = new TextView(contexto);
             tv.setWidth(150);
             if(i != limite-1) {
-                tv.setText("X" + i);
+                tv.setText("x" + i);
             }else {
                 tv.setText("b");
             }
+            tv.setPadding(5,5,5,5);
+            tv.setBackgroundResource(R.drawable.border);
+            tv.setGravity(Gravity.CENTER);
+            tv.setTextSize(16);
+            tv.setTextColor(Color.BLACK);
             encabezado.addView(tv);
         }
         tablaSalida.addView(encabezado);
@@ -264,6 +271,11 @@ public abstract class ActividadBase extends Activity {
                 if(Build.VERSION.SDK_INT>=17){
                     tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 }
+                tv.setTextSize(16);
+                tv.setPadding(5,5,5,5);
+                tv.setWidth(90);
+                tv.setBackgroundResource(R.drawable.border);
+                tv.setTextColor(Color.rgb(126,138,151));
                 fila.addView(tv);
             }
             tablaSalida.addView(fila);
@@ -275,11 +287,14 @@ public abstract class ActividadBase extends Activity {
         destino.removeAllViews();
         for(int i = 1;i<lasx.length;++i){
             TextView tv = new TextView(contexto);
-            tv.setText("X"+i+": "+lasx[i].doubleValue());
+            tv.setText("x"+i+": "+lasx[i].doubleValue());
             destino.addView(tv,params);
             if(Build.VERSION.SDK_INT>=17){
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             }
+            tv.setTextSize(16);
+            tv.setPadding(5,5,5,5);
+            tv.setTextColor(Color.BLACK);
         }
     }
 }
