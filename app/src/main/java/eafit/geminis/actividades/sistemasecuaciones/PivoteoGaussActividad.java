@@ -103,10 +103,8 @@ public class PivoteoGaussActividad extends ActividadBase {
                     int nr =Integer.parseInt(nro);
                     nroEcuaciones = nr;
                     marcas = new int[nr+1];
-                    for(int i = 1;i<= nr;++i){
-                        //TODO
-                    }
-                    calcular.setVisibility(View.VISIBLE);
+                    limpiar();
+
                 }
             }
         });
@@ -119,11 +117,11 @@ public class PivoteoGaussActividad extends ActividadBase {
     }
 
     private void siguiente() {
-        //TODO
         if (actual<ab.length-1) {
             try {
                 MatrizMarca aux = GaussConPivoteo.metodo(ab, actual, ab.length - 1, tipoPivoteo,marcas);
                 ab = aux.getAb();
+                marcas = aux.getMarcas();
             } catch (Exception e) {
                 Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_LONG).show();
                 btSiguiente.setEnabled(false);
@@ -133,16 +131,16 @@ public class PivoteoGaussActividad extends ActividadBase {
             actual++;
             tvIteracion.setText("Iteración: "+actual);
             if(actual==ab.length-1){
-                btSiguiente.setText("Despejar");
-                spOpciones.setEnabled(true);
+                btSiguiente.setText("Despejado");
                 BigDecimal[] xs = null;
                 try {
                     xs = Matriz.sustitucionRegresiva(ab,ab.length-1);
-                    escribirSalidaX(xs,salidasX);
+                    escribirSalidaX(xs,salidasX,marcas);
                 } catch (Exception e) {
                     Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
-                //despeje y mostrar ecuaciones
+                btSiguiente.setEnabled(false);
+                spOpciones.setEnabled(true);//despeje y mostrar ecuaciones
             }
         }else {
             btSiguiente.setEnabled(false);
@@ -151,10 +149,7 @@ public class PivoteoGaussActividad extends ActividadBase {
     }
 
     private void calcularResultado() {
-        btSiguiente.setText("Siguiente");
-        this.actual = 1;
-        tvIteracion.setText("Iteración: "+actual);
-        btSiguiente.setEnabled(true);
+        limpiar();
         try {
             ab = crearAB(tabla,nroEcuaciones);
         } catch (Exception e) {
@@ -165,5 +160,19 @@ public class PivoteoGaussActividad extends ActividadBase {
         escribirSalidaAB(ab,tablaSalida,tituloSalida);
         btSiguiente.setVisibility(View.VISIBLE);
         tablaSalida.setVisibility(View.VISIBLE);
+    }
+    private void limpiar(){
+        spOpciones.setEnabled(true);
+        btSiguiente.setText("Siguiente");
+        this.actual = 1;
+        tvIteracion.setText("Iteración: "+actual);
+        btSiguiente.setEnabled(true);
+        calcular.setVisibility(View.VISIBLE);
+        for(int i = 1;i<= nroEcuaciones;++i){
+            marcas[i]=i;
+        }
+        tablaSalida.removeAllViews();
+        tablaSalida.addView(tituloSalida);
+        salidasX.removeAllViews();
     }
 }

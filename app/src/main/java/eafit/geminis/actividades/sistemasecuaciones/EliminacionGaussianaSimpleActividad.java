@@ -28,6 +28,7 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
     private Button salir;
     private BigDecimal[][] ab;
     private LinearLayout salidasX;
+    private int[] marcas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +70,10 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
                 if (operar) {
                     tabla.setVisibility(View.VISIBLE);
                     nroEcuaciones = Integer.parseInt(nro);
+                    marcas = new int[nroEcuaciones+1];
+                    for (int i =1;i<=nroEcuaciones;++i){
+                        marcas[i]=i;
+                    }
                     calcular.setVisibility(View.VISIBLE);
                 }
             }
@@ -106,7 +111,7 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
         //Métodos genéricos, definidos en clase padre
         escribirSalidaAB(resultadoAb,tablaSalida,tituloSalida);
         if (despeje) {
-            escribirSalidaX(xDespejadas, salidasX);
+            escribirSalidaX(xDespejadas, salidasX,marcas);
         }
     }
 }

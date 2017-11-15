@@ -56,12 +56,23 @@ public final class Matriz {
     }
 
     public static BigDecimal[][] intercambiarColumnas(BigDecimal[][] ab, int columnaMayor, int k) {
-        //TODO
-        return null;
+        BigDecimal[] aux = new BigDecimal[ab.length+1];
+        for (int i = 1;i<ab.length;++i){
+            aux[i]= ab[i][k];
+        }
+        for (int i = 1;i<ab.length;++i){
+            ab[i][k]= ab[i][columnaMayor];
+        }
+        for (int i = 1;i<ab.length;++i){
+            ab[i][columnaMayor]= aux[i];
+        }
+        return ab;
     }
 
     public static int[] intercambiarMarcas(int[] marcas, int columnaMayor, int k) {
-        //TODO
-        return null;
+        int aux = marcas[k];
+        marcas[k]=columnaMayor;
+        marcas[columnaMayor]=aux;
+        return marcas;
     }
 }

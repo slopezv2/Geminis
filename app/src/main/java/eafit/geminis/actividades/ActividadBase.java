@@ -281,13 +281,13 @@ public abstract class ActividadBase extends Activity {
             tablaSalida.addView(fila);
         }
     }
-    protected void escribirSalidaX(BigDecimal[] lasx, LinearLayout destino){
+    protected void escribirSalidaX(BigDecimal[] lasx, LinearLayout destino, int[] marcas){
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         destino.removeAllViews();
         for(int i = 1;i<lasx.length;++i){
             TextView tv = new TextView(contexto);
-            tv.setText("x"+i+": "+lasx[i].doubleValue());
+            tv.setText("x"+marcas[i]+": "+lasx[i].doubleValue());
             destino.addView(tv,params);
             if(Build.VERSION.SDK_INT>=17){
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);

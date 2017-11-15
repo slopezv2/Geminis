@@ -49,7 +49,7 @@ public class GaussConPivoteo {
         int filaMayor =k;
         int columnaMayor = k;
         for(int r = k;r<=n;++r){
-            for(int s = k; r <=n;++s){
+            for(int s = k; s <=n;++s){
                 BigDecimal aux = ab[r][s].abs();
                 if(aux.compareTo(mayor)>0){
                     mayor = aux;
