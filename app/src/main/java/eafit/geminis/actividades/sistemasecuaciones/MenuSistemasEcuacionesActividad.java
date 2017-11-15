@@ -11,6 +11,7 @@ import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.actividades.ecuacionesunavariable.BusquedasActividad;
 import eafit.geminis.actividades.ecuacionesunavariable.MenuUnaVariableActividad;
 import eafit.geminis.metodos.sistemasecuaciones.EliminacionGaussianaSimple;
+import eafit.geminis.metodos.sistemasecuaciones.FactorizacionDirectaActividad;
 
 public class MenuSistemasEcuacionesActividad extends ActividadBase {
 
@@ -32,6 +33,14 @@ public class MenuSistemasEcuacionesActividad extends ActividadBase {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuSistemasEcuacionesActividad.this,PivoteoGaussActividad.class);
+                startActivity(intent);
+            }
+        });
+        Button irFactorizacion = (Button) findViewById(R.id.bt_ir_factorizacion_directa);
+        irFactorizacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuSistemasEcuacionesActividad.this,FactorizacionDirectaActividad.class);
                 startActivity(intent);
             }
         });
