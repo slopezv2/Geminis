@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eafit.geminis.metodos.sistemasecuaciones.FactorizacionDirectaActividad">
-
-</android.support.constraint.ConstraintLayout>
+    tools:context="eafit.geminis.actividades.sistemasecuaciones.FactorizacionDirectaActividad">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="@string/titulo_factorizacion"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="@string/font_family_medium" />
+        <include android:id="@+id/resto_tabla_entrada_ecuaciones" layout="@layout/entrada_tabla_sistemas_ecuaciones"/>
+        <include android:id="@+id/resto_salida_ecuaciones_simple" layout="@layout/salida_gauss_simple"/>
+    </LinearLayout>
+</ScrollView>

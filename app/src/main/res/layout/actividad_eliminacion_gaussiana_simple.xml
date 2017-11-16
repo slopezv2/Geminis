@@ -15,7 +15,7 @@
 
         <TextView
             style="@style/titulos_metodos_entrada"
-            android:text="@string/titulo_eliminiacion_gauss_simple"
+            android:text="@string/titulo_factorizacion"
             android:textAlignment="center"
             android:textSize="20sp"
             android:fontFamily="@string/font_family_medium" />

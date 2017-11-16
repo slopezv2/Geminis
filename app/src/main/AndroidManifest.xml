@@ -31,7 +31,7 @@
         <activity android:name=".actividades.ecuacionesunavariable.RaicesMultiplesActividad" />
         <activity android:name=".actividades.sistemasecuaciones.EliminacionGaussianaSimpleActividad" />
         <activity android:name=".actividades.sistemasecuaciones.PivoteoGaussActividad" />
-        <activity android:name=".metodos.sistemasecuaciones.FactorizacionDirectaActividad"></activity>
+        <activity android:name=".actividades.sistemasecuaciones.FactorizacionDirectaActividad"></activity>
     </application>
 
 </manifest>
