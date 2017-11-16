@@ -54,8 +54,17 @@
         <item>Pivoteo Parcial</item>
         <item>Pivoteo Total</item>
     </string-array>
+    <string-array name="opciones_factorizacion_sistema">
+        <item>Gauss simple</item>
+        <item>Gauss pivoteo</item>
+        <item>Croult</item>
+        <item>Doolittle</item>
+        <item>Cholesky</item>
+    </string-array>
     <string name="entrada_tipo_pivoteo">Seleccione el tipo de pivoteo a emplear</string>
     <string name="bt_siguiente">Siguiente</string>
     <string name="iteracionnro">Iteración:</string>
     <string name="titulo_factorizacion">Factorizacion Directa de Matrices</string>
+    <string name="entrada_cantidad_ecuaciones_sistema">Ingrese la cantidad de ecuaciones del sistema</string>
+    <string name="entrada_tipo_de_factorizacion_sistema">Seleccione el tipo de factorización a emplear</string>
 </resources>

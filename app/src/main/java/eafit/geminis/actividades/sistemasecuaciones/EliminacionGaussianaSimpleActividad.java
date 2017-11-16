@@ -21,7 +21,7 @@ import eafit.geminis.utilidades.Matriz;
 
 public class EliminacionGaussianaSimpleActividad extends ActividadBase {
     private TableLayout tabla, tablaSalida;
-    private Button btIngresar;
+    private Button btIngresar,calcular;
     private EditText edNroEcuaciones;
     private TableRow titulo, tituloSalida;
     private int nroEcuaciones=0;
@@ -29,6 +29,8 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
     private BigDecimal[][] ab;
     private LinearLayout salidasX;
     private int[] marcas;
+    private int actual =0;
+    private TextView txIteracion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,8 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
         tabla = (TableLayout) resto.findViewById(R.id.tabla_ingreso_ecuaciones_lineales);
         titulo = (TableRow) resto.findViewById(R.id.fila_titulo_matriz_entrada);
         salidasX = (LinearLayout)restoSalida.findViewById(R.id.salidas_x_simple);
-        final Button calcular = (Button) resto.findViewById(R.id.bt_calcular_matriz);
+        calcular = (Button) resto.findViewById(R.id.bt_calcular_matriz);
+        txIteracion = (TextView)restoSalida.findViewById(R.id.tx_iteracion_gauss_simple);
         // Listeners de botones
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,16 +68,17 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
         btIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                limpiar();
                 String nro = edNroEcuaciones.getText().toString();
                 boolean operar = generarMatrizEntrada(nro,tabla,titulo);
                 if (operar) {
-                    tabla.setVisibility(View.VISIBLE);
                     nroEcuaciones = Integer.parseInt(nro);
                     marcas = new int[nroEcuaciones+1];
                     for (int i =1;i<=nroEcuaciones;++i){
                         marcas[i]=i;
                     }
-                    calcular.setVisibility(View.VISIBLE);
+                }else {
+                    Toast.makeText(contexto,"No se pudo generar",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -84,34 +88,62 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
      * Obtener la matriz Ab de la entrada, procesarla y pintar en interfaz
      */
     private void calcularResultado(){
-        try {
-            ab = crearAB(tabla,nroEcuaciones);
-        } catch (Exception e) {
-            Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
+        if (actual==0){
+            try {
+                ab = crearAB(tabla,nroEcuaciones);
+                actual++;
+            } catch (Exception e) {
+                Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
+                return;
+            }
+            calcular.setText("Siguiente");
+            escribirSalidaAB(ab,tablaSalida,tituloSalida);
             return;
         }
-        BigDecimal[][] resultadoAb = new BigDecimal[0][];
-        try {
-            resultadoAb = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones);
-        } catch (ArithmeticException e) {
-            Toast.makeText(contexto,ErrorMetodo.ERROR_DIVISION_CERO,Toast.LENGTH_LONG).show();
-            return;
-        }catch (Exception e){
-            Toast.makeText(contexto,e.getMessage(),Toast.LENGTH_LONG).show();
+        if(actual <= nroEcuaciones-1){
+            try {
+                ab = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones,actual);
+                txIteracion.setText("Iteracion: "+actual);
+                actual++;
+            } catch (ArithmeticException e) {
+                Toast.makeText(contexto,ErrorMetodo.ERROR_DIVISION_CERO,Toast.LENGTH_LONG).show();
+                return;
+            }catch (Exception e){
+                Toast.makeText(contexto,e.getMessage(),Toast.LENGTH_LONG).show();
+                return;
+            }
+            //Métodos genéricos, definidos en clase padre
+            escribirSalidaAB(ab,tablaSalida,tituloSalida);
             return;
         }
-        boolean despeje = true;
-        BigDecimal[] xDespejadas = null;
-        try {
-            xDespejadas= Matriz.sustitucionRegresiva(resultadoAb,nroEcuaciones);
-        }catch (Exception e){
-            despeje = false;
-            Toast.makeText(contexto,ErrorMetodo.ERROR_DESPEJE_REGRESIVO,Toast.LENGTH_LONG).show();
-        }
-        //Métodos genéricos, definidos en clase padre
-        escribirSalidaAB(resultadoAb,tablaSalida,tituloSalida);
-        if (despeje) {
+        if (actual==nroEcuaciones) {
+            BigDecimal[] xDespejadas = null;
+            try {
+                xDespejadas= Matriz.sustitucionRegresiva(ab,nroEcuaciones);
+                txIteracion.setText("Iteración: "+actual);
+                actual++;
+            }catch (Exception e){
+                Toast.makeText(contexto,ErrorMetodo.ERROR_DESPEJE_REGRESIVO,Toast.LENGTH_LONG).show();
+                return;
+            }
             escribirSalidaX(xDespejadas, salidasX,marcas);
+            fin();
         }
+
+    }
+    private void fin(){
+        calcular.setText("Terminado");
+        calcular.setEnabled(false);
+    }
+    private void limpiar(){
+        calcular.setText("Calcular");
+        calcular.setEnabled(true);
+        actual=0;
+        txIteracion.setText("Iteración: "+actual);
+        tablaSalida.removeAllViews();
+        tablaSalida.addView(tituloSalida);
+        tabla.removeAllViews();
+        tabla.addView(titulo);
+        salidasX.removeAllViews();
     }
 }

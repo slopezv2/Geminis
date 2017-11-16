@@ -9,9 +9,17 @@ import static eafit.geminis.utilidades.Matriz.formarMatrizAumentada;
  */
 
 public class EliminacionGaussianaSimple {
-    public static BigDecimal[][] metodo(BigDecimal[][]ab,int n) throws Exception{
+    /**
+     * Metodo de eliminacion gaussiana sin pivoteo
+     * @param ab matriz aumentada
+     * @param n total ecuaciones
+     * @param k etapa actual
+     * @return matriz ab por cada etapa
+     * @throws Exception
+     */
+    public static BigDecimal[][] metodo(BigDecimal[][]ab,int n, int k) throws Exception{
         BigDecimal abkk;
-        for (int k =1; k <= n-1;++k){
+        //for (int k =1; k <= n-1;++k){
             for(int i = k+1; i <= n;++i){
                  abkk = ab[k][k];
                 if (abkk.compareTo(BigDecimal.ZERO)==0){
@@ -22,7 +30,7 @@ public class EliminacionGaussianaSimple {
                     ab[i][j] = ab[i][j].subtract(multiplicador.multiply(ab[k][j]));
                 }
             }
-        }
+        //}
         return ab;
     }
 }

@@ -55,10 +55,16 @@
                         style="@style/itemColumna"/>
                 </TableRow>
             </TableLayout>
-
         </HorizontalScrollView>
     </ScrollView>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/iteracionnro"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:id="@+id/tx_iteracion_gauss_simple"/>
     <TextView
         android:text="Resultado variables x"
         android:layout_height="wrap_content"

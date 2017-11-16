@@ -3,7 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        style="@style/titulos_entrada_metodos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:text="@string/entrada_cantidad_ecuaciones_sistema"
+        android:labelFor="@id/et_nro_ecuaciones"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +39,7 @@
             <TableLayout
                 style="@style/tabla"
                 android:id="@+id/tabla_ingreso_ecuaciones_lineales"
-                android:visibility="gone">
+                >
                 <TableRow
                     android:id="@+id/fila_titulo_matriz_entrada"
                     style="@style/columna">
@@ -63,6 +70,6 @@
         style="@style/botones_calcular"
         android:text="@string/bt_calcular"
         android:id="@+id/bt_calcular_matriz"
-        android:visibility="gone"/>
+         />
 
 </LinearLayout>

@@ -204,7 +204,7 @@ public abstract class ActividadBase extends Activity {
                     TableRow fila2 = new TableRow(contexto);
                     fila.setLayoutParams(tbParams);
                     for (int i = 0;i<= intEcuaciones;++i){
-                        EditText editText = new EditText(contexto);
+                        EditText editText = new EditText(this);
                         editText.setId(idEditText);
                         editText.setTextSize(16);
                         editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED | InputType.TYPE_NUMBER_FLAG_DECIMAL);
