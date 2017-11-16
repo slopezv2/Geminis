@@ -56,7 +56,6 @@
     </string-array>
     <string-array name="opciones_factorizacion_sistema">
         <item>Gauss simple</item>
-        <item>Gauss pivoteo</item>
         <item>Croult</item>
         <item>Doolittle</item>
         <item>Cholesky</item>
@@ -67,4 +66,8 @@
     <string name="titulo_factorizacion">Factorizacion Directa de Matrices</string>
     <string name="entrada_cantidad_ecuaciones_sistema">Ingrese la cantidad de ecuaciones del sistema</string>
     <string name="entrada_tipo_de_factorizacion_sistema">Seleccione el tipo de factorización a emplear</string>
+    <string name="matriz_l">Matriz L</string>
+    <string name="matriz_u">Matriz U</string>
+    <string name="resultado_variables_z">Resultado variables Z</string>
+    <string name="despeje_final">Despeje final:</string>
 </resources>

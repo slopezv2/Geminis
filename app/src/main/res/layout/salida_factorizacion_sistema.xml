@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="@string/matriz_l"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_entrada">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                style="@style/tabla"
+                android:id="@+id/tabla_resultados_l">
+                <TableRow
+                    style="@style/columna"
+                    android:id="@+id/encabezado_tabla_resultados_l">
+                    <TextView
+                        android:text="x1"
+                        android:textStyle="normal"
+                        android:width="30dp"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="x2"
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="x3"
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="x4"
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="..."
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+    <TextView
+        android:text="@string/matriz_u"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_entrada">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                style="@style/tabla"
+                android:id="@+id/tabla_resultados_u">
+                <TableRow
+                    style="@style/columna"
+                    android:id="@+id/encabezado_tabla_resultados_u">
+                    <TextView
+                        android:text="x1"
+                        android:textStyle="normal"
+                        android:width="30dp"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="x2"
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="x3"
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="x4"
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                    <TextView
+                        android:text="..."
+                        android:width="35dp"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/iteracionnro"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:id="@+id/tx_iteracion_gauss_simple"/>
+    <TextView
+        android:text="@string/resultado_variables_z"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/salidas_z_simple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="z1:"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="z2:"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="z3:"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="z4:"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/despeje_final"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/salidas_x_simple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="x1:"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="x2:"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="x3:"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="x4:"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_salir_salida_gauss_simple"
+        style="@style/botones_calcular"
+        android:text="Salir" />
+
+
+</LinearLayout>

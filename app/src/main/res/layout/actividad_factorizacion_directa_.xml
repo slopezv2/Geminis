@@ -30,6 +30,6 @@
             android:entries="@array/opciones_factorizacion_sistema">
         </Spinner>
         <include android:id="@+id/resto_tabla_entrada_ecuaciones" layout="@layout/entrada_tabla_sistemas_ecuaciones"/>
-        <include android:id="@+id/resto_salida_ecuaciones_simple" layout="@layout/salida_gauss_simple"/>
+        <include android:id="@+id/resto_salida_factorizacion" layout="@layout/salida_factorizacion_sistema"/>
     </LinearLayout>
 </ScrollView>
