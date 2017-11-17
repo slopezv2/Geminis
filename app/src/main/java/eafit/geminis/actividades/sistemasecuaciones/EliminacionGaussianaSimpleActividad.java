@@ -78,7 +78,7 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
                         marcas[i]=i;
                     }
                 }else {
-                    Toast.makeText(contexto,"No se pudo generar",Toast.LENGTH_LONG).show();
+                    Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_NRO_ECUACIONES,Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -98,9 +98,8 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             }
             calcular.setText("Siguiente");
             escribirSalidaAB(ab,tablaSalida,tituloSalida);
-            return;
-        }
-        if(actual <= nroEcuaciones-1){
+
+        }else if(actual <= nroEcuaciones-1){
             try {
                 ab = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones,actual);
                 txIteracion.setText("Iteracion: "+actual);
@@ -114,9 +113,8 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             }
             //Métodos genéricos, definidos en clase padre
             escribirSalidaAB(ab,tablaSalida,tituloSalida);
-            return;
-        }
-        if (actual==nroEcuaciones) {
+
+        }else if(actual==nroEcuaciones) {
             BigDecimal[] xDespejadas = null;
             try {
                 xDespejadas= Matriz.sustitucionRegresiva(ab,nroEcuaciones);

@@ -110,7 +110,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="@dimen/margen_abajo_menu"
         android:layout_marginRight="@dimen/margen_abajo_menu"
-        android:id="@+id/tx_iteracion_gauss_simple"/>
+        android:id="@+id/tx_iteracion_gauss_factorizacion"/>
     <TextView
         android:text="@string/resultado_variables_z"
         android:layout_height="wrap_content"

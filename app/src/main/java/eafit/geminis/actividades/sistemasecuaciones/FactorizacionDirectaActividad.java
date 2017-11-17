@@ -11,11 +11,17 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
 
 import eafit.geminis.actividades.ActividadBase;
+import eafit.geminis.metodos.sistemasecuaciones.EliminacionGaussianaSimple;
+import eafit.geminis.metodos.sistemasecuaciones.FactorizacionLU;
+import eafit.geminis.utilidades.ErrorMetodo;
+import eafit.geminis.utilidades.Matriz;
+import eafit.geminis.utilidades.MatrizMatriz;
 import eafit.geminis.utilidades.TipoFactorizacion;
 import eafit.geminis.utilidades.TipoPivoteo;
 
@@ -31,6 +37,8 @@ public class FactorizacionDirectaActividad extends ActividadBase {
     private int nroEcuaciones=0;
     private TipoFactorizacion tipoFactorizacion;
     private int[] marcas;
+    private int actual = 0;
+    private TextView txIteracion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +59,7 @@ public class FactorizacionDirectaActividad extends ActividadBase {
         salidasX = (LinearLayout) restoSalida.findViewById(R.id.salidas_x_simple);
         salidasZ = (LinearLayout) restoSalida.findViewById(R.id.salidas_z_simple);
         edNroEcuaciones = (EditText) restoEntrada.findViewById(R.id.et_nro_ecuaciones);
+        txIteracion = (TextView)restoSalida.findViewById(R.id.tx_iteracion_gauss_factorizacion);
         btIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +110,45 @@ public class FactorizacionDirectaActividad extends ActividadBase {
         });
     }
     private void calcular(){
+        if (actual==0){
+            try {
+                ab = crearAB(tablaEntrada,nroEcuaciones);
+                actual++;
+            } catch (Exception e) {
+                Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
+                return;
+            }
+            btCalcular.setText("Siguiente");
+        }else if(actual <= nroEcuaciones-1){
+            try {
+                MatrizMatriz aux =  FactorizacionLU.metodo(ab,nroEcuaciones,actual,tipoFactorizacion);
+                txIteracion.setText("Iteracion: "+actual);
+                escribirSalidaAB(aux.getL(),tablaSalidaL,tituloSalidaL);
+                escribirSalidaAB(aux.getU(),tablaSalidaU,tituloSalidaU);
+                actual++;
+
+            } catch (ArithmeticException e) {
+                Toast.makeText(contexto,ErrorMetodo.ERROR_DIVISION_CERO,Toast.LENGTH_LONG).show();
+                return;
+            }catch (Exception e){
+                Toast.makeText(contexto,e.getMessage()+" "+e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                return;
+            }
+        }else if(actual==nroEcuaciones) {
+            //TODO
+            BigDecimal[] zDespejadas = null;
+            BigDecimal[] xDespejadas = null;
+            try {
+                xDespejadas= Matriz.sustitucionRegresiva(ab,nroEcuaciones);
+                txIteracion.setText("Iteración: "+actual);
+                actual++;
+            }catch (Exception e){
+                Toast.makeText(contexto,ErrorMetodo.ERROR_DESPEJE_REGRESIVO,Toast.LENGTH_LONG).show();
+                return;
+            }
+            escribirSalidaX(xDespejadas, salidasX,marcas);
+            fin();
+        }
         //TODO
     }
     private void ingresar(){
@@ -114,13 +162,13 @@ public class FactorizacionDirectaActividad extends ActividadBase {
                 marcas[i]=i;
             }
         }else {
-            Toast.makeText(contexto,"No se pudo generar",Toast.LENGTH_LONG).show();
+            Toast.makeText(contexto, ErrorMetodo.ERROR_ENTRADA_NRO_ECUACIONES,Toast.LENGTH_LONG).show();
         }
     }
     private void limpiar(){
 
     }
-    private void terminar(){
+    private void fin(){
 
     }
 }

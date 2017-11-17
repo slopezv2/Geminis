@@ -105,6 +105,8 @@ public class PivoteoGaussActividad extends ActividadBase {
                     marcas = new int[nr+1];
                     limpiar();
 
+                }else {
+                    Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_NRO_ECUACIONES,Toast.LENGTH_LONG).show();
                 }
             }
         });

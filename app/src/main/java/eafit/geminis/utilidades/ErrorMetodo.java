@@ -35,4 +35,5 @@ public class ErrorMetodo {
     public static String ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES="Por favor verifique cada valor " +
             "pasado a la tabla";
     public static String DETECCION_MULTIPLES_SOLUCIONES = "El sistema no tiene solución única";
+    public static String ERROR_ENTRADA_NRO_ECUACIONES = "No se pudo generar la matriz de entrada";
 }

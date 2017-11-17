@@ -42,6 +42,29 @@ public final class Matriz {
     }
 
     /**
+     * Sustitucion progresiva, falta revisar en ejecucion
+     * @param ab matriz Ab
+     * @param n numero de ecuaciones
+     * @return vector x de despeje
+     * @throws Exception de division por 0
+     */
+    public static BigDecimal[] sustitucionProgresiva(BigDecimal[][] ab, int n)throws  Exception{
+        BigDecimal[] x = new BigDecimal[n+1];
+        for(BigDecimal xactual:x){
+            xactual = new BigDecimal(0);
+        }
+        x[1] = ab[1][n+1].divide(ab[1][1],32,BigDecimal.ROUND_HALF_UP);
+        for(int i =2; i <=n;++i){
+            BigDecimal sumatoria=new BigDecimal(0);
+            for(int p = 1; p < i;++p){
+                sumatoria = sumatoria.add(ab[i][p].multiply(x[p]));
+            }
+            x[i]=ab[i][n+1].subtract(sumatoria).divide(ab[i][i],32,BigDecimal.ROUND_HALF_UP);
+        }
+        return x;
+    }
+
+    /**
      * Intercambio de filas para una matriz
      * @param ab la matriz
      * @param origen la fila inicial
