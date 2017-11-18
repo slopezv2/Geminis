@@ -124,7 +124,7 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
                 Toast.makeText(contexto,ErrorMetodo.ERROR_DESPEJE_REGRESIVO,Toast.LENGTH_LONG).show();
                 return;
             }
-            escribirSalidaX(xDespejadas, salidasX,marcas);
+            escribirSalidaX(xDespejadas, salidasX,marcas,'X');
             fin();
         }
 

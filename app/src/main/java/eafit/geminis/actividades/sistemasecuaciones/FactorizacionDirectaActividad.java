@@ -39,6 +39,7 @@ public class FactorizacionDirectaActividad extends ActividadBase {
     private int[] marcas;
     private int actual = 0;
     private TextView txIteracion;
+    private MatrizMatriz aux;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,14 +120,13 @@ public class FactorizacionDirectaActividad extends ActividadBase {
                 return;
             }
             btCalcular.setText("Siguiente");
-        }else if(actual <= nroEcuaciones-1){
+        }else if(actual <= nroEcuaciones){
             try {
-                MatrizMatriz aux =  FactorizacionLU.metodo(ab,nroEcuaciones,actual,tipoFactorizacion);
+                aux =  FactorizacionLU.metodo(ab,nroEcuaciones,actual,tipoFactorizacion);
                 txIteracion.setText("Iteracion: "+actual);
-                escribirSalidaAB(aux.getL(),tablaSalidaL,tituloSalidaL);
-                escribirSalidaAB(aux.getU(),tablaSalidaU,tituloSalidaU);
+                escribirMatrizSimple(aux.getL(),nroEcuaciones,tablaSalidaL);
+                escribirMatrizSimple(aux.getU(),nroEcuaciones,tablaSalidaU);
                 actual++;
-
             } catch (ArithmeticException e) {
                 Toast.makeText(contexto,ErrorMetodo.ERROR_DIVISION_CERO,Toast.LENGTH_LONG).show();
                 return;
@@ -134,19 +134,23 @@ public class FactorizacionDirectaActividad extends ActividadBase {
                 Toast.makeText(contexto,e.getMessage()+" "+e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                 return;
             }
-        }else if(actual==nroEcuaciones) {
-            //TODO
+        }else if(actual>nroEcuaciones) {
             BigDecimal[] zDespejadas = null;
             BigDecimal[] xDespejadas = null;
             try {
-                xDespejadas= Matriz.sustitucionRegresiva(ab,nroEcuaciones);
+                BigDecimal[] btemp = Matriz.obtenerVectorB(ab,nroEcuaciones);
+                BigDecimal[][] LB = Matriz.formarMatrizAumentada(aux.getL(),btemp);
+                zDespejadas = Matriz.sustitucionProgresiva(LB,nroEcuaciones);
+                BigDecimal[][] UZ = Matriz.formarMatrizAumentada(aux.getU(),zDespejadas);
+                xDespejadas= Matriz.sustitucionRegresiva(UZ,nroEcuaciones);
                 txIteracion.setText("Iteración: "+actual);
                 actual++;
             }catch (Exception e){
                 Toast.makeText(contexto,ErrorMetodo.ERROR_DESPEJE_REGRESIVO,Toast.LENGTH_LONG).show();
                 return;
             }
-            escribirSalidaX(xDespejadas, salidasX,marcas);
+            escribirSalidaX(xDespejadas, salidasX,marcas,'X');
+            escribirSalidaX(zDespejadas,salidasZ,marcas,'Z');
             fin();
         }
         //TODO
@@ -166,9 +170,21 @@ public class FactorizacionDirectaActividad extends ActividadBase {
         }
     }
     private void limpiar(){
-
+        btCalcular.setText("Calcular");
+        btCalcular.setEnabled(true);
+        actual=0;
+        txIteracion.setText("Iteración: "+actual);
+        tablaSalidaL.removeAllViews();
+        tablaSalidaL.addView(tituloSalidaL);
+        tablaSalidaU.removeAllViews();
+        tablaSalidaU.addView(tituloSalidaU);
+        tablaEntrada.removeAllViews();
+        tablaEntrada.addView(tituloEntrada);
+        salidasX.removeAllViews();
+        salidasZ.removeAllViews();
     }
     private void fin(){
-
+        btCalcular.setText("Terminado");
+        btCalcular.setEnabled(false);
     }
 }

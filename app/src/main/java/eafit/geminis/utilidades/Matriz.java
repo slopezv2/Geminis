@@ -10,6 +10,13 @@ public final class Matriz {
     private Matriz(){
 
     }
+
+    /**
+     * Formar la matriz aumentada
+     * @param a
+     * @param b
+     * @return
+     */
     public static BigDecimal[][] formarMatrizAumentada(BigDecimal[][] a, BigDecimal[] b){
         BigDecimal[][] ab = new BigDecimal[a.length][a[0].length+1];
         for(int i = 1; i < a.length;++i){
@@ -53,13 +60,12 @@ public final class Matriz {
         for(BigDecimal xactual:x){
             xactual = new BigDecimal(0);
         }
-        x[1] = ab[1][n+1].divide(ab[1][1],32,BigDecimal.ROUND_HALF_UP);
-        for(int i =2; i <=n;++i){
-            BigDecimal sumatoria=new BigDecimal(0);
-            for(int p = 1; p < i;++p){
-                sumatoria = sumatoria.add(ab[i][p].multiply(x[p]));
+        for(int i = 1; i <= n; ++i){
+            BigDecimal sum = BigDecimal.ZERO;
+            for(int p = 1; p < i; ++p){
+                sum = sum.add(ab[i][p].multiply(x[p]));
             }
-            x[i]=ab[i][n+1].subtract(sumatoria).divide(ab[i][i],32,BigDecimal.ROUND_HALF_UP);
+            x[i] = (ab[i][n+1].subtract(sum)).divide(ab[i][i],64,BigDecimal.ROUND_HALF_UP);
         }
         return x;
     }
@@ -97,5 +103,19 @@ public final class Matriz {
         marcas[k]=columnaMayor;
         marcas[columnaMayor]=aux;
         return marcas;
+    }
+    public static BigDecimal[] obtenerVectorB(BigDecimal[][] ab, int n){
+        BigDecimal[] b = new BigDecimal[n+1];
+        for(int i = 1;i<=n;++i){
+            b[i] = ab[i][n+1];
+        }
+        return b;
+    }
+    public static void rellenarMatriz(BigDecimal[][] L, int  len){
+        for (int i = 1; i <= len; ++i){
+            for (int j =1 ; j <= len; ++j){
+                L[i][j] = BigDecimal.ZERO;
+            }
+        }
     }
 }

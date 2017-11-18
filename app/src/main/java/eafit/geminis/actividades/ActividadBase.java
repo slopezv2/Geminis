@@ -281,13 +281,13 @@ public abstract class ActividadBase extends Activity {
             tablaSalida.addView(fila);
         }
     }
-    protected void escribirSalidaX(BigDecimal[] lasx, LinearLayout destino, int[] marcas){
+    protected void escribirSalidaX(BigDecimal[] lasx, LinearLayout destino, int[] marcas, char letra){
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         destino.removeAllViews();
         for(int i = 1;i<lasx.length;++i){
             TextView tv = new TextView(contexto);
-            tv.setText("x"+marcas[i]+": "+lasx[i].doubleValue());
+            tv.setText(letra+""+marcas[i]+": "+lasx[i].doubleValue());
             destino.addView(tv,params);
             if(Build.VERSION.SDK_INT>=17){
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -295,6 +295,44 @@ public abstract class ActividadBase extends Activity {
             tv.setTextSize(16);
             tv.setPadding(5,5,5,5);
             tv.setTextColor(Color.BLACK);
+        }
+    }
+    protected void escribirMatrizSimple(BigDecimal[][] L, int n,TableLayout tablaSalida){
+        tablaSalida.removeAllViews();
+        TableRow encabezado = new TableRow(contexto);
+        for(int i = 1; i<=n;++i){
+            TextView tv = new TextView(contexto);
+            tv.setWidth(150);
+            tv.setText("X" + i);
+            tv.setPadding(5,5,5,5);
+            tv.setBackgroundResource(R.drawable.border);
+            tv.setGravity(Gravity.CENTER);
+            tv.setTextSize(16);
+            tv.setTextColor(Color.BLACK);
+            encabezado.addView(tv);
+        }
+        tablaSalida.addView(encabezado);
+        for(int i = 1; i <= n;++i){
+            TableRow fila = new TableRow(contexto);
+            for(int j = 1;j <= n;++j){
+                TextView tv = new TextView(contexto);
+                BigDecimal valActual =L[i][j];
+                if (valActual != null){
+                    tv.setText(valActual.doubleValue()+"");
+                }else {
+                    tv.setText("0");
+                }
+                if(Build.VERSION.SDK_INT>=17){
+                    tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                }
+                tv.setTextSize(16);
+                tv.setPadding(5,5,5,5);
+                tv.setWidth(90);
+                tv.setBackgroundResource(R.drawable.border);
+                tv.setTextColor(Color.rgb(126,138,151));
+                fila.addView(tv);
+            }
+            tablaSalida.addView(fila);
         }
     }
 }

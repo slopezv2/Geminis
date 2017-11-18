@@ -26,8 +26,8 @@ public class FactorizacionLU {
         return LU;
     }
     private static MatrizMatriz factorizacionGauss(BigDecimal[][] a, int n, int k)throws Exception{
-        BigDecimal[][]L=new BigDecimal[a.length][a.length];
-        BigDecimal[][] U = new BigDecimal[a.length][a.length];
+        BigDecimal[][]L=new BigDecimal[n+1][n+1];
+        BigDecimal[][] U = new BigDecimal[n+1][n+1];
         for(int i = k+1;i <= n;++i){
             a[i][k]=a[i][k].divide(a[k][k],32,BigDecimal.ROUND_HALF_UP);
             for(int j = k+1;j<= n;++j){

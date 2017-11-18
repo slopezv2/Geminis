@@ -137,7 +137,7 @@ public class PivoteoGaussActividad extends ActividadBase {
                 BigDecimal[] xs = null;
                 try {
                     xs = Matriz.sustitucionRegresiva(ab,ab.length-1);
-                    escribirSalidaX(xs,salidasX,marcas);
+                    escribirSalidaX(xs,salidasX,marcas,'X');
                 } catch (Exception e) {
                     Toast.makeText(contexto, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
