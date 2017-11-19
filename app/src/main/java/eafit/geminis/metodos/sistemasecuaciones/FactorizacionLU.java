@@ -21,9 +21,10 @@ public class FactorizacionLU {
             case GAUUSS:
                 LU = factorizacionGauss(ab,n,k);
             case DOOLITLE:
+                LU = factorizacionDoolittle(ab,n,k,L,U);
                 break;
             case CHOLESKY:
-
+                LU = factorizacionCholesky(ab,n,k,L,U);
                 break;
                 default:
         }
@@ -59,23 +60,82 @@ public class FactorizacionLU {
         }
         U[k][k]=BigDecimal.ONE;
         BigDecimal suma = BigDecimal.ZERO;
-        for(int p = 1; p<= k;++p){
+        for(int p = 1; p< k;++p){
             suma = suma.add(L[k][p].multiply(U[p][k]));
         }
         L[k][k]=a[k][k].subtract(suma);
         for(int i = k+1;i <= n;++i){
             suma = BigDecimal.ZERO;
-            for(int r = 1; r <= k;++r){
+            for(int r = 1; r < k;++r){
                 suma = suma.add(L[i][r].multiply(U[r][k]));
             }
             L[i][k]= a[i][k].subtract(suma);
         }
         for(int j = k+1;j <=n;++j){
             suma = BigDecimal.ZERO;
-            for(int s = 1; s <= k;++s){
+            for(int s = 1; s < k;++s){
                 suma = suma.add(L[k][s].multiply(U[s][j]));
             }
             U[k][j]=(a[k][j].subtract(suma)).divide(L[k][k],32, RoundingMode.HALF_UP);
+        }
+        return new MatrizMatriz(L,U);
+    }
+    private static MatrizMatriz factorizacionCholesky(BigDecimal[][] a, int n, int k, BigDecimal[][]L, BigDecimal[][] U)throws Exception{
+        if(U == null || L == null) {
+            L = new BigDecimal[n + 1][n + 1];
+            U = new BigDecimal[n + 1][n + 1];
+            Matriz.rellenarMatriz(L, n);
+            Matriz.rellenarMatriz(U, n);
+        }
+        BigDecimal suma = BigDecimal.ZERO;
+        for(int m = 1;m < k; ++m){
+            suma = suma.add(L[k][m].multiply(U[m][k]));
+        }
+        L[k][k] =  Matriz.sqrt((a[k][k].subtract(suma)));
+        U[k][k] = L[k][k];
+        for(int i = k ;i <= n;++i){
+            suma = BigDecimal.ZERO;
+            for(int p = 1;p < k;++p){
+                suma = suma.add(L[i][p].multiply(U[p][k]));
+            }
+            L[i][k] = (a[i][k].subtract(suma)).divide(U[k][k],32,BigDecimal.ROUND_HALF_UP);
+        }
+        for(int j = k+1;j <= n;++j){
+            suma = BigDecimal.ZERO;
+            for(int h = 1;h < k;++h){
+                suma = suma.add(L[k][h].multiply(U[h][j]));
+            }
+            U[k][j]=(a[k][j].subtract(suma)).divide(L[k][k],32,BigDecimal.ROUND_HALF_UP);
+        }
+        return new MatrizMatriz(L,U);
+    }
+    private static MatrizMatriz factorizacionDoolittle(BigDecimal[][] a, int n, int k, BigDecimal[][]L, BigDecimal[][] U)throws Exception{
+        if(U == null || L == null) {
+            L = new BigDecimal[n + 1][n + 1];
+            U = new BigDecimal[n + 1][n + 1];
+            Matriz.rellenarMatriz(L, n);
+            Matriz.rellenarMatriz(U, n);
+        }
+        BigDecimal suma = BigDecimal.ZERO;
+        suma = BigDecimal.ZERO;
+        for(int m = 1;m < k; ++m){
+            suma = suma.add(L[k][m].multiply(U[m][k]));
+        }
+        U[k][k] = a[k][k].subtract(suma);
+        L[k][k] = BigDecimal.ONE;
+        for(int i = k+1;i <= n;++i){
+            suma = BigDecimal.ZERO;
+            for(int p = 1;p < k;++p){
+                suma = suma.add(L[i][p].multiply(U[p][k]));
+            }
+            L[i][k] = (a[i][k].subtract(suma)).divide(U[k][k],32,BigDecimal.ROUND_HALF_UP);
+        }
+        for(int j = k+1;j <= n;++j){
+            suma = BigDecimal.ZERO;
+            for(int h = 1;h < k;++h){
+                suma = suma.add(L[k][h].multiply(U[h][j]));
+            }
+            U[k][j]=(a[k][j].subtract(suma));
         }
         return new MatrizMatriz(L,U);
     }

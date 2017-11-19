@@ -90,7 +90,7 @@ public class FactorizacionDirectaActividad extends ActividadBase {
                     case "Gauss pivoteo":
                         tipoFactorizacion = TipoFactorizacion.GAUUSS;
                         break;
-                    case "Croult":
+                    case "Crout":
                         tipoFactorizacion = TipoFactorizacion.CROULT;
                         break;
                     case "Doolittle":
@@ -100,7 +100,7 @@ public class FactorizacionDirectaActividad extends ActividadBase {
                         tipoFactorizacion = TipoFactorizacion.CHOLESKY;
                         break;
                     default:
-                        tipoFactorizacion = TipoFactorizacion.GAUUSS;
+
                 }
             }
 

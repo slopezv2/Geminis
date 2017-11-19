@@ -118,4 +118,16 @@ public final class Matriz {
             }
         }
     }
+    public static BigDecimal sqrt(BigDecimal A) { // implementation of the Babylonian method
+        BigDecimal x0 = new BigDecimal("0");
+        BigDecimal x1 = new BigDecimal(Math.sqrt(A.doubleValue()));
+        BigDecimal TWO = BigDecimal.valueOf(2);
+        while (!x0.equals(x1)) {
+            x0 = x1;
+            x1 = A.divide(x0, 32, BigDecimal.ROUND_HALF_UP);
+            x1 = x1.add(x0);
+            x1 = x1.divide(TWO, 32, BigDecimal.ROUND_HALF_UP);
+        }
+        return x1;
+    }
 }
