@@ -60,6 +60,10 @@
         <item>Doolittle</item>
         <item>Cholesky</item>
     </string-array>
+    <string-array name="opciones_metodos_iterativos">
+        <item>Jacobi relajado</item>
+        <item>Gauss Seidel relajado</item>
+    </string-array>
     <string name="entrada_tipo_pivoteo">Seleccione el tipo de pivoteo a emplear</string>
     <string name="bt_siguiente">Siguiente</string>
     <string name="iteracionnro">Iteración:</string>
@@ -70,4 +74,9 @@
     <string name="matriz_u">Matriz U</string>
     <string name="resultado_variables_z">Resultado variables Z</string>
     <string name="despeje_final">Despeje final:</string>
+    <string name="titulo_metodos_iterativos">Métodos Iterativos</string>
+    <string name="entrada_tipo_metodo_iterativo">Seleccione el método iterativo a usar</string>
+    <string name="bt_salir">Salir</string>
+    <string name="error_relativo">Error Relativo</string>
+    <string name="error_absoluto">Error Absoluto</string>
 </resources>
