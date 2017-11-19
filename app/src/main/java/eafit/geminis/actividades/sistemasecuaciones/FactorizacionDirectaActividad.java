@@ -32,7 +32,7 @@ public class FactorizacionDirectaActividad extends ActividadBase {
     private TableLayout tablaEntrada, tablaSalidaL,tablaSalidaU;
     private TableRow tituloEntrada, tituloSalidaL,tituloSalidaU;
     private EditText edNroEcuaciones;
-    private BigDecimal[][] ab;
+    private BigDecimal[][] ab, L,U;
     private LinearLayout salidasX, salidasZ;
     private int nroEcuaciones=0;
     private TipoFactorizacion tipoFactorizacion;
@@ -122,16 +122,19 @@ public class FactorizacionDirectaActividad extends ActividadBase {
             btCalcular.setText("Siguiente");
         }else if(actual <= nroEcuaciones){
             try {
-                aux =  FactorizacionLU.metodo(ab,nroEcuaciones,actual,tipoFactorizacion);
+                aux =  FactorizacionLU.metodo(ab,nroEcuaciones,actual,tipoFactorizacion,L,U);
                 txIteracion.setText("Iteracion: "+actual);
-                escribirMatrizSimple(aux.getL(),nroEcuaciones,tablaSalidaL);
-                escribirMatrizSimple(aux.getU(),nroEcuaciones,tablaSalidaU);
+                L=aux.getL();
+                U=aux.getU();
+                escribirMatrizSimple(L,nroEcuaciones,tablaSalidaL);
+                escribirMatrizSimple(U,nroEcuaciones,tablaSalidaU);
                 actual++;
             } catch (ArithmeticException e) {
                 Toast.makeText(contexto,ErrorMetodo.ERROR_DIVISION_CERO,Toast.LENGTH_LONG).show();
                 return;
             }catch (Exception e){
                 Toast.makeText(contexto,e.getMessage()+" "+e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                e.printStackTrace();
                 return;
             }
         }else if(actual>nroEcuaciones) {
@@ -153,7 +156,7 @@ public class FactorizacionDirectaActividad extends ActividadBase {
             escribirSalidaX(zDespejadas,salidasZ,marcas,'Z');
             fin();
         }
-        //TODO
+
     }
     private void ingresar(){
         limpiar();
