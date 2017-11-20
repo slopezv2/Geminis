@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 
 public class MatrizMatriz {
+    // Clase para almacenar dos matrices bidimencionales tipo Ab
     private BigDecimal[][] L, U;
 
     public MatrizMatriz(BigDecimal[][] l, BigDecimal[][] u) {

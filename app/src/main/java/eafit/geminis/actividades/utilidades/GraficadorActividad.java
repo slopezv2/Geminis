@@ -14,7 +14,6 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.LegendRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.udojava.evalex.Expression;
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.utilidades.EvalExEval;

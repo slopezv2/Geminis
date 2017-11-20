@@ -7,7 +7,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.ecuacionesunavariable.MenuUnaVariableActividad;
 import eafit.geminis.actividades.interpolacion.MenuInterpolacionActividad;
@@ -15,7 +14,6 @@ import eafit.geminis.actividades.sistemasecuaciones.MenuSistemasEcuacionesActivi
 import eafit.geminis.actividades.utilidades.GraficadorEntradaActividad;
 
 public class MainActivity extends ActividadBase {
-
     private static ListView listaMetodos;
     private static String[] metodos;
     private Button btBorrarFunciones;
@@ -36,6 +34,9 @@ public class MainActivity extends ActividadBase {
         });
     }
 
+    /**
+     * Lista del menu principal y actividad de lanzamiento
+     */
     private void inicializarLista(){
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(this,R.layout.item_metodos_lista,metodos);
         listaMetodos.setAdapter(adapter);
@@ -63,7 +64,6 @@ public class MainActivity extends ActividadBase {
                                     startActivity(intent);
                                 break;
                         }
-
                     }
                 }
         );

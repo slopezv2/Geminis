@@ -1,24 +1,16 @@
 package eafit.geminis.actividades.ecuacionesunavariable;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Debug;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import java.math.BigDecimal;
-import java.util.ArrayList;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.ecuacionesunavariable.BusquedaIncremental;
@@ -77,12 +69,7 @@ public class BusquedasActividad extends ActividadBase {
         }
         new Evaluador().execute(stFuncion,stIteraciones,stDelta,stValorInicial);
     }
-
-
-
     private class Evaluador extends AsyncTask<String,Void,Respuesta> {
-
-
         protected Respuesta doInBackground(String... params) {
             String funcion =params[0];
             int iteraciones = Integer.parseInt(params[1]);

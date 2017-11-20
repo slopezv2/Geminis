@@ -1,6 +1,5 @@
 package eafit.geminis.actividades.sistemasecuaciones;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,9 +9,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.math.BigDecimal;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.sistemasecuaciones.EliminacionGaussianaSimple;
@@ -83,7 +80,6 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             }
         });
     }
-
     /**
      * Obtener la matriz Ab de la entrada, procesarla y pintar en interfaz
      */
@@ -98,7 +94,6 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             }
             calcular.setText("Siguiente");
             escribirSalidaAB(ab,tablaSalida,tituloSalida);
-
         }else if(actual <= nroEcuaciones-1){
             try {
                 ab = EliminacionGaussianaSimple.metodo(ab,nroEcuaciones,actual);
@@ -113,7 +108,6 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             }
             //Métodos genéricos, definidos en clase padre
             escribirSalidaAB(ab,tablaSalida,tituloSalida);
-
         }else if(actual==nroEcuaciones) {
             BigDecimal[] xDespejadas = null;
             try {
@@ -127,12 +121,19 @@ public class EliminacionGaussianaSimpleActividad extends ActividadBase {
             escribirSalidaX(xDespejadas, salidasX,marcas,'X');
             fin();
         }
-
     }
+
+    /**
+     * Bloquear El boton de calcular y mostrar que termino el proceso
+     */
     private void fin(){
         calcular.setText("Terminado");
         calcular.setEnabled(false);
     }
+
+    /**
+     * Limpiar los datos previos para volver a ejecutar
+     */
     private void limpiar(){
         calcular.setText("Calcular");
         calcular.setEnabled(true);

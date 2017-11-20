@@ -1,6 +1,5 @@
 package eafit.geminis.actividades.ecuacionesunavariable;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +11,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import java.math.BigDecimal;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.ecuacionesunavariable.Biseccion;
@@ -54,7 +51,6 @@ public class ReglaFalsaActividad extends ActividadBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 esErrorAbsoluto = isChecked;
-
             }
         });
         recuperarFunciones(funcion);
@@ -105,5 +101,4 @@ public class ReglaFalsaActividad extends ActividadBase {
             }
         }
     }
-
 }

@@ -76,7 +76,7 @@ public class MetodosIterativosActividad extends ActividadBase {
         btCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                calcular();
             }
         });
         btSalir.setOnClickListener(new View.OnClickListener() {
@@ -88,17 +88,18 @@ public class MetodosIterativosActividad extends ActividadBase {
         btIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ingresar();
             }
         });
     }
     private void limpiar(){
-
+        /// TODO: 19/11/2017
     }
     private void calcular(){
-
+        //todo
     }
     private void ingresar(){
-
+        limpiar();
+        //TODO
     }
 }

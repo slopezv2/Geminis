@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 
 public class Respuesta {
+    // Clase que representa la respuesta de la mayoría de métodos de ecuaciones de una variable
     private TipoRespuesta tipo;
     private ArrayList<String> tablaIteraciones;
     private ArrayList<BigDecimal> intervalo;
@@ -39,8 +40,6 @@ public class Respuesta {
         this.tolerancia = tol;
         this.tablaIteraciones = tablaIteraciones;
     }
-
-
 
     public TipoRespuesta getTipo() {
         return tipo;

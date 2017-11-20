@@ -1,14 +1,11 @@
 package eafit.geminis.actividades;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Message;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.Menu;
@@ -24,13 +21,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.text.Format;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.utilidades.AyudasActividad;
 import eafit.geminis.utilidades.ErrorMetodo;
@@ -54,9 +47,9 @@ public abstract class ActividadBase extends Activity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Lanzar la ayuda desde la actividad actual
         switch (item.getItemId()) {
             case R.id.AcercaDe:
-                // do what you want here
                 Intent intent = new Intent(contexto, AyudasActividad.class);
                 intent.putExtra("ayuda",ayudaAmostrar);
                 startActivity(intent);
@@ -65,6 +58,12 @@ public abstract class ActividadBase extends Activity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    /**
+     * Metodo para verificar si es una entrada numerica válida
+     * @param entrada string a verificar
+     * @param esFuncion si se trata de una funcion
+     * @return true si está bien, false en caso contrario
+     */
     protected boolean verificarEntrada(String entrada,boolean esFuncion){
         if (entrada==null){
             return false;
@@ -80,6 +79,13 @@ public abstract class ActividadBase extends Activity {
         }
         return true;
     }
+    /**
+     * Metodo para pintar las respuestas en GUI
+     * @param respuesta
+     * @param tabla
+     * @param filaEmcabezados
+     * @param resultados
+     */
     protected void tratarRespuesta(Respuesta respuesta,TableLayout tabla, TableRow filaEmcabezados, EditText resultados){
         tabla.removeAllViews();
         tabla.addView(filaEmcabezados);
@@ -108,6 +114,13 @@ public abstract class ActividadBase extends Activity {
             }
         }
     }
+    /**
+     * Metodo para insertar una fila de string separado por ' ' (espacio en blanco) en una tabla dada
+     * @param fila
+     * @param iteracion
+     * @param tabla
+     * @param filaEmcabezados
+     */
     protected void insertarFila(String fila, int iteracion, TableLayout tabla, TableRow filaEmcabezados){
         ViewGroup.LayoutParams parametros_fila = filaEmcabezados.getLayoutParams();
         TableRow nuevaFila = new TableRow(contexto);
@@ -142,12 +155,20 @@ public abstract class ActividadBase extends Activity {
         }
         tabla.addView(nuevaFila);
     }
+    /**
+     * Metodo para guardar en archivo una funcion dada
+     * @param funcion
+     */
     protected void guardarFuncion(String funcion){
         boolean res = Guardado.guardarFuncion(contexto,funcion);
         if (!res){
             Toast.makeText(contexto, ErrorMetodo.NO_GUARDO_FUNCION,Toast.LENGTH_SHORT).show();
         }
     }
+    /**
+     * Metodo para traer de memoria las funciones guardadas y ponerlas en ed para sugerencia
+     * @param ed
+     */
     protected void recuperarFunciones(AutoCompleteTextView ed){
         String[] funciones = Guardado.recuperarFunciones(contexto);
         if (funciones != null && funciones[0].compareTo("")!=0){
@@ -155,19 +176,21 @@ public abstract class ActividadBase extends Activity {
             ed.setAdapter(adaptador);
         }
     }
+    /**
+     * Eliminar las funciones guardadas
+     */
     protected void borrarFunciones(){
         boolean res =Guardado.Borrar(contexto);
         if (!res){
             Toast.makeText(contexto, ErrorMetodo.NO_BORRADO_FUNCION,Toast.LENGTH_SHORT).show();
         }
     }
-
     /**
      * Generar la entrada para el sistema de ecuaciones
      * @param nroEcuaciones
      * @param tabla
      * @param titulo
-     * @return
+     * @return true si fue exitoso, false en caso contrario
      */
     protected boolean generarMatrizEntrada(String nroEcuaciones, TableLayout tabla, TableRow titulo) {
         if(nroEcuaciones.isEmpty()){
@@ -223,7 +246,6 @@ public abstract class ActividadBase extends Activity {
             return true;
         }
     }
-
     /**
      * Lee la tabla de entrada ab y retorna los datos en BigDecimal[][] ab
      * @param tabla
@@ -243,6 +265,12 @@ public abstract class ActividadBase extends Activity {
         }
         return ab;
     }
+    /**
+     * Metodo para escribir en tabla los resultados de una matriz tipo bidimensional
+     * @param AB
+     * @param tablaSalida
+     * @param tituloSalida
+     */
     protected void escribirSalidaAB(BigDecimal[][] AB,TableLayout tablaSalida, TableRow tituloSalida){
         tablaSalida.removeAllViews();
         TableRow encabezado = new TableRow(contexto);
@@ -281,6 +309,14 @@ public abstract class ActividadBase extends Activity {
             tablaSalida.addView(fila);
         }
     }
+
+    /**
+     * Metodo para escribir en LinearLayout los resultados de x despejadas
+     * @param lasx
+     * @param destino
+     * @param marcas
+     * @param letra
+     */
     protected void escribirSalidaX(BigDecimal[] lasx, LinearLayout destino, int[] marcas, char letra){
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -297,6 +333,12 @@ public abstract class ActividadBase extends Activity {
             tv.setTextColor(Color.BLACK);
         }
     }
+    /**
+     * Metodo para escribir una matriz sencilla tipo L o U en factorizacion
+     * @param L
+     * @param n
+     * @param tablaSalida
+     */
     protected void escribirMatrizSimple(BigDecimal[][] L, int n,TableLayout tablaSalida){
         tablaSalida.removeAllViews();
         TableRow encabezado = new TableRow(contexto);

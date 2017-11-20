@@ -2,8 +2,6 @@ package eafit.geminis.metodos.sistemasecuaciones;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.Bidi;
-
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Matriz;
 import eafit.geminis.utilidades.MatrizMarca;
@@ -44,6 +42,15 @@ public class GaussConPivoteo {
         return new MatrizMarca(ab,marcas);
     }
 
+    /**
+     * Pivoteo total para aplicar en gauss
+     * @param ab
+     * @param n
+     * @param k
+     * @param marcas
+     * @return
+     * @throws Exception
+     */
     private static MatrizMarca pivoteoTotal(BigDecimal[][] ab, int n, int k,int[] marcas) throws Exception{
         BigDecimal mayor = BigDecimal.ZERO;
         int filaMayor =k;
@@ -72,6 +79,14 @@ public class GaussConPivoteo {
         }
     }
 
+    /**
+     * Pivoteo total para aplicar con Gauss
+     * @param ab
+     * @param n
+     * @param k
+     * @return
+     * @throws Exception
+     */
     private static BigDecimal[][] pivoteoParcial(BigDecimal[][] ab,int n, int k) throws Exception {
         BigDecimal mayor = ab[k][k].abs();
         int filaMayor = k;

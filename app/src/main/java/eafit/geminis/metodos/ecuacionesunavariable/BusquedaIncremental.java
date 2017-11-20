@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import eafit.geminis.utilidades.*;
 
-
 /**
  *
  * @author slopezv2

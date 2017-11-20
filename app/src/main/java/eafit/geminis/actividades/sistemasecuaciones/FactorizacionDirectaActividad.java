@@ -1,7 +1,6 @@
 package eafit.geminis.actividades.sistemasecuaciones;
 
 import eafit.geminis.R;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,17 +12,13 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.math.BigDecimal;
-
 import eafit.geminis.actividades.ActividadBase;
-import eafit.geminis.metodos.sistemasecuaciones.EliminacionGaussianaSimple;
 import eafit.geminis.metodos.sistemasecuaciones.FactorizacionLU;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Matriz;
 import eafit.geminis.utilidades.MatrizMatriz;
 import eafit.geminis.utilidades.TipoFactorizacion;
-import eafit.geminis.utilidades.TipoPivoteo;
 
 public class FactorizacionDirectaActividad extends ActividadBase {
     private View restoEntrada, restoSalida;
@@ -103,10 +98,8 @@ public class FactorizacionDirectaActividad extends ActividadBase {
 
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
     }
@@ -156,7 +149,6 @@ public class FactorizacionDirectaActividad extends ActividadBase {
             escribirSalidaX(zDespejadas,salidasZ,marcas,'Z');
             fin();
         }
-
     }
     private void ingresar(){
         limpiar();

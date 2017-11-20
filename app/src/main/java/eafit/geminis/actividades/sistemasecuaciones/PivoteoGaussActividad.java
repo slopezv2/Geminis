@@ -1,6 +1,5 @@
 package eafit.geminis.actividades.sistemasecuaciones;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,12 +11,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.math.BigDecimal;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
-import eafit.geminis.metodos.sistemasecuaciones.EliminacionGaussianaSimple;
 import eafit.geminis.metodos.sistemasecuaciones.GaussConPivoteo;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Matriz;
@@ -59,13 +55,10 @@ public class PivoteoGaussActividad extends ActividadBase {
                         tipoPivoteo = TipoPivoteo.TOTAL;
                         break;
                         default:
-
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
             }
         });
         tablaSalida = (TableLayout) findViewById(R.id.tabla_resultados_ab);
@@ -118,6 +111,9 @@ public class PivoteoGaussActividad extends ActividadBase {
         });
     }
 
+    /**
+     * Metodo para adelantar a la siguiente iteracion del calculo.
+     */
     private void siguiente() {
         if (actual<ab.length-1) {
             try {
@@ -149,7 +145,6 @@ public class PivoteoGaussActividad extends ActividadBase {
             spOpciones.setEnabled(true);
         }
     }
-
     private void calcularResultado() {
         limpiar();
         try {

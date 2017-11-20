@@ -2,7 +2,6 @@ package eafit.geminis.metodos.ecuacionesunavariable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.EvalExEval;
 import eafit.geminis.utilidades.Respuesta;
@@ -13,6 +12,16 @@ import eafit.geminis.utilidades.TipoRespuesta;
  */
 
 public class ReglaFalsa {
+    /**
+     * Metodo para resolver por regla falsa una ecuacion
+     * @param funcion
+     * @param xi
+     * @param xs
+     * @param tol
+     * @param niter
+     * @param esAbsoluto
+     * @return
+     */
     public static Respuesta metodo(String funcion, BigDecimal xi, BigDecimal xs, BigDecimal tol, int niter,boolean esAbsoluto){
         ArrayList<String> iteraciones = new ArrayList<>();
         BigDecimal two = new BigDecimal(2);

@@ -1,6 +1,5 @@
 package eafit.geminis.actividades.ecuacionesunavariable;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -12,13 +11,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import java.math.BigDecimal;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.ecuacionesunavariable.Newton;
-import eafit.geminis.metodos.ecuacionesunavariable.PuntoFijo;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
 import eafit.geminis.utilidades.TipoRespuesta;
@@ -32,7 +28,6 @@ public class NewtonActividad extends ActividadBase {
     private AutoCompleteTextView entradaFx, entradaGx;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_newton);
         ayudaAmostrar = "newton";

@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  */
 
 public class MatrizMarca {
+    // clase para almacenar una matriz y un vector BigDecimal
     private BigDecimal[][] ab;
     private int[] marcas;
 

@@ -2,7 +2,6 @@ package eafit.geminis.metodos.ecuacionesunavariable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.EvalExEval;
 import eafit.geminis.utilidades.Respuesta;

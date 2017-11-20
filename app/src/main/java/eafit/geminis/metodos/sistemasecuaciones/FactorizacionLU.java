@@ -2,7 +2,6 @@ package eafit.geminis.metodos.sistemasecuaciones;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 import eafit.geminis.utilidades.Matriz;
 import eafit.geminis.utilidades.MatrizMatriz;
 import eafit.geminis.utilidades.TipoFactorizacion;
@@ -12,6 +11,17 @@ import eafit.geminis.utilidades.TipoFactorizacion;
  */
 
 public class FactorizacionLU {
+    /**
+     * Metodo para resolver un sistema de ecuaciones lineales pór factorizacion
+     * @param ab matriz aumentada
+     * @param n numero de iteraciones
+     * @param k etapa actual
+     * @param tipo tipo de factorizacion a usar
+     * @param L matriz L usada en una etapa previa
+     * @param U matriz U usada en una etapa previa
+     * @return
+     * @throws Exception
+     */
     public static MatrizMatriz metodo(BigDecimal[][]ab, int n, int k, TipoFactorizacion tipo, BigDecimal[][] L,BigDecimal[][] U) throws Exception{
         MatrizMatriz LU = null;
         switch (tipo){
@@ -30,6 +40,14 @@ public class FactorizacionLU {
         }
         return LU;
     }
+    /**
+     * Factorizacion con Gauss por etapas
+     * @param a
+     * @param n
+     * @param k
+     * @return
+     * @throws Exception
+     */
     private static MatrizMatriz factorizacionGauss(BigDecimal[][] a, int n, int k)throws Exception{
         BigDecimal[][]L=new BigDecimal[n+1][n+1];
         BigDecimal[][] U = new BigDecimal[n+1][n+1];
@@ -51,6 +69,17 @@ public class FactorizacionLU {
         }
         return new MatrizMatriz(L,U);
     }
+
+    /**
+     * Factorizacion con Crout por etapas
+     * @param a
+     * @param n
+     * @param k
+     * @param L
+     * @param U
+     * @return
+     * @throws Exception
+     */
     private static MatrizMatriz factorizacionCrout(BigDecimal[][] a, int n, int k, BigDecimal[][]L, BigDecimal[][] U)throws Exception{
         if(U == null || L == null) {
             L = new BigDecimal[n + 1][n + 1];
@@ -80,6 +109,17 @@ public class FactorizacionLU {
         }
         return new MatrizMatriz(L,U);
     }
+
+    /**
+     * Factorizacion con Cholesky por etapas
+     * @param a
+     * @param n
+     * @param k
+     * @param L
+     * @param U
+     * @return
+     * @throws Exception
+     */
     private static MatrizMatriz factorizacionCholesky(BigDecimal[][] a, int n, int k, BigDecimal[][]L, BigDecimal[][] U)throws Exception{
         if(U == null || L == null) {
             L = new BigDecimal[n + 1][n + 1];
@@ -109,6 +149,17 @@ public class FactorizacionLU {
         }
         return new MatrizMatriz(L,U);
     }
+
+    /**
+     * Factorizacion con Doolittle con etapas
+     * @param a
+     * @param n
+     * @param k
+     * @param L
+     * @param U
+     * @return
+     * @throws Exception
+     */
     private static MatrizMatriz factorizacionDoolittle(BigDecimal[][] a, int n, int k, BigDecimal[][]L, BigDecimal[][] U)throws Exception{
         if(U == null || L == null) {
             L = new BigDecimal[n + 1][n + 1];

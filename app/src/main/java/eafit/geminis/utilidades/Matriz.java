@@ -8,7 +8,6 @@ import java.math.BigDecimal;
  */
 public final class Matriz {
     private Matriz(){
-
     }
 
     /**
@@ -27,7 +26,6 @@ public final class Matriz {
         }
         return ab;
     }
-
     /**
      * Sustitucion regresiva
      * @param ab matriz
@@ -47,7 +45,6 @@ public final class Matriz {
         }
         return x;
     }
-
     /**
      * Sustitucion progresiva, falta revisar en ejecucion
      * @param ab matriz Ab
@@ -69,7 +66,6 @@ public final class Matriz {
         }
         return x;
     }
-
     /**
      * Intercambio de filas para una matriz
      * @param ab la matriz
@@ -84,6 +80,13 @@ public final class Matriz {
         return ab;
     }
 
+    /**
+     * Intercambio de columnas
+     * @param ab
+     * @param columnaMayor Columna de origen
+     * @param k Columna de destino
+     * @return
+     */
     public static BigDecimal[][] intercambiarColumnas(BigDecimal[][] ab, int columnaMayor, int k) {
         BigDecimal[] aux = new BigDecimal[ab.length+1];
         for (int i = 1;i<ab.length;++i){
@@ -98,12 +101,26 @@ public final class Matriz {
         return ab;
     }
 
+    /**
+     * Actualizar las marcas de las posiciones actuales de las variables
+     * @param marcas
+     * @param columnaMayor
+     * @param k
+     * @return
+     */
     public static int[] intercambiarMarcas(int[] marcas, int columnaMayor, int k) {
         int aux = marcas[k];
         marcas[k]=columnaMayor;
         marcas[columnaMayor]=aux;
         return marcas;
     }
+
+    /**
+     * Obtener b de una matriz Ab
+     * @param ab
+     * @param n
+     * @return
+     */
     public static BigDecimal[] obtenerVectorB(BigDecimal[][] ab, int n){
         BigDecimal[] b = new BigDecimal[n+1];
         for(int i = 1;i<=n;++i){
@@ -111,6 +128,12 @@ public final class Matriz {
         }
         return b;
     }
+
+    /**
+     * Llenar una matriz dada con 0
+     * @param L
+     * @param len
+     */
     public static void rellenarMatriz(BigDecimal[][] L, int  len){
         for (int i = 1; i <= len; ++i){
             for (int j =1 ; j <= len; ++j){
@@ -118,6 +141,12 @@ public final class Matriz {
             }
         }
     }
+
+    /**
+     * Metodo de raiz cuadrada basadi en: Babylonian method
+     * @param A
+     * @return
+     */
     public static BigDecimal sqrt(BigDecimal A) { // implementation of the Babylonian method
         BigDecimal x0 = new BigDecimal("0");
         BigDecimal x1 = new BigDecimal(Math.sqrt(A.doubleValue()));

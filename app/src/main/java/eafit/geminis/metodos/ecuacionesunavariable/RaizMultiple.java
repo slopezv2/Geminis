@@ -2,7 +2,6 @@ package eafit.geminis.metodos.ecuacionesunavariable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.EvalExEval;
 import eafit.geminis.utilidades.Respuesta;
@@ -13,6 +12,17 @@ import eafit.geminis.utilidades.TipoRespuesta;
  */
 
 public class RaizMultiple {
+    /**
+     * Metodo para resolver una ecuacion con raices multiples
+     * @param funcion funcion a evaluar
+     * @param funcionPrima primera derivada de la funcion
+     * @param funcion2Prima segunda derivada de la funcion
+     * @param x0 punto inicial
+     * @param tol tolerancia
+     * @param niter
+     * @param errorAbsoluto
+     * @return
+     */
     public static Respuesta metodo(String funcion,String funcionPrima, String funcion2Prima,
                                    BigDecimal x0, BigDecimal tol, int niter, boolean errorAbsoluto){
         EvalExEval evaluadorF = new EvalExEval();

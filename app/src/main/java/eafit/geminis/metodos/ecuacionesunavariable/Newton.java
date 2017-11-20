@@ -2,7 +2,6 @@ package eafit.geminis.metodos.ecuacionesunavariable;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.EvalExEval;
 import eafit.geminis.utilidades.Respuesta;
@@ -13,6 +12,17 @@ import eafit.geminis.utilidades.TipoRespuesta;
  */
 
 public class Newton {
+    /**
+     * Metodo para resolver un sistema por Newton
+     * @param funcion funcion a evaluar
+     * @param funcionD derivada de la funcion
+     * @param xi punto inicial a usar
+     * @param tol tolerancia
+     * @param niter numero de iteraciones maximo
+     * @param esAbsoluto si se usa error absoluto
+     * @return
+     * @throws Exception
+     */
     public static Respuesta metodo(String funcion, String funcionD, BigDecimal xi, BigDecimal tol, int niter, boolean esAbsoluto) throws Exception{
         EvalExEval evaluadorFx = new EvalExEval(), evaluadorGx= new EvalExEval();
         ArrayList<String> iteraciones = new ArrayList();

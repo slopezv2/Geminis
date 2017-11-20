@@ -16,12 +16,20 @@ import java.util.ArrayList;
  */
 
 public class Guardado {
+    //Nombre del archivo para guardar las funciones
     public static String ARCHIVO_FUNCIONES = "funciones.txt";
+
+    /**
+     * Metodo para guardar las funciones
+     * @param context
+     * @param funcion
+     * @return
+     */
     public static boolean guardarFuncion(Context context,String funcion){
         funcion += "\n";
         FileOutputStream outputStream = null;
         try {
-            outputStream = context.openFileOutput(ARCHIVO_FUNCIONES, context.MODE_PRIVATE |context.MODE_APPEND);
+            outputStream = context.openFileOutput(ARCHIVO_FUNCIONES, Context.MODE_PRIVATE | Context.MODE_APPEND);
             outputStream.write(funcion.getBytes());
             outputStream.close();
         } catch (Exception e) {
@@ -30,6 +38,12 @@ public class Guardado {
         }
         return true;
     }
+
+    /**
+     * Metodo para recuperar las funciones
+     * @param context
+     * @return
+     */
     public static String[] recuperarFunciones(Context context){
         FileInputStream entrada = null;
         String funciones = "";
@@ -45,6 +59,12 @@ public class Guardado {
         }
         return funciones.split("\n");
     }
+
+    /**
+     * Metodo para borrar las funciones
+     * @param context
+     * @return
+     */
     public static boolean Borrar(Context context){
         File ubicacion = context.getFilesDir();
         File archivo = new File(ubicacion,ARCHIVO_FUNCIONES);

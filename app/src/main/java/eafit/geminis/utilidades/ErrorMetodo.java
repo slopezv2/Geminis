@@ -5,6 +5,7 @@ package eafit.geminis.utilidades;
  */
 
 public class ErrorMetodo {
+    //Errores a emplear en Español en toda la app
     public static String ERROR_NITER_INCORRECTO="El número de iteraciones es incorrecto, verificar: " +
             "número iteraciones > 0 y número entero";
     public static String ERROR_DELTA_INCORRECTO="El delta es incorrecto, verificar que sea un dato numérico y delta != 0";

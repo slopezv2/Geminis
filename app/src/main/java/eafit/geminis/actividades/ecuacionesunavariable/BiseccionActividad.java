@@ -1,29 +1,20 @@
 package eafit.geminis.actividades.ecuacionesunavariable;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import java.math.BigDecimal;
-import java.util.ArrayList;
-
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.ecuacionesunavariable.Biseccion;
-import eafit.geminis.metodos.ecuacionesunavariable.BusquedaIncremental;
 import eafit.geminis.utilidades.ErrorMetodo;
 import eafit.geminis.utilidades.Respuesta;
 import eafit.geminis.utilidades.TipoRespuesta;
@@ -60,12 +51,14 @@ public class BiseccionActividad extends ActividadBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 esErrorAbsoluto = isChecked;
-
             }
         });
         recuperarFunciones(funcion);
         funcion.setThreshold(2);
     }
+    /**
+     * Metodo para verificar las entradas y ejecutar en tarea
+     */
     private void buscar(){
         String stFuncion = funcion.getText().toString();
         if (!verificarEntrada(stFuncion,true)){

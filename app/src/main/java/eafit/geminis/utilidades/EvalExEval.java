@@ -14,7 +14,7 @@ public class EvalExEval {
 
     private Expression expression;
     /**
-     *
+     * Metodo para llamar al evaluador sobre una expresion
      * @param expresion Expresión a evaluar
      * @param numero El valor de x
      * @param nuevaExpresion Si se requiere un nuevo objeto
@@ -26,6 +26,5 @@ public class EvalExEval {
             expression.setRoundingMode(RoundingMode.HALF_UP);
         }
         return expression.with("x",numero).eval();
-
     }
 }
