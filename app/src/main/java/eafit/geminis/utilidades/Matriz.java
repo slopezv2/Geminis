@@ -169,7 +169,7 @@ public final class Matriz {
     public static BigDecimal norma(BigDecimal[] v1, BigDecimal[] v2){
         BigDecimal maximo = BigDecimal.ZERO;
         BigDecimal maximoTemp;
-        for(int i = 0; i < v1.length; ++i){
+        for(int i = 1; i <= v1.length-1; ++i){
             maximoTemp = maximo.max((v1[i].subtract(v2[i])).abs());
             if (maximoTemp.compareTo(maximo)>0){
                 maximo = maximoTemp;
@@ -186,7 +186,7 @@ public final class Matriz {
     public static BigDecimal norma(BigDecimal[] v1){
         BigDecimal maximo = BigDecimal.ZERO;
         BigDecimal maximoTemp;
-        for(int i = 0; i < v1.length; ++i){
+        for(int i = 1; i <= v1.length-1; ++i){
             maximoTemp = maximo.max((v1[i]).abs());
             if(maximoTemp.compareTo(maximo)>0){
                 maximo = maximoTemp;
@@ -197,7 +197,9 @@ public final class Matriz {
     public static String deVectorATexto(BigDecimal[] x){
         String res="";
         for(BigDecimal actual:x){
-            res.concat(actual.toString()+" ");
+            if(actual!=null){
+                res+= (actual.toString()+" ");
+            }
         }
         return res;
     }

@@ -38,5 +38,13 @@ public class MenuSistemasEcuacionesActividad extends ActividadBase {
                 startActivity(intent);
             }
         });
+        Button irIterativos = (Button) findViewById(R.id.bt_ir_iterativos);
+        irIterativos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuSistemasEcuacionesActividad.this,MetodosIterativosActividad.class);
+                startActivity(intent);
+            }
+        });
     }
 }

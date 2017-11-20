@@ -28,7 +28,7 @@ public class MetodoIterativo {
             iteracion = "";
             BigDecimal[] x1 = null;
             if (tipo == TipoIterativo.JACOBI_RELAJADO){
-                calcularNuevoJacobi(x0,W,A,b,n);
+                x1=calcularNuevoJacobi(x0,W,A,b,n);
             }else if (tipo == TipoIterativo.GAUSS_SEIDEL_RELAJADO){
 
             }

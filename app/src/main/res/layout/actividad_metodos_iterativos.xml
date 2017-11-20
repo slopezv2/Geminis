@@ -35,6 +35,32 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margen_abajo_menu"
             android:layout_marginRight="@dimen/margen_abajo_menu"
+            android:text="@string/entrada_iteraciones"
+            android:labelFor="@id/ed_niter_iterativos"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ed_niter_iterativos"/>
+        <TextView
+            style="@style/titulos_entrada_metodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
+            android:text="@string/entrada_tol"
+            android:labelFor="@id/ed_tol_iterativos"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ed_tol_iterativos"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            style="@style/titulos_entrada_metodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
             android:text="@string/entrada_tipo_metodo_iterativo"
             android:labelFor="@id/sp_tipo_iterativo"/>
         <Spinner
@@ -55,7 +81,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/ed_factor_iterativo"
             android:inputType="numberDecimal"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_entrada_x0_iterativos"
+            android:orientation="vertical">
+        </LinearLayout>
         <include layout="@layout/entrada_tabla_sistemas_ecuaciones" android:id="@+id/entrada_sistema_ecuaciones"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
