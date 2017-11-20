@@ -11,10 +11,17 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import java.math.BigDecimal;
 
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
+import eafit.geminis.metodos.sistemasecuaciones.MetodoIterativo;
+import eafit.geminis.utilidades.ErrorMetodo;
+import eafit.geminis.utilidades.Matriz;
+import eafit.geminis.utilidades.Respuesta;
 import eafit.geminis.utilidades.TipoIterativo;
 
 public class MetodosIterativosActividad extends ActividadBase {
@@ -23,12 +30,13 @@ public class MetodosIterativosActividad extends ActividadBase {
     private Spinner spTipoIterativos;
     private TableLayout tablaEntrada, tablaSalida;
     private TableRow tituloEntrada, tituloSalida;
-    private EditText edNroEcuaciones;
+    private EditText edNroEcuaciones, edFactor;
     private LinearLayout salidasX;
     private int nroEcuaciones=0;
     private TipoIterativo tipoIterativo;
     private ToggleButton tipoError;
     private boolean esAbsoluto;
+    private BigDecimal[][] ab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +52,7 @@ public class MetodosIterativosActividad extends ActividadBase {
         tituloEntrada = (TableRow) restoEntrada.findViewById(R.id.fila_titulo_matriz_entrada);
         tituloSalida = (TableRow) findViewById(R.id.fila_titulo__salida_iterativos);
         edNroEcuaciones = (EditText) restoEntrada.findViewById(R.id.et_nro_ecuaciones);
+        edFactor = (EditText) findViewById(R.id.ed_factor_iterativo);
         salidasX = (LinearLayout) findViewById(R.id.salidas_x_iterativos);
         tipoError = (ToggleButton) findViewById(R.id.tipo_error_iterativos);
         tipoError.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -96,10 +105,24 @@ public class MetodosIterativosActividad extends ActividadBase {
         /// TODO: 19/11/2017
     }
     private void calcular(){
-        //todo
+        try {
+            ab = crearAB(tablaEntrada,nroEcuaciones);
+            BigDecimal W = new BigDecimal(edFactor.getText().toString());
+            BigDecimal[] b = Matriz.obtenerVectorB(ab,nroEcuaciones);
+            //TODO
+            //Respuesta rp = MetodoIterativo.metodo(ab,b,W,,)
+        } catch (Exception e) {
+            Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
+        }
     }
     private void ingresar(){
         limpiar();
-        //TODO
+        String nro = edNroEcuaciones.getText().toString();
+        boolean operar = generarMatrizEntrada(nro,tablaEntrada,tituloEntrada);
+        if (operar) {
+            nroEcuaciones = Integer.parseInt(nro);
+        }else {
+            Toast.makeText(contexto, ErrorMetodo.ERROR_ENTRADA_NRO_ECUACIONES,Toast.LENGTH_LONG).show();
+        }
     }
 }

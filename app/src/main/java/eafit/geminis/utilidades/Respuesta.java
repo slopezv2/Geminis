@@ -15,6 +15,7 @@ public class Respuesta {
     private BigDecimal valor;
     private String mensaje;
     private BigDecimal tolerancia;
+    private BigDecimal[] aproximaciones;
 
     public Respuesta(TipoRespuesta tipo, BigDecimal valor, ArrayList<String> tablaIteraciones){
         this.tipo = tipo;
@@ -38,6 +39,12 @@ public class Respuesta {
         this.tipo = aproximacion;
         this.valor = valor;
         this.tolerancia = tol;
+        this.tablaIteraciones = tablaIteraciones;
+    }
+
+    public Respuesta(TipoRespuesta tipo,BigDecimal[] aproximaciones,ArrayList<String> tablaIteraciones){
+        this.tipo = tipo;
+        this.aproximaciones = aproximaciones;
         this.tablaIteraciones = tablaIteraciones;
     }
 

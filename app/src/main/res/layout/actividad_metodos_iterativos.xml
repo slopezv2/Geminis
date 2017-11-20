@@ -42,6 +42,19 @@
             android:layout_height="wrap_content"
             android:id="@+id/sp_tipo_iterativo"
             android:entries="@array/opciones_metodos_iterativos"/>
+        <TextView
+            style="@style/titulos_entrada_metodos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
+            android:text="@string/entrada_factor_ponderacion_iterativo"
+            android:labelFor="@id/ed_factor_iterativo"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ed_factor_iterativo"
+            android:inputType="numberDecimal"/>
         <include layout="@layout/entrada_tabla_sistemas_ecuaciones" android:id="@+id/entrada_sistema_ecuaciones"/>
         <LinearLayout
             android:layout_width="match_parent"

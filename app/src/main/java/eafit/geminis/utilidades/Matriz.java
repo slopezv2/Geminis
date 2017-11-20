@@ -159,4 +159,47 @@ public final class Matriz {
         }
         return x1;
     }
+
+    /**
+     * Calculo de la norma para dos vectores
+     * @param v1
+     * @param v2
+     * @return
+     */
+    public static BigDecimal norma(BigDecimal[] v1, BigDecimal[] v2){
+        BigDecimal maximo = BigDecimal.ZERO;
+        BigDecimal maximoTemp;
+        for(int i = 0; i < v1.length; ++i){
+            maximoTemp = maximo.max((v1[i].subtract(v2[i])).abs());
+            if (maximoTemp.compareTo(maximo)>0){
+                maximo = maximoTemp;
+            }
+        }
+        return maximo;
+    }
+
+    /**
+     * Calculo norma para un vector
+     * @param v1
+     * @return
+     */
+    public static BigDecimal norma(BigDecimal[] v1){
+        BigDecimal maximo = BigDecimal.ZERO;
+        BigDecimal maximoTemp;
+        for(int i = 0; i < v1.length; ++i){
+            maximoTemp = maximo.max((v1[i]).abs());
+            if(maximoTemp.compareTo(maximo)>0){
+                maximo = maximoTemp;
+            }
+        }
+        return maximo;
+    }
+    public static String deVectorATexto(BigDecimal[] x){
+        String res="";
+        for(BigDecimal actual:x){
+            res.concat(actual.toString()+" ");
+        }
+        return res;
+    }
+
 }
