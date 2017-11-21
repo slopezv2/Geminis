@@ -80,4 +80,7 @@
     <string name="error_relativo">Error Relativo</string>
     <string name="error_absoluto">Error Absoluto</string>
     <string name="entrada_factor_ponderacion_iterativo">Ingrese el factor de ponderación</string>
+    <string name="titulo_newton_diferencias_interpolacion">Polinomio Interpolante de Newton con Diferencias divididas</string>
+    <string name="entrada_puntos">Ingrese la cantidad de puntos</string>
+    <string name="salida_polinomio_interpolante">Polinomio interpolante:</string>
 </resources>
