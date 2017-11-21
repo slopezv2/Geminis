@@ -30,7 +30,7 @@ public class MetodoIterativo {
             if (tipo == TipoIterativo.JACOBI_RELAJADO){
                 x1=calcularNuevoJacobi(x0,W,A,b,n);
             }else if (tipo == TipoIterativo.GAUSS_SEIDEL_RELAJADO){
-
+                x1= calcularNuevoSeidel(x0,W,A,b,n);
             }
             dispersion = Matriz.norma(x1,x0);
             if(!esErrorAbsoluto){
@@ -69,5 +69,26 @@ public class MetodoIterativo {
             }
         }
         return x1;
+    }
+    private static BigDecimal[] calcularNuevoSeidel(BigDecimal[] x0,BigDecimal W, BigDecimal[][] A, BigDecimal[] b, int n){
+        int len = n;
+        BigDecimal[] x1 = new BigDecimal[len+1];
+        for(int i = 1; i <= len ;++i){
+            x1[i] = x0[i];
+        }
+        for(int i = 1; i <= len ; ++i){
+            BigDecimal sum = BigDecimal.ZERO;
+            for(int j = 1; j <= len; ++j){
+                if (j != i){
+                    sum = sum.add(A[i][j].multiply(x1[j]));
+                }
+            }
+            if (A[i][i].compareTo(BigDecimal.ZERO) != 0 ){
+                x1[i] = (b[i].subtract(sum)).divide(A[i][i],32,BigDecimal.ROUND_HALF_UP);
+                x1[i] = (W.multiply(x1[i])).add(x0[i].multiply(BigDecimal.ONE.subtract(W)));
+            }
+        }
+        return x1;
+
     }
 }
