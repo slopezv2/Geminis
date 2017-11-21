@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Eliminación Gaussiana Simple"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es encontrar una solución a un sistema de ecuaciones, apoyando su solución en matriz triangular superior y sustitución regresiva."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento del método es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se construye la matriz de coeficientes y el vector con los términos independientes, basados en esto se crea una matriz llamada Matriz Aumentada." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- La primera fila será la fila pivote para la etapa 1." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- En la etapa k, calculamos los multiplicadores de cada fila dividiendo cada elemento de la columna k debajo del elemento en la diagonal por el elemento de la fila k. Después de eso, se procede con el cálculo de cada fila para una nueva fila, calculada como" />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Nueva fila(i) es igual a Fila(i) menos Multiplicador(i(k) por Fila(k)" />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Una vez obtenida la Matriz Aumenta en la forma triangular superior, se procede a realizar sustitución regresiva para el cálculo de las variables." />
+
+    </LinearLayout>
+
+</ScrollView>

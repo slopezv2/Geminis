@@ -43,6 +43,9 @@ public class AyudasActividad extends ActividadBase {
             case "graficador":
                 setContentView(R.layout.ayuda_graficador);
                 break;
+            case "gauss_simple":
+                setContentView(R.layout.ayuda_eliminacion_gauss_simple);
+                break;
             default:
                 finish();
         }
