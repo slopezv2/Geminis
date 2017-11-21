@@ -277,7 +277,7 @@ public abstract class ActividadBase extends Activity {
         int limite = AB[1].length;
         for(int i = 1; i < limite;++i){
             TextView tv = new TextView(contexto);
-            tv.setWidth(150);
+            //tv.setWidth(150);
             if(i != limite-1) {
                 tv.setText("x" + i);
             }else {
@@ -301,7 +301,7 @@ public abstract class ActividadBase extends Activity {
                 }
                 tv.setTextSize(16);
                 tv.setPadding(5,5,5,5);
-                tv.setWidth(90);
+                //tv.setWidth(90);
                 tv.setBackgroundResource(R.drawable.border);
                 tv.setTextColor(Color.rgb(126,138,151));
                 fila.addView(tv);
@@ -344,7 +344,7 @@ public abstract class ActividadBase extends Activity {
         TableRow encabezado = new TableRow(contexto);
         for(int i = 1; i<=n;++i){
             TextView tv = new TextView(contexto);
-            tv.setWidth(150);
+            //tv.setWidth(150);
             tv.setText("X" + i);
             tv.setPadding(5,5,5,5);
             tv.setBackgroundResource(R.drawable.border);
@@ -369,7 +369,7 @@ public abstract class ActividadBase extends Activity {
                 }
                 tv.setTextSize(16);
                 tv.setPadding(5,5,5,5);
-                tv.setWidth(90);
+                //tv.setWidth(90);
                 tv.setBackgroundResource(R.drawable.border);
                 tv.setTextColor(Color.rgb(126,138,151));
                 fila.addView(tv);
