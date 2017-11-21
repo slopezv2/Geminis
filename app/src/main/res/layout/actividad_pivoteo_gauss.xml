@@ -4,62 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="eafit.geminis.actividades.sistemasecuaciones.PivoteoGaussActividad">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margen_abajo_entrada">
+
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/titulos_metodos_entrada"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:fontFamily="@string/font_family_medium"
             android:text="@string/titulo_pivoteo"/>
+
         <TextView
+            style="@style/titulos_entrada_metodos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margen_abajo_menu"
+            android:textStyle="bold"
             android:text="@string/entrada_tipo_pivoteo"
             android:labelFor="@id/sp_opciones"/>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sp_opciones"
             android:entries="@array/opciones_pivoteo"/>
-        <include  android:id="@+id/resto_tabla_entrada_ecuaciones" layout="@layout/entrada_tabla_sistemas_ecuaciones"/>
+
+        <include android:id="@+id/resto_tabla_entrada_ecuaciones" layout="@layout/entrada_tabla_sistemas_ecuaciones"/>
+
         <TextView
+            style="@style/titulos_entrada_metodos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
             android:text="Salida"/>
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TableLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                style="@style/tabla"
                 android:id="@+id/tabla_resultados_ab"
                 android:visibility="gone">
-                <TableRow android:id="@+id/encabezado_tabla_resultados_ab">
+
+                <TableRow
+                    style="@style/columna"
+                    android:id="@+id/encabezado_tabla_resultados_ab">
+
                     <TextView
-                        android:text="X1"
-                        android:width="50dp"/>
+                        android:text="x1"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
                     <TextView
-                        android:text="X2"
-                        android:width="50dp"/>
+                        android:text="x2"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
                     <TextView
-                        android:text="X3"
-                        android:width="50dp"/>
+                        android:text="x3"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
                     <TextView
-                        android:text="X4"
-                        android:width="50dp"/>
+                        android:text="x4"
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
                     <TextView
                         android:text="b"
-                        android:width="50dp"/>
+                        android:textStyle="normal"
+                        style="@style/itemColumna"/>
                 </TableRow>
             </TableLayout>
         </HorizontalScrollView>
+
         <TextView
+            style="@style/titulos_entrada_metodos"
+            android:text="@string/iteracionnro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/iteracionnro"
+            android:textStyle="bold"
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
             android:id="@+id/iteracion_gauss_pivote"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,35 +101,37 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="X1:"
+                android:text="x1:"
                 android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="X2:"
+                android:text="x2:"
                 android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="X3:"
+                android:text="x3:"
                 android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="X4:"
+                android:text="x4:"
                 android:textAlignment="center"/>
         </LinearLayout>
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/botones_calcular"
             android:id="@+id/bt_siguiente_pivoteo"
             android:text="@string/bt_siguiente"
             android:visibility="gone"/>
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/botones_calcular"
             android:id="@+id/bt_salir_pivote"
             android:text="Salir"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </ScrollView>

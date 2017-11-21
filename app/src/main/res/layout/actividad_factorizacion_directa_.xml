@@ -8,28 +8,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margen_abajo_entrada">
+
         <TextView
             style="@style/titulos_metodos_entrada"
             android:text="@string/titulo_factorizacion"
             android:textAlignment="center"
             android:textSize="20sp"
             android:fontFamily="@string/font_family_medium" />
+
         <TextView
             style="@style/titulos_entrada_metodos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margen_abajo_menu"
-            android:layout_marginRight="@dimen/margen_abajo_menu"
+            android:layout_margin="@dimen/margen_abajo_menu"
+            android:textStyle="bold"
             android:text="@string/entrada_tipo_de_factorizacion_sistema"
             android:labelFor="@id/sp_tipo_factorizacion"/>
+
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sp_tipo_factorizacion"
             android:entries="@array/opciones_factorizacion_sistema">
         </Spinner>
+
         <include android:id="@+id/resto_tabla_entrada_ecuaciones" layout="@layout/entrada_tabla_sistemas_ecuaciones"/>
         <include android:id="@+id/resto_salida_factorizacion" layout="@layout/salida_factorizacion_sistema"/>
+
     </LinearLayout>
 </ScrollView>

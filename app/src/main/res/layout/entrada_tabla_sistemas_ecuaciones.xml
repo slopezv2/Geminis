@@ -5,10 +5,12 @@
     android:layout_height="match_parent">
     <TextView
         style="@style/titulos_entrada_metodos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margen_abajo_menu"
         android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margen_abajo_menu"
+        android:textStyle="bold"
         android:text="@string/entrada_cantidad_ecuaciones_sistema"
         android:labelFor="@id/et_nro_ecuaciones"/>
     <EditText
@@ -45,21 +47,25 @@
                     style="@style/columna">
                     <TextView
                         style="@style/itemColumna"
+                        android:textStyle="normal"
                         android:text="x0" />
 
                     <TextView
                         style="@style/itemColumna"
+                        android:textStyle="normal"
                         android:text="x1" />
 
                     <TextView
                         style="@style/itemColumna"
+                        android:textStyle="normal"
                         android:text="x2" />
                     <TextView
                         style="@style/itemColumna"
+                        android:textStyle="normal"
                         android:text="..." />
                     <TextView
                         style="@style/itemColumna"
-                        android:width="50dp"
+                        android:textStyle="normal"
                         android:text="b1" />
                 </TableRow>
             </TableLayout>
@@ -70,6 +76,6 @@
         style="@style/botones_calcular"
         android:text="@string/bt_calcular"
         android:id="@+id/bt_calcular_matriz"
-         />
+        />
 
 </LinearLayout>
