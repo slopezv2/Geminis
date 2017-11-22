@@ -3,6 +3,7 @@ package eafit.geminis.actividades.interpolacion;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import java.math.BigDecimal;
 
 import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
+import eafit.geminis.metodos.interpolacion.NewtonDiferenciasDivididas;
 import eafit.geminis.utilidades.ErrorMetodo;
 
 public class NewtonDiferenciasActividad extends ActividadBase {
@@ -59,6 +61,7 @@ public class NewtonDiferenciasActividad extends ActividadBase {
         });
     }
     private void ingresar(){
+        limpiar();
         String puntos = entradaPuntos.getText().toString();
         try{
             nroPuntos = Integer.parseInt(puntos);
@@ -73,14 +76,25 @@ public class NewtonDiferenciasActividad extends ActividadBase {
         generarMatrizE(nroPuntos,tablaEntrada,tituloTablaEntrada);
     }
     private void calcular(){
+        BigDecimal[][] puntos = null;
+        BigDecimal[][] res = null;
         try{
-            BigDecimal[][] puntos = leerEntrada(tablaEntrada,nroPuntos);
+            puntos = leerEntrada(tablaEntrada,nroPuntos);
         }catch (Exception e){
             e.printStackTrace();
             Toast.makeText(contexto,ErrorMetodo.ERROR_ENTRADA_TABLA_SISTEMAS_ECUACIONES,Toast.LENGTH_LONG).show();
             return;
         }
-
+        try {
+            res = NewtonDiferenciasDivididas.metodo(puntos,nroPuntos);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(contexto,e.getMessage(),Toast.LENGTH_LONG).show();
+            return;
+        }
+        escribirSalida(res,tablaSalida,tituloTablaSalida,nroPuntos);
+        String polinomio = NewtonDiferenciasDivididas.obtenerPolinomio(res,nroPuntos);
+        salidaPolinomio.setText(polinomio);
     }
     private void generarMatrizE(int nroPuntos,TableLayout tabla,TableRow encabezado ){
         encabezado.removeAllViews();
@@ -117,15 +131,49 @@ public class NewtonDiferenciasActividad extends ActividadBase {
         }
     }
     private BigDecimal[][] leerEntrada(TableLayout tabla,int n) throws Exception{
-        BigDecimal[][] entradas = new BigDecimal[n*2+1][3];
+        BigDecimal[][] entradas = new BigDecimal[n+1][3];
+        int contador =1;
         for(int i = 0; i < n*2;i=i+2){
             EditText entrada = (EditText)tabla.findViewById(i);
             BigDecimal valor = new BigDecimal(entrada.getText().toString());
-            entradas[i+1][1]=valor;
+            entradas[contador][1]=valor;
             entrada = (EditText)tabla.findViewById(i+1);
             valor = new BigDecimal(entrada.getText().toString());
-            entradas[i+1][2]=valor;
+            entradas[contador][2]=valor;
+            contador++;
         }
         return entradas;
+    }
+    private void escribirSalida(BigDecimal[][] resultados, TableLayout tabla, TableRow encabezado,int n){
+        encabezado.removeAllViews();
+        tabla.removeAllViews();
+        TextView tX = new TextView(contexto);
+        tX.setTextColor(Color.BLACK);
+        tX.setText("Xi");
+        encabezado.addView(tX);
+        tX = new TextView(contexto);
+        tX.setTextColor(Color.BLACK);
+        tX.setText("Fxi");
+        encabezado.addView(tX);
+        for(int i =1; i < n;++i){
+            tX = new TextView(contexto);
+            tX.setTextColor(Color.BLACK);
+            tX.setText(i+"");
+            encabezado.addView(tX);
+        }
+        tabla.addView(encabezado);
+        for(int i = 0; i < resultados.length;++i){
+            encabezado = new TableRow(contexto);
+            for(int j = 0; j < i+2; ++j){
+                tX = new TextView(contexto);
+                tX.setTextColor(Color.BLACK);
+                tX.setText(resultados[i][j].toString());
+                encabezado.addView(tX);
+            }
+            tabla.addView(encabezado);
+        }
+    }
+    private void limpiar(){
+        salidaPolinomio.setText("");
     }
 }

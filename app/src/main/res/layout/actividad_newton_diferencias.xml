@@ -56,31 +56,35 @@
             android:layout_height="wrap_content"
             android:text="@string/bt_calcular"
             android:id="@+id/bt_calcular_newton_diferencias"/>
-        <TableLayout
-            style="@style/tabla"
-            android:id="@+id/tabla_salida_newton_diferencias"
-            >
-            <TableRow
-                android:id="@+id/fila_salida_newton_diferencias"
-                style="@style/columna">
-                <TextView
-                    style="@style/itemColumna"
-                    android:text="xi" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableLayout
+                style="@style/tabla"
+                android:id="@+id/tabla_salida_newton_diferencias"
+                >
+                <TableRow
+                    android:id="@+id/fila_salida_newton_diferencias"
+                    style="@style/columna">
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="xi" />
 
-                <TextView
-                    style="@style/itemColumna"
-                    android:text="fxi" />
-                <TextView
-                    style="@style/itemColumna"
-                    android:text="1" />
-                <TextView
-                    style="@style/itemColumna"
-                    android:text="2" />
-                <TextView
-                    style="@style/itemColumna"
-                    android:text="3" />
-            </TableRow>
-        </TableLayout>
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="fxi" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="1" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="2" />
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="3" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
         <TextView
             android:layout_marginLeft="@dimen/margen_abajo_menu"
             android:layout_marginRight="@dimen/margen_abajo_menu"
