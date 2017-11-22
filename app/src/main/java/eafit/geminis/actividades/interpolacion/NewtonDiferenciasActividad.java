@@ -96,54 +96,6 @@ public class NewtonDiferenciasActividad extends ActividadBase {
         String polinomio = NewtonDiferenciasDivididas.obtenerPolinomio(res,nroPuntos);
         salidaPolinomio.setText(polinomio);
     }
-    private void generarMatrizE(int nroPuntos,TableLayout tabla,TableRow encabezado ){
-        encabezado.removeAllViews();
-        tabla.removeAllViews();
-        TextView tX = new TextView(contexto);
-        tX.setTextColor(Color.BLACK);
-        tX.setText("Xi");
-        encabezado.addView(tX);
-        tX = new TextView(contexto);
-        tX.setTextColor(Color.BLACK);
-        tX.setText("Fxi");
-        encabezado.addView(tX);
-        tabla.addView(encabezado);
-        int contador=0;
-        for(int i =0; i < nroPuntos;++i){
-            TableRow fila = new TableRow(contexto);
-            EditText tituloX = new EditText(contexto);
-            tituloX.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
-            tituloX.setHint("X"+i);
-            tituloX.setHintTextColor(Color.BLACK);
-            tituloX.setTextColor(Color.BLACK);
-            tituloX.setId(contador);
-            contador++;
-            EditText tituloFx = new EditText(contexto);
-            tituloFx.setHint("Fx"+i);
-            tituloFx.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
-            tituloFx.setTextColor(Color.BLACK);
-            tituloFx.setHintTextColor(Color.BLACK);
-            tituloFx.setId(contador);
-            contador++;
-            fila.addView(tituloX);
-            fila.addView(tituloFx);
-            tabla.addView(fila);
-        }
-    }
-    private BigDecimal[][] leerEntrada(TableLayout tabla,int n) throws Exception{
-        BigDecimal[][] entradas = new BigDecimal[n+1][3];
-        int contador =1;
-        for(int i = 0; i < n*2;i=i+2){
-            EditText entrada = (EditText)tabla.findViewById(i);
-            BigDecimal valor = new BigDecimal(entrada.getText().toString());
-            entradas[contador][1]=valor;
-            entrada = (EditText)tabla.findViewById(i+1);
-            valor = new BigDecimal(entrada.getText().toString());
-            entradas[contador][2]=valor;
-            contador++;
-        }
-        return entradas;
-    }
     private void escribirSalida(BigDecimal[][] resultados, TableLayout tabla, TableRow encabezado,int n){
         encabezado.removeAllViews();
         tabla.removeAllViews();

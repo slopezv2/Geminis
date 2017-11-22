@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="eafit.geminis.actividades.interpolacion.LagrangeActividad"
+    android:orientation="vertical">
+    <TextView
+        style="@style/titulos_metodos_entrada"
+        android:text="@string/titulo_lagrange"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:fontFamily="@string/font_family_medium" />
+    <TextView
+        style="@style/titulos_entrada_metodos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:text="@string/entrada_puntos"
+        android:labelFor="@id/ed_puntos_lagrange"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:id="@+id/ed_puntos_lagrange"/>
+    <Button
+        style="@style/botones_calcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_ingresar"
+        android:id="@+id/bt_ingresar_lagrange"/>
+    <TableLayout
+        style="@style/tabla"
+        android:id="@+id/tabla_ingreso_lagrange"
+        >
+        <TableRow
+            android:id="@+id/fila_titulo_entrada_lagrange"
+            style="@style/columna">
+            <TextView
+                style="@style/itemColumna"
+                android:text="x0" />
+
+            <TextView
+                style="@style/itemColumna"
+                android:text="fx0" />
+        </TableRow>
+    </TableLayout>
+    <Button
+        style="@style/botones_calcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_calcular"
+        android:id="@+id/bt_calcular_lagrange"/>
+    <TextView
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/salida_polinomio_interpolante"/>
+    <TextView
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/salida_polinomonio_lagrange"/>
+    <Button
+        style="@style/botones_calcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_salir"
+        android:id="@+id/bt_salir_lagrange"/>
+</LinearLayout>

@@ -33,7 +33,8 @@
         <activity android:name=".actividades.sistemasecuaciones.PivoteoGaussActividad" />
         <activity android:name=".actividades.sistemasecuaciones.FactorizacionDirectaActividad" />
         <activity android:name=".actividades.sistemasecuaciones.MetodosIterativosActividad" />
-        <activity android:name=".actividades.interpolacion.NewtonDiferenciasActividad"></activity>
+        <activity android:name=".actividades.interpolacion.NewtonDiferenciasActividad" />
+        <activity android:name=".actividades.interpolacion.LagrangeActividad"></activity>
     </application>
 
 </manifest>

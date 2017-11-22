@@ -111,7 +111,7 @@ public class MetodosIterativosActividad extends ActividadBase {
         });
     }
     private void limpiar(){
-        /// TODO: 19/11/2017
+        
         entradaX0.removeAllViews();
     }
     private void calcular(){
