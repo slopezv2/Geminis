@@ -1,6 +1,7 @@
 package eafit.geminis.actividades.interpolacion;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothGatt;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,26 +18,32 @@ import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.interpolacion.Lagrange;
 import eafit.geminis.metodos.interpolacion.NewtonDiferenciasDivididas;
 import eafit.geminis.utilidades.ErrorMetodo;
+import eafit.geminis.utilidades.EvalExEval;
 
 public class LagrangeActividad extends ActividadBase {
-    private EditText entradaPuntos;
-    private Button btIngresar,btCalcular,btSalir;
+    private EditText entradaPuntos, entradaPuntoAdicional;
+    private Button btIngresar,btCalcular,btSalir, btEvaluar;
     private TableLayout tablaEntrada;
     private TableRow tituloTablaEntrada;
-    private TextView salidaPolinomio;
+    private TextView salidaPolinomio,mensajePuntoAdicional, salidaPuntoAdicional;
     private int nroPuntos=0;
+    private String polinomio="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_lagrange);
         ayudaAmostrar="lagrange";
         entradaPuntos = (EditText) findViewById(R.id.ed_puntos_lagrange);
+        entradaPuntoAdicional = (EditText) findViewById(R.id.ed_punto_adicional_interpolacion);
+        mensajePuntoAdicional = (TextView) findViewById(R.id.tx_punto_adicional_interpolacion);
         btIngresar = (Button) findViewById(R.id.bt_ingresar_lagrange);
         btCalcular = (Button) findViewById(R.id.bt_calcular_lagrange);
         btSalir = (Button) findViewById(R.id.bt_salir_lagrange);
+        btEvaluar = (Button) findViewById(R.id.bt_evaluar_interpolacion);
         tablaEntrada = (TableLayout) findViewById(R.id.tabla_ingreso_lagrange);
         tituloTablaEntrada = (TableRow) findViewById(R.id.fila_titulo_entrada_lagrange);
         salidaPolinomio = (TextView) findViewById(R.id.salida_polinomonio_lagrange);
+        salidaPuntoAdicional = (TextView) findViewById(R.id.salida_punto_adicional_interpolacion);
         btIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +60,12 @@ public class LagrangeActividad extends ActividadBase {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        btEvaluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                evaluar();
             }
         });
     }
@@ -73,7 +86,6 @@ public class LagrangeActividad extends ActividadBase {
     }
     private void calcular(){
         BigDecimal[][] puntos = null;
-        String polinomio = "";
         try{
             puntos = leerEntrada(tablaEntrada,nroPuntos);
         }catch (Exception e){
@@ -89,8 +101,34 @@ public class LagrangeActividad extends ActividadBase {
             return;
         }
         salidaPolinomio.setText(polinomio);
+        btEvaluar.setVisibility(View.VISIBLE);
+        entradaPuntoAdicional.setVisibility(View.VISIBLE);
+        mensajePuntoAdicional.setVisibility(View.VISIBLE);
     }
     private void limpiar(){
         salidaPolinomio.setText("");
+        polinomio = "";
+        btEvaluar.setVisibility(View.GONE);
+        entradaPuntoAdicional.setVisibility(View.GONE);
+        mensajePuntoAdicional.setVisibility(View.GONE);
+        salidaPuntoAdicional.setText("");
+    }
+    private void evaluar(){
+        String stPunto = entradaPuntoAdicional.getText().toString();
+        BigDecimal punto = BigDecimal.ZERO;
+        try {
+            punto = new BigDecimal(stPunto);
+        }catch (Exception e){
+            Toast.makeText(contexto,ErrorMetodo.ERROR_VALOR_NUMERICO,Toast.LENGTH_LONG).show();
+            return;
+        }
+        EvalExEval evaluador = new EvalExEval();
+        try{
+            BigDecimal res = evaluador.evaluar(polinomio,punto,true);
+            salidaPuntoAdicional.setText("Fx= "+res.toString());
+        }catch (Exception e){
+            Toast.makeText(contexto,e.getMessage(),Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
     }
 }

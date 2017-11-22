@@ -84,4 +84,6 @@
     <string name="entrada_puntos">Ingrese la cantidad de puntos</string>
     <string name="salida_polinomio_interpolante">Polinomio interpolante:</string>
     <string name="titulo_lagrange">Polinomio Interpolante de Lagrange</string>
+    <string name="entrada_punto_interpolacion">Si desea, ingrese la coordenada independiente para evaluar en el polinomio</string>
+    <string name="bt_evaluar">Evaluar</string>
 </resources>

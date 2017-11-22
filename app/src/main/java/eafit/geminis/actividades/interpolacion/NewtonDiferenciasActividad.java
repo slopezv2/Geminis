@@ -19,22 +19,28 @@ import eafit.geminis.R;
 import eafit.geminis.actividades.ActividadBase;
 import eafit.geminis.metodos.interpolacion.NewtonDiferenciasDivididas;
 import eafit.geminis.utilidades.ErrorMetodo;
+import eafit.geminis.utilidades.EvalExEval;
 
 public class NewtonDiferenciasActividad extends ActividadBase {
-    private EditText entradaPuntos;
-    private Button btIngresar,btCalcular,btSalir;
+    private EditText entradaPuntos, entradaPuntoAdicional;
+    private Button btIngresar,btCalcular,btSalir, btEvaluar;
     private TableLayout tablaEntrada,tablaSalida;
     private TableRow tituloTablaEntrada,tituloTablaSalida;
-    private TextView salidaPolinomio;
+    private TextView salidaPolinomio,mensajePuntoAdicional, salidaPuntoAdicional;
     private int nroPuntos=0;
+    private String polinomio="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_newton_diferencias);
         ayudaAmostrar="newton_diferencias";
         entradaPuntos = (EditText) findViewById(R.id.ed_puntos_newton_diferencias);
+        entradaPuntoAdicional = (EditText) findViewById(R.id.ed_punto_adicional_interpolacion);
+        mensajePuntoAdicional = (TextView) findViewById(R.id.tx_punto_adicional_interpolacion);
+        salidaPuntoAdicional = (TextView) findViewById(R.id.salida_punto_adicional_interpolacion);
         btIngresar = (Button) findViewById(R.id.bt_ingresar_newton_diferencias);
         btCalcular = (Button) findViewById(R.id.bt_calcular_newton_diferencias);
+        btEvaluar = (Button) findViewById(R.id.bt_evaluar_interpolacion);
         btSalir = (Button) findViewById(R.id.bt_salir_newton_diferencias);
         tablaEntrada = (TableLayout) findViewById(R.id.tabla_ingreso_newton_diferencias);
         tablaSalida = (TableLayout) findViewById(R.id.tabla_salida_newton_diferencias);
@@ -57,6 +63,12 @@ public class NewtonDiferenciasActividad extends ActividadBase {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        btEvaluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                evaluar();
             }
         });
     }
@@ -93,8 +105,11 @@ public class NewtonDiferenciasActividad extends ActividadBase {
             return;
         }
         escribirSalida(res,tablaSalida,tituloTablaSalida,nroPuntos);
-        String polinomio = NewtonDiferenciasDivididas.obtenerPolinomio(res,nroPuntos);
+        polinomio = NewtonDiferenciasDivididas.obtenerPolinomio(res,nroPuntos);
         salidaPolinomio.setText(polinomio);
+        btEvaluar.setVisibility(View.VISIBLE);
+        entradaPuntoAdicional.setVisibility(View.VISIBLE);
+        mensajePuntoAdicional.setVisibility(View.VISIBLE);
     }
     private void escribirSalida(BigDecimal[][] resultados, TableLayout tabla, TableRow encabezado,int n){
         encabezado.removeAllViews();
@@ -127,5 +142,28 @@ public class NewtonDiferenciasActividad extends ActividadBase {
     }
     private void limpiar(){
         salidaPolinomio.setText("");
+        polinomio = "";
+        btEvaluar.setVisibility(View.GONE);
+        entradaPuntoAdicional.setVisibility(View.GONE);
+        mensajePuntoAdicional.setVisibility(View.GONE);
+        salidaPuntoAdicional.setText("");
+    }
+    private void evaluar(){
+        String stPunto = entradaPuntoAdicional.getText().toString();
+        BigDecimal punto = BigDecimal.ZERO;
+        try {
+            punto = new BigDecimal(stPunto);
+        }catch (Exception e){
+            Toast.makeText(contexto,ErrorMetodo.ERROR_VALOR_NUMERICO,Toast.LENGTH_LONG).show();
+            return;
+        }
+        EvalExEval evaluador = new EvalExEval();
+        try{
+            BigDecimal res = evaluador.evaluar(polinomio,punto,true);
+            salidaPuntoAdicional.setText("Fx= "+res.toString());
+        }catch (Exception e){
+            Toast.makeText(contexto,e.getMessage(),Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
     }
 }

@@ -18,19 +18,20 @@ public class Lagrange {
                 if(i != j){
                     div = div.multiply(puntos[i+1][1].subtract(puntos[j+1][1]));
                     if (puntos[j+1][1].compareTo(BigDecimal.ZERO) < 0){
-                        pol += ("[(x+" + (menosUno.multiply(puntos[j+1][1])) + ")");
+
+                        pol += ("(x+" + (menosUno.multiply(puntos[j+1][1])) + ")");
                     }else{
-                        pol += ("[(x-" + puntos[j+1][1] + ")");
+                        pol += ("(x-" + puntos[j+1][1] + ")");
                     }
                 }
 
             }
-            pol += ("/(" + div + ")]");
+            pol += ("/(" + div + "))");
             l[i] = pol;
             if (puntos[i+1][2].compareTo(BigDecimal.ZERO) < 0){
-                polinomio += ( puntos[i+1][2] + "*" + l[i]);
+                polinomio += ( puntos[i+1][2] + "*(" + l[i]);
             }else{
-                polinomio += ("+"+puntos[i+1][2] + "*" + l[i]);
+                polinomio += ("+"+puntos[i+1][2] + "*(" + l[i]);
             }
         }
         if(polinomio.charAt(0)=='+'){
