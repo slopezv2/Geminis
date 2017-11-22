@@ -65,6 +65,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/salida_polinomonio_lagrange"/>
+    <TextView
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/entrada_punto_interpolacion"
+        android:labelFor="@id/ed_punto_adicional_interpolacion"
+        android:visibility="gone"
+        android:id="@+id/tx_punto_adicional_interpolacion"/>
+    <EditText
+        android:layout_marginLeft="@dimen/margen_abajo_menu"
+        android:layout_marginRight="@dimen/margen_abajo_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ed_punto_adicional_interpolacion"
+        android:visibility="gone"/>
+    <Button
+        style="@style/botones_calcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_evaluar"
+        android:visibility="gone"
+        android:id="@+id/bt_evaluar_interpolacion"/>
     <Button
         style="@style/botones_calcular"
         android:layout_width="match_parent"

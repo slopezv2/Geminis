@@ -19,21 +19,25 @@ import eafit.geminis.metodos.interpolacion.NewtonDiferenciasDivididas;
 import eafit.geminis.utilidades.ErrorMetodo;
 
 public class LagrangeActividad extends ActividadBase {
-    private EditText entradaPuntos;
-    private Button btIngresar,btCalcular,btSalir;
+    private EditText entradaPuntos, entradaPuntoAdicional;
+    private Button btIngresar,btCalcular,btSalir, btEvaluar;
     private TableLayout tablaEntrada;
     private TableRow tituloTablaEntrada;
-    private TextView salidaPolinomio;
+    private TextView salidaPolinomio,mensajePuntoAdicional;
     private int nroPuntos=0;
+    private String polinomio="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_lagrange);
         ayudaAmostrar="lagrange";
         entradaPuntos = (EditText) findViewById(R.id.ed_puntos_lagrange);
+        entradaPuntoAdicional = (EditText) findViewById(R.id.ed_punto_adicional_interpolacion);
+        mensajePuntoAdicional = (TextView) findViewById(R.id.tx_punto_adicional_interpolacion);
         btIngresar = (Button) findViewById(R.id.bt_ingresar_lagrange);
         btCalcular = (Button) findViewById(R.id.bt_calcular_lagrange);
         btSalir = (Button) findViewById(R.id.bt_salir_lagrange);
+        btEvaluar = (Button) findViewById(R.id.bt_evaluar_interpolacion);
         tablaEntrada = (TableLayout) findViewById(R.id.tabla_ingreso_lagrange);
         tituloTablaEntrada = (TableRow) findViewById(R.id.fila_titulo_entrada_lagrange);
         salidaPolinomio = (TextView) findViewById(R.id.salida_polinomonio_lagrange);
@@ -55,6 +59,12 @@ public class LagrangeActividad extends ActividadBase {
                 finish();
             }
         });
+        btEvaluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                evaluar();
+            }
+        });
     }
     private void ingresar(){
         limpiar();
@@ -73,7 +83,6 @@ public class LagrangeActividad extends ActividadBase {
     }
     private void calcular(){
         BigDecimal[][] puntos = null;
-        String polinomio = "";
         try{
             puntos = leerEntrada(tablaEntrada,nroPuntos);
         }catch (Exception e){
@@ -89,8 +98,16 @@ public class LagrangeActividad extends ActividadBase {
             return;
         }
         salidaPolinomio.setText(polinomio);
+        //TODO
     }
     private void limpiar(){
         salidaPolinomio.setText("");
+        polinomio = "";
+        btEvaluar.setVisibility(View.GONE);
+        entradaPuntoAdicional.setVisibility(View.GONE);
+        mensajePuntoAdicional.setVisibility(View.GONE);
+    }
+    private void evaluar(){
+
     }
 }
