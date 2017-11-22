@@ -46,6 +46,21 @@ public class AyudasActividad extends ActividadBase {
             case "gauss_simple":
                 setContentView(R.layout.ayuda_eliminacion_gauss_simple);
                 break;
+            case "pivoteo_parcial":
+                setContentView(R.layout.ayuda_eliminacion_gauss_pivoteo);
+                break;
+            case "factorizacion_directa":
+                setContentView(R.layout.ayuda_factorizacion_directa);
+                break;
+            case "metodos_iterativos":
+                setContentView(R.layout.ayuda_metodos_iterativos);
+                break;
+            case "newton_diferencias":
+                setContentView(R.layout.ayuda_newton_diferencias);
+                break;
+            case "lagrange":
+                setContentView(R.layout.ayuda_lagrange);
+                break;
             default:
                 finish();
         }
