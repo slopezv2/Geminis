@@ -39,6 +39,9 @@ public class NewtonDiferenciasDivididas {
             pol+= (m[i][i+1].toString());
             for(int j = 0; j < i;++j){
                 pol+=("(x-"+m[j][0].toString()+")");
+                if(j < i-1){
+                    pol+="*";
+                }
             }
             if (i < n-1) {
                 pol += "+";

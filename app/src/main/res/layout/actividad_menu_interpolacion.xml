@@ -28,5 +28,16 @@
         android:background="@color/botones_menu_una_variable"
         android:layout_marginBottom="@dimen/espacio_menu"
         android:id="@+id/bt_ir_newton_diferencias"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo_lagrange"
+        android:textColor="@color/button_text"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        android:fontFamily="@string/font_family_medium"
+        android:background="@color/botones_menu_una_variable"
+        android:layout_marginBottom="@dimen/espacio_menu"
+        android:id="@+id/bt_ir_lagrange"/>
 
 </LinearLayout>

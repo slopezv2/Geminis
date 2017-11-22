@@ -33,6 +33,9 @@ public class Lagrange {
                 polinomio += ("+"+puntos[i+1][2] + "*" + l[i]);
             }
         }
+        if(polinomio.charAt(0)=='+'){
+            polinomio = polinomio.substring(1);
+        }
         return polinomio;
     }
 }

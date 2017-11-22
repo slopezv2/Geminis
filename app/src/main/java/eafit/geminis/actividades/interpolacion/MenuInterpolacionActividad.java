@@ -25,5 +25,13 @@ public class MenuInterpolacionActividad extends ActividadBase {
                 startActivity(intent);
             }
         });
+        Button btIrLagrange = (Button) findViewById(R.id.bt_ir_lagrange);
+        btIrLagrange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuInterpolacionActividad.this,LagrangeActividad.class);
+                startActivity(intent);
+            }
+        });
     }
 }
