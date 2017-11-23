@@ -42,7 +42,7 @@
     <string name="titulo_biseccion">Método de la Bisección</string>
     <string name="bt_calcular">Calcular</string>
     <string name="bt_borrar_historico_funciones">Borrar funciones almacenadas</string>
-    <string name="texto_ayuda_biseccion">Parte del supuesto que el intervalo que recibe tiene al menos una raíz, es decir, la función es continua en [a, b] y f(a) * f(b) menor que 0. Se recomienda usar el graficador para hallar un intervalo. Se basa en el teorema del valor intermedio y genera una sucesión de valores formada por los puntos medios obtenidos en cada iteración del algoritmo.</string>
+    <string name="texto_ayuda_biseccion">Parte del supuesto que el intervalo que recibe tiene al menos una raíz, es decir, la función es continua en [a, b] y f(a) * f(b) menor que 0. Se basa en el teorema del valor intermedio y genera una sucesión de valores formada por los puntos medios obtenidos en cada iteración del algoritmo.</string>
     <string name="bt_ingresar">Ingresar</string>
     <string-array name="OpcionesMenuInicio">
         <item>Ecuaciones de una variable</item>
