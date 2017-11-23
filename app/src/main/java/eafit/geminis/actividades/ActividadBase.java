@@ -383,9 +383,23 @@ public abstract class ActividadBase extends Activity {
         tabla.removeAllViews();
         TextView tX = new TextView(contexto);
         tX.setTextColor(Color.BLACK);
-        tX.setText("Xi");
+        tX.setText("xi");
+
+        tX.setTextSize(16);
+        tX.setPadding(5,5,5,5);
+        tX.setBackgroundResource(R.drawable.border);
+        tX.setGravity(Gravity.CENTER);
+        tX.setWidth(200);
+
         encabezado.addView(tX);
         tX = new TextView(contexto);
+
+        tX.setTextSize(16);
+        tX.setPadding(5,5,5,5);
+        tX.setBackgroundResource(R.drawable.border);
+        tX.setGravity(Gravity.CENTER);
+        tX.setWidth(200);
+
         tX.setTextColor(Color.BLACK);
         tX.setText("Fxi");
         encabezado.addView(tX);
@@ -395,16 +409,30 @@ public abstract class ActividadBase extends Activity {
             TableRow fila = new TableRow(contexto);
             EditText tituloX = new EditText(contexto);
             tituloX.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
-            tituloX.setHint("X"+i);
-            tituloX.setHintTextColor(Color.BLACK);
-            tituloX.setTextColor(Color.BLACK);
+            tituloX.setHint("x"+i);
+            tituloX.setHintTextColor(Color.rgb(126,138,151));
+
+            tituloX.setTextSize(16);
+            tituloX.setPadding(5,5,5,5);
+            tituloX.setBackgroundResource(R.drawable.border);
+            tituloX.setTextColor(Color.rgb(126,138,151));
+            tituloX.setWidth(200);
+            tituloX.setGravity(Gravity.CENTER);
+
             tituloX.setId(contador);
             contador++;
             EditText tituloFx = new EditText(contexto);
             tituloFx.setHint("Fx"+i);
             tituloFx.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
-            tituloFx.setTextColor(Color.BLACK);
-            tituloFx.setHintTextColor(Color.BLACK);
+            tituloFx.setHintTextColor(Color.rgb(126,138,151));
+
+            tituloFx.setTextSize(16);
+            tituloFx.setPadding(5,5,5,5);
+            tituloFx.setBackgroundResource(R.drawable.border);
+            tituloFx.setTextColor(Color.rgb(126,138,151));
+            tituloFx.setWidth(200);
+            tituloFx.setGravity(Gravity.CENTER);
+
             tituloFx.setId(contador);
             contador++;
             fila.addView(tituloX);

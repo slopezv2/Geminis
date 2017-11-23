@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Métodos Iterativos"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            android:text="Jacobi Relajado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@string/font_family_regular"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Es un método iterativo, usado para resolver sistemas de ecuaciones lineales del tipo Ax = b. El método de Jacobi usa fórmulas como iteración de punto fijo."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es encontrar las aproximaciones de los valores de las variables de un sistema de ecuaciones lineales, realizados por etapas y obteniendo las aproximaciones por cada etapa."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Se emplea un valor de relajación que actúa como peso ponderado entre el resultado de la iteración k y el resultado de la iteración k+1 que podría ayudar a mejorar la convergencia del método."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Nota: El método de Jacobi permite hallar las aproximaciones a una solución de sistemas de ecuaciones lineales, utilizando los valores iniciales para la primera aproximación, luego los de la primera para la segunda y así sucesivamente."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento del método es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Introducir unas aproximaciones iniciales, la matriz de coeficientes, el vector de términos independientes, una tolerancia y un número de iteraciones." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se toman las aproximaciones iniciales para hallar las nuevas aproximaciones." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- En cada iteración es posible calcular el error, que está definido en normas (infinitas)." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Si se sobrepasa el número de iteraciones, o si el error es menor del propuesto al principio; la última iteración tendrá las aproximaciones a la solución del sistema de ecuaciones." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Gauss Seidel Relajado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@string/font_family_regular"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es encontrar las aproximaciones de los valores de las variables de un sistema de ecuaciones lineales, realizados por etapas y obteniendo las aproximaciones por cada etapa."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Nota: El método de Gauss-Seidel permite hallar las aproximaciones a una solución de sistemas de ecuaciones lineales, utilizando los valores calculados en cada uno de los pasos, para hallar los nuevos valores, en pocas palabras, en este método un cálculo siempre depende del anterior, dependiendo las variables de otras variables."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El método de Gauss-Seidel es aplicable a una definición estrictamente dominante diagonalmente o a una matriz simétrica positiva A." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento del método es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Introducir unas aproximaciones iniciales, la matriz de coeficientes, el vector de términos independientes, una tolerancia y un número de iteraciones." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se toman las aproximaciones iniciales para hallar las nuevas aproximaciones." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- En cada iteración es posible calcular el error, que está definido en normas (infinitas)." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Si se sobrepasa el número de iteraciones, o si el error es menor del propuesto al principio; la última iteración tendrá las aproximaciones a la solución del sistema de ecuaciones." />
+
+    </LinearLayout>
 
 </ScrollView>

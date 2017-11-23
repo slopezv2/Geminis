@@ -30,7 +30,7 @@
     <string name="pista_iteraciones">Ejemplo: 1000</string>
     <string name="pista_delta">Ejemplo: 0.5</string>
     <string name="pista_valor_inicial">Ejemplo: 0</string>
-    <string name="pista_funcion_f">Ingrese las funciones:</string>
+    <string name="pista_funcion_f">Ingrese las funciones</string>
     <string name="pista_ecuaciones_una_variable">x+2*(15-3)</string>
     <string name="pista_entrada_funciones">Una función por cada línea con el formato:
         f->sqrt(x+3)/4 donde f es el nombre de la función</string>
@@ -67,7 +67,7 @@
     <string name="entrada_tipo_pivoteo">Seleccione el tipo de pivoteo a emplear</string>
     <string name="bt_siguiente">Siguiente</string>
     <string name="iteracionnro">Iteración:</string>
-    <string name="titulo_factorizacion">Factorizacion Directa de Matrices</string>
+    <string name="titulo_factorizacion">Factorización Directa de Matrices</string>
     <string name="entrada_cantidad_ecuaciones_sistema">Ingrese la cantidad de ecuaciones del sistema</string>
     <string name="entrada_tipo_de_factorizacion_sistema">Seleccione el tipo de factorización a emplear</string>
     <string name="matriz_l">Matriz L</string>

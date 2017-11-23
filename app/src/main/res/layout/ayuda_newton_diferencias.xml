@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Newton con Diferencias Divididas"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Su objetivo es determinar un polinomio interpolante y para esto utiliza el concepto de diferencias divididas, el cual trabaja de manera recursiva y permite calcular varias versiones del polinomio deseado, implementado los puntos de una manera incremental."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Es necesario tener los datos etiquetados para establecer un orden y obtener los b i que se necesitan para el polinomio interpolante, de este modo la diferencia dividida de orden cero será b0 = f[x0]." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- La primera diferencia dividida se realizará con la diferencia dividida de orden cero, realizando una resta en el numerador y otra en el denominador, esta última se hará con los valores extremos de la variable de x que están involucrados." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="NOTA: Ambas restas se hacen en el mismo sentido." />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/newton_difdiv"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
 
 </ScrollView>

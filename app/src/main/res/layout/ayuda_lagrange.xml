@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Lagrange"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es encontrar un polinomio interpolante que represente una función sin definición exacta, que pase por un conjunto de puntos dados."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se consideran n los puntos x dados de la función, con su respectivo valor de y; dados estos puntos existe un único polinomio de grado a lo sumo de n-1 que pase por ellos." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Para poder definir el polinomio se hallan los valores de cada Li(x); con i desde 1 hasta n." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Una vez calculados los valores de L, podemos confirmar el polinomio y algunos cálculos adicionales." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Los valores de L se pueden calcular de la siguiente estructura, adicionalmente se puede observar la estructura del polinomio de Lagrange." />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lagrange" />
+
+    </LinearLayout>
 
 </ScrollView>
