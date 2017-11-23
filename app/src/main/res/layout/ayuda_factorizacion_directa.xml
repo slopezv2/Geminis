@@ -1,5 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Factorización Directa de Matrices"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            android:text="Crout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@string/font_family_regular"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es encontrar la solución a un sistema de ecuaciones lineales, descomponiendo la matriz A en el producto L (Matriz Triangular Inferior) y U (Matriz Triangular Superior); esto se conoce como factorización LU."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El algoritmo de descomposición de matriz Crout difiere ligeramente del método Doolittle. El método Doolittle devuelve una unidad de matriz triangular inferior y una matriz triangular superior, mientras que el Crout método devuelve una matriz triangular inferior y una unidad de matriz triangular superior."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Nota: Se utiliza como fundamento que los valores de la diagonal de U sean todos 1."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento del método es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se construye la matriz de coeficientes y el vector con los términos independientes, y se toman como valores iniciales para poder calcular la factorización." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se toma la matriz de coeficientes, y se procede al cálculo de las matrices L y U, correspondientes a la factorización de A." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Una vez realizada la factorización, se toma la matriz U y el vector x y se procede al cálculo del vector z." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Hallado el vector z, el vector de términos independientes y la matriz L, se procede a resolver el sistema Lz = b." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Doolittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@string/font_family_regular"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es encontrar la solución a un sistema de ecuaciones lineales, descomponiendo la matriz A en el producto L (Matriz Triangular Inferior) y U (Matriz Triangular Superior); esto se conoce como factorización LU."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Nota: Se utiliza como fundamento que los valores de la diagonal de L sean todos 1."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento del método es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se construye la matriz de coeficientes y el vector con los términos independientes, y se toman como valores iniciales para poder calcular la factorización." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se toma la matriz de coeficientes, y se procede al cálculo de las matrices L y U, correspondientes a la factorización de A." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Una vez realizada la factorización, se toma la matriz U y el vector x y se procede al cálculo del vector z." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Hallado el vector z, el vector de términos independientes y la matriz L, se procede a resolver el sistema Lz = b." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Cholesky"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@string/font_family_regular"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es encontrar la solución a un sistema de ecuaciones lineales, descomponiendo la matriz A en el producto L (Matriz Triangular Inferior) y U (Matriz Triangular Superior); esto se conoce como factorización LU."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Nota: Se utiliza como fundamento que los valores de la diagonal de U son iguales a los de L, es decir Ukk = Lkk."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento del método es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se construye la matriz de coeficientes y el vector con los términos independientes, y se toman como valores iniciales para poder calcular la factorización." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se toma la matriz de coeficientes, y se procede al cálculo de las matrices L y U, correspondientes a la factorización de A." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Una vez realizada la factorización, se toma la matriz U y el vector x y se procede al cálculo del vector z." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Hallado el vector z, el vector de términos independientes y la matriz L, se procede a resolver el sistema Lz = b." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Cada matriz definida positiva (y por lo tanto, también cada matriz simétrica positiva definida) tiene una descomposición de Cholesky única." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Cuando A tiene entradas reales, L también tiene entradas reales y la factorización puede escribirse A = LL^T." />
+
+    </LinearLayout>
 
 </ScrollView>

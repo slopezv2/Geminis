@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -116,16 +117,34 @@ public class NewtonDiferenciasActividad extends ActividadBase {
         tabla.removeAllViews();
         TextView tX = new TextView(contexto);
         tX.setTextColor(Color.BLACK);
-        tX.setText("Xi");
+        tX.setText("xi");
+
+        tX.setTextSize(16);
+        tX.setPadding(5,5,5,5);
+        tX.setBackgroundResource(R.drawable.border);
+        tX.setGravity(Gravity.CENTER);
+
         encabezado.addView(tX);
         tX = new TextView(contexto);
         tX.setTextColor(Color.BLACK);
         tX.setText("Fxi");
+
+        tX.setTextSize(16);
+        tX.setPadding(5,5,5,5);
+        tX.setBackgroundResource(R.drawable.border);
+        tX.setGravity(Gravity.CENTER);
+
         encabezado.addView(tX);
         for(int i =1; i < n;++i){
             tX = new TextView(contexto);
             tX.setTextColor(Color.BLACK);
             tX.setText(i+"");
+
+            tX.setTextSize(16);
+            tX.setPadding(5,5,5,5);
+            tX.setBackgroundResource(R.drawable.border);
+            tX.setGravity(Gravity.CENTER);
+
             encabezado.addView(tX);
         }
         tabla.addView(encabezado);
@@ -135,6 +154,12 @@ public class NewtonDiferenciasActividad extends ActividadBase {
                 tX = new TextView(contexto);
                 tX.setTextColor(Color.BLACK);
                 tX.setText(resultados[i][j].toString());
+
+                tX.setTextSize(16);
+                tX.setPadding(5,5,5,5);
+                tX.setBackgroundResource(R.drawable.border);
+                tX.setGravity(Gravity.CENTER);
+
                 encabezado.addView(tX);
             }
             tabla.addView(encabezado);

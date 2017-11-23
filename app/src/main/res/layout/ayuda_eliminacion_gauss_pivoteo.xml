@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/titulos_metodos_entrada"
+            android:text="Ayuda Eliminación Gaussiana con Estrategias de Pivoteo"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@string/font_family_medium"/>
+
+        <TextView
+            android:text="Pivoteo Parcial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@string/font_family_regular"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Es una variante del método de Eliminación Gaussiana Simple."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El objetivo del método es reducir la propagación del error (mejorar la calidad de la solución), buscando ubicar en la diagonal todos los posibles valores máximos de cada columna de la submatriz (excluyendo la columna de los términos independientes). Con esto se busca encontrar una solución a un sistema de ecuaciones lineales."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="El procedimiento del método es el siguiente:"
+            android:textStyle="bold"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se construye la matriz de coeficientes y el vector con los términos independientes, basados en esto se crea una matriz llamada Matriz Aumentada." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Se buscar el mayor elemento, en valor absoluto, de cada columna correspondiente de la etapa k y se realiza un intercambio de filas para ubicar dicho elemento en la diagonal principal." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Hallados los multiplicadores en cada etapa, se procede al cálculo de las nuevas filas de la Matriz Aumentada." />
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="- Una vez obtenida la Matriz Aumenta en la forma triangular superior, se procede a realizar sustitución regresiva para el cálculo de las variables." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="Pivoteo Total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@string/font_family_regular"/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Este método es una variación de la eliminación Gaussiana simple y con pivoteo parcial."/>
+
+        <TextView
+            style="@style/texto_ayudas"
+            android:text="Consiste en buscar el elemento mayor, en valor absoluto, usando intercambio de filas y columnas de una submatriz que se calcula en cada iteración y se compone por aquella filas y columnas que aún están pendientes por ser pivotes y ser reducidas para crear la matriz diagonal superior respectivamente. Este método busca reducir el error de redondeo al poner sobre la diagonal los valores mayores posibles de cada submatriz. No se alteran las propiedades del pivoteo parcial y se usa un vector interno para no perder de vista cuáles son las variables al emplear intercambio de columnas."/>
+
+    </LinearLayout>
+
+</ScrollView>

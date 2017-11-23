@@ -5,67 +5,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eafit.geminis.actividades.interpolacion.NewtonDiferenciasActividad">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margen_abajo_entrada">
+
         <TextView
             style="@style/titulos_metodos_entrada"
             android:text="@string/titulo_newton_diferencias_interpolacion"
             android:textAlignment="center"
             android:textSize="20sp"
             android:fontFamily="@string/font_family_medium" />
+
         <TextView
+            android:text="@string/entrada_puntos"
+            android:labelFor="@id/ed_puntos_newton_diferencias"
             style="@style/titulos_entrada_metodos"
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margen_abajo_menu"
+            android:textStyle="bold" />
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margen_abajo_menu"
             android:layout_marginRight="@dimen/margen_abajo_menu"
-            android:text="@string/entrada_puntos"
-            android:labelFor="@id/ed_puntos_newton_diferencias"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:inputType="number"
-            android:id="@+id/ed_puntos_newton_diferencias"/>
+            android:id="@+id/ed_puntos_newton_diferencias" />
+
         <Button
             style="@style/botones_calcular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/bt_ingresar"
             android:id="@+id/bt_ingresar_newton_diferencias"/>
-        <TableLayout
-            style="@style/tabla"
-            android:id="@+id/tabla_ingreso_newton_diferencias"
-            >
-            <TableRow
-                android:id="@+id/fila_titulo_entrada_newton_diferencias"
-                style="@style/columna">
-                <TextView
-                    style="@style/itemColumna"
-                    android:text="x0" />
 
-                <TextView
-                    style="@style/itemColumna"
-                    android:text="fx0" />
-            </TableRow>
-        </TableLayout>
-        <Button
-            style="@style/botones_calcular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/bt_calcular"
-            android:id="@+id/bt_calcular_newton_diferencias"/>
         <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
             <TableLayout
                 style="@style/tabla"
-                android:id="@+id/tabla_salida_newton_diferencias"
-                >
+                android:id="@+id/tabla_ingreso_newton_diferencias"
+                android:layout_marginLeft="80dp">
+
+                <TableRow
+                    android:id="@+id/fila_titulo_entrada_newton_diferencias"
+                    style="@style/columna">
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="x0" />
+
+                    <TextView
+                        style="@style/itemColumna"
+                        android:text="fx0" />
+
+                </TableRow>
+            </TableLayout>
+
+        </HorizontalScrollView>
+
+        <Button
+            style="@style/botones_calcular"
+            android:text="@string/bt_calcular"
+            android:id="@+id/bt_calcular_newton_diferencias"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                style="@style/tabla"
+                android:id="@+id/tabla_salida_newton_diferencias" >
+
                 <TableRow
                     android:id="@+id/fila_salida_newton_diferencias"
                     style="@style/columna">
+
                     <TextView
                         style="@style/itemColumna"
                         android:text="xi" />
@@ -73,39 +93,61 @@
                     <TextView
                         style="@style/itemColumna"
                         android:text="fxi" />
+
                     <TextView
                         style="@style/itemColumna"
                         android:text="1" />
+
                     <TextView
                         style="@style/itemColumna"
                         android:text="2" />
+
                     <TextView
                         style="@style/itemColumna"
                         android:text="3" />
+
                 </TableRow>
+
             </TableLayout>
+
         </HorizontalScrollView>
+
         <TextView
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginBottom="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/salida_polinomio_interpolante"
+            style="@style/titulos_entrada_metodos"
+            android:textStyle="bold" />
+
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/titulos_entrada_metodos"
+                android:layout_marginBottom="@dimen/margen_abajo_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/salida_polinomonio_newton_diferencias"/>
+
+        </HorizontalScrollView>
+
+        <TextView
+            style="@style/titulos_entrada_metodos"
             android:layout_marginLeft="@dimen/margen_abajo_menu"
             android:layout_marginRight="@dimen/margen_abajo_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/salida_polinomio_interpolante"/>
-        <TextView
-            android:layout_marginLeft="@dimen/margen_abajo_menu"
-            android:layout_marginRight="@dimen/margen_abajo_menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/salida_polinomonio_newton_diferencias"/>
-        <TextView
-            android:layout_marginLeft="@dimen/margen_abajo_menu"
-            android:layout_marginRight="@dimen/margen_abajo_menu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:textStyle="italic"
             android:text="@string/entrada_punto_interpolacion"
             android:labelFor="@id/ed_punto_adicional_interpolacion"
             android:visibility="gone"
             android:id="@+id/tx_punto_adicional_interpolacion"/>
+
         <EditText
             android:layout_marginLeft="@dimen/margen_abajo_menu"
             android:layout_marginRight="@dimen/margen_abajo_menu"
@@ -113,22 +155,32 @@
             android:layout_height="wrap_content"
             android:id="@+id/ed_punto_adicional_interpolacion"
             android:visibility="gone"/>
+
         <Button
             style="@style/botones_calcular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/bt_evaluar"
             android:visibility="gone"
             android:id="@+id/bt_evaluar_interpolacion"/>
+
         <TextView
+            style="@style/titulos_entrada_metodos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margen_abajo_menu"
+            android:layout_marginRight="@dimen/margen_abajo_menu"
+            android:textStyle="bold"
+            android:textAlignment="center"
             android:id="@+id/salida_punto_adicional_interpolacion"/>
+
         <Button
             style="@style/botones_calcular"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/bt_salir"
             android:id="@+id/bt_salir_newton_diferencias"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
     </LinearLayout>
+
 </ScrollView>
